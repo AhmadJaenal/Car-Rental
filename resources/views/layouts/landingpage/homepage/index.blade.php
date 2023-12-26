@@ -30,7 +30,8 @@
 </head>
 
 <body>
-    @include('landingpage.partials.nav')
+    @include('layouts.landingpage.partials.nav')
+
 
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');"
         data-stellar-background-ratio="0.5">
@@ -500,8 +501,7 @@
         </div>
     </section>
 
-    @include('landingpage.partials.footer')
-
+    @include('layouts.landingpage.partials.footer')
 
 
     <!-- loader -->

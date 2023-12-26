@@ -31,7 +31,8 @@
 
 <body>
 
-    @include('landingpage.partials.nav')
+    @include('layouts.landingpage.partials.nav')
+
 
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');"
         data-stellar-background-ratio="0.5">
@@ -204,7 +205,8 @@
         </div>
     </section>
 
-    @include('landingpage.partials.footer')
+    @include('layouts.landingpage.partials.footer')
+
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
