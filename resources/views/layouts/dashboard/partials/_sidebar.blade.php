@@ -7,6 +7,20 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#transaction" aria-expanded="false"
+                aria-controls="transaction">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title">Transaction</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="transaction">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('payment') }}">Payment</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">UI Elements</span>
@@ -55,7 +69,8 @@
             </a>
             <div class="collapse" id="tables">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a>
+                    </li>
                 </ul>
             </div>
         </li>
