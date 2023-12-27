@@ -21,8 +21,8 @@
                         class="nav-link">Cars</a></li>
                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}"><a
                         href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}"><a
-                        href="{{ route('contact') }}" class="nav-link">Login</a></li>
+                <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a href="{{ route('login') }}"
+                        class="nav-link">Login</a></li>
             </ul>
         </div>
     </div>

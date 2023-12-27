@@ -7,16 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Skydash Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../vendors/feather/feather.css">
-    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{ asset('css/vendors/feather/feather.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/vendors/ti-icons/css/themify-icons.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.png" />
+
 </head>
 
 <body>
@@ -64,10 +68,11 @@
                                 </div>
                                 <div class="mt-3">
                                     <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                        href="../../index.html">SIGN UP</a>
+                                        href="{{ route('dashboard') }}">SIGN UP</a>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    Already have an account? <a href="login.html" class="text-primary">Login</a>
+                                    Already have an account? <a href="{{ route('login') }}"
+                                        class="text-primary">Login</a>
                                 </div>
                             </form>
                         </div>

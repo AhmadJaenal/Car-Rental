@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ContactController;
@@ -23,3 +24,8 @@ Route::get('/about', [AboutController::class, 'about'])->name('about');
 // Dasboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
+
+
+// Authentication
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
