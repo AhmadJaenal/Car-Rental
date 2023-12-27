@@ -24,8 +24,8 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="../../index.html"><img src="../../images/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="../../index.html"><img src="../../images/logo.svg" class="mr-2" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -94,7 +94,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../../images/faces/face28.jpg" alt="profile"/>
+              <img src="../../images/faces/face28.jpg" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -126,8 +126,12 @@
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+          </div>
           <p class="settings-heading mt-2">HEADER SKINS</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles success"></div>
@@ -570,7 +574,7 @@
                           695 lsom Ave,
                         </p>
                         <p>
-                           Suite 00
+                          Suite 00
                         </p>
                         <p>
                           San Francisco, CA 94107
@@ -601,7 +605,7 @@
                     Use class <code>.lead</code>
                   </p>
                   <p class="lead">
-                      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
                   </p>
                 </div>
               </div>
@@ -747,8 +751,8 @@
                   </p>
                   <p class="text-lowercase">
                     lorem ipsum dolor sit amet, consectetur
-                      mod tempor incididunt ut labore et dolore
-                      magna aliqua.
+                    mod tempor incididunt ut labore et dolore
+                    magna aliqua.
                   </p>
                 </div>
                 <div class="card-body">
@@ -758,8 +762,8 @@
                   </p>
                   <p class="text-uppercase">
                     lorem ipsum dolor sit amet, consectetur
-                      mod tempor incididunt ut labore et dolore
-                      magna aliqua.
+                    mod tempor incididunt ut labore et dolore
+                    magna aliqua.
                   </p>
                 </div>
               </div>
@@ -773,8 +777,8 @@
                   </p>
                   <p class="text-muted">
                     lorem ipsum dolor sit amet, consectetur
-                      mod tempor incididunt ut labore et dolore
-                      magna aliqua.
+                    mod tempor incididunt ut labore et dolore
+                    magna aliqua.
                   </p>
                 </div>
                 <div class="card-body">
@@ -797,8 +801,8 @@
                   </p>
                   <p class="text-capitalize">
                     lorem ipsum dolor sit amet, consectetur
-                      mod tempor incididunt ut labore et dolore
-                      magna aliqua.
+                    mod tempor incididunt ut labore et dolore
+                    magna aliqua.
                   </p>
                 </div>
               </div>
@@ -854,7 +858,7 @@
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
           </div>
         </footer>
@@ -866,13 +870,15 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <script src="{{ asset('css/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="{{ asset('js/off-canvas.js') }}"></script>
+
+  <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+
   <script src="../../js/template.js"></script>
   <script src="../../js/settings.js"></script>
   <script src="../../js/todolist.js"></script>

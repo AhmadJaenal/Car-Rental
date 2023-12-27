@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -21,3 +22,4 @@ Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Dasboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
