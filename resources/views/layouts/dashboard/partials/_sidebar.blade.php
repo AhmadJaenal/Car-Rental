@@ -21,6 +21,24 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#verification" aria-expanded="false"
+                aria-controls="verification">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title">Verification</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="verification">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('requestVerification') }}">Verification
+                            Request</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('formRequest') }}">Form
+                            Request</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
                 <span class="menu-title">UI Elements</span>
