@@ -15,7 +15,7 @@ use App\Http\Controllers\VerificationUser;
 use Illuminate\Support\Facades\Route;
 
 
-// Landing Page 
+// Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 Route::get('/car', [CarController::class, 'car'])->name('car');
