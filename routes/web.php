@@ -30,7 +30,10 @@ Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
 
 // Authentication
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+
 Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/action-register', [AuthController::class, 'actionRegister'])->name('actionRegister');
 
 // Transaction
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');

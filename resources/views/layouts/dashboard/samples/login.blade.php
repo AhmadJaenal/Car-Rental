@@ -37,11 +37,11 @@
                             <h6 class="font-weight-light">Sign in to continue.</h6>
                             <form class="pt-3">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                                        placeholder="Username" required autofocus>
+                                    <input type="email" class="form-control form-control-lg rounded"
+                                        id="exampleInputEmail1" placeholder="Username" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg"
+                                    <input type="password" class="form-control form-control-lg rounded"
                                         id="exampleInputPassword1" placeholder="Password" required>
                                 </div>
                                 <div class="mt-3">
