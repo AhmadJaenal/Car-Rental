@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class MobilController extends Controller
+class MobilController
 {
-    //
+    public function mobil()
+    {
+        return view('layouts.dashboard.mobil.mobil');
+    }
 }
