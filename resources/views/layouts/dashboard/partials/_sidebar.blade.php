@@ -51,14 +51,17 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#mobil" aria-expanded="false" aria-controls="charts">
+            <a class="nav-link" data-toggle="collapse" href="#mobil" aria-expanded="false" aria-controls="mobil">
                 <i class="icon-bar-graph menu-icon"></i>
                 <span class="menu-title">Mobil</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="mobil">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('mobil') }}">Mobil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('tampilmobil') }}">Tampil</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('tambahmobil') }}">Tambah</a>
+                    </li>
                 </ul>
             </div>
         </li>

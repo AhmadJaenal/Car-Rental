@@ -61,5 +61,7 @@ Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name
 
 
 
-// Form Request User
-Route::get('/mobil', [MobilController::class, 'mobil'])->name('mobil');
+// Mobil
+Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
+Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
+Route::get('/updatemobil', [MobilController::class, 'updatemobil'])->name('updatemobil');

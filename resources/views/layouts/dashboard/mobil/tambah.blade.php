@@ -38,7 +38,7 @@
 
             <div class="main-panel">
             <div class="content-wrapper">
-                <h1>Mobil</h1>
+                <h1>Tambah Mobil</h1>
             </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
