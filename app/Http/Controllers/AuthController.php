@@ -5,18 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    // START Code Login 
     public function login()
     {
-
         return  view('layouts.dashboard.samples.login');
     }
 
+    public function actionLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $data = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
+
+        if (Auth::attempt($data)) {
+            $request->session()->regenerate();
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('login')->with('error', 'Login Failed!');
+        }
+    }
+    // START Code Login 
+
+    // START Code Logout 
+    public function actionLogout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        return redirect('login');
+    }
+    // END Code Logout 
+
+    // START Code Register 
     public function register()
     {
         return view('layouts.dashboard.samples.register');
@@ -56,4 +88,5 @@ class AuthController extends Controller
             Session::flash('error', 'Register Gagal');
         }
     }
+    // END Code Register 
 }

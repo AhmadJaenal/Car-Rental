@@ -35,19 +35,24 @@
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
-                            <form class="pt-3">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            <form action="{{ route('actionLogin') }}" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg rounded"
-                                        id="exampleInputEmail1" placeholder="Username" required autofocus>
+                                    <input type="email" class="form-control form-control-lg rounded" id="email"
+                                        name="email" placeholder="Email" required autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg rounded"
-                                        id="exampleInputPassword1" placeholder="Password" required>
+                                    <input type="password" class="form-control form-control-lg rounded" id="password"
+                                        name="password" placeholder="Password" required>
                                 </div>
-                                <div class="mt-3">
-                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                        href="{{ route('dashboard') }}">SIGN IN</a>
-                                </div>
+                                <button type="submit"
+                                    class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
+                                    IN</button>
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">

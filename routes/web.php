@@ -25,15 +25,17 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Dasboard
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
 
 // Authentication
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/action-login', [AuthController::class, 'actionLogin'])->name('actionLogin');
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-
+Route::get('/register', [AuthController::class, 'register'])->name('register')->middleware('guest');
 Route::post('/action-register', [AuthController::class, 'actionRegister'])->name('actionRegister');
+
+Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('actionLogout');
 
 // Transaction
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
