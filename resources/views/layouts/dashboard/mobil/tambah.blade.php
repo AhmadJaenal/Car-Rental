@@ -48,16 +48,37 @@
                                 {{$message}}
                               </div>
                           @endif
-                          <form class="forms-sample" action="/tambahdatabarang" method="POST" enctype="multipart/form-data">
+                          <form class="forms-sample" action="/tambahdatamobil" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="text" hidden name="id_user" value="">
                             <div class="form-group">
-                              <label for="nama">Nama</label>
-                              <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required autofocus>
+                              <label for="no_plat">No Plat</label>
+                              <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="No Plat" required autofocus>
                             </div>
                             <div class="form-group">
-                              <label for="harga">Harga</label>
-                              <input type="number" class="form-control" name="harga" id="harga" placeholder="harga" required>
+                              <label for="merk">Merk</label>
+                              <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="warna">Warna</label>
+                              <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="tahun">Tahun</label>
+                              <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="harga_sewa">Harga Sewa</label>
+                              <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Harga Sewa" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="gambar">Gambar</label>
+                              <input type="file" class="form-control" name="gambar" id="gambar">
+                              <input type="text" class="form-control" name="gambar" id="gambar" value="Test" hidden>
+                            </div>
+                            <input type="text" hidden name="status" id="status" value="baru">
+                            <div class="form-group">
+                              <label for="id_kategori">Kategori</label>
+                              <input type="text" class="form-control" name="id_kategori" id="id_kategori" required>
                             </div>
                   
                             <button type="submit" class="btn btn-primary mr-2">Kirim</button>

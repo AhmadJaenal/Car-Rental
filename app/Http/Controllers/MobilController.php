@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mobil;
+use Symfony\Component\HttpFoundation\Request;
+
 class MobilController
 {
     public function tampilmobil()
@@ -18,4 +21,19 @@ class MobilController
     {
         return view('layouts.dashboard.mobil.update');
     }
+
+    public function tambahdatamobil(Request $request){
+        $data = Mobil::create([
+            'no_plat' => $request->no_plat,
+            'merk' => $request->merk,
+            'warna' => $request->warna,
+            'tahun' => $request->tahun,
+            'harga_sewa' => $request->harga_sewa,
+            'gambar' => $request->gambar,
+            'status' => $request->status,
+            'id_kategori' => $request->id_kategori
+        ]);
+        return redirect()->route('tambahmobil')->with('success','Data Berhasil Di Tambahkan');
+    }
+
 }

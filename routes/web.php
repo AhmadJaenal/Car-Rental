@@ -65,3 +65,6 @@ Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name
 Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
 Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
 Route::get('/updatemobil', [MobilController::class, 'updatemobil'])->name('updatemobil');
+
+Route::post('/tambahdatamobil',[MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil')->middleware('auth');
+
