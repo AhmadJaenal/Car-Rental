@@ -1,0 +1,137 @@
+List Fitur
+Untuk proses pengerjaan kasih nama pada setiap fitur dan 
+berikan penanda apakah fitur yang dibuat sudah done/progres/not started
+Contoh 1. Create a feature Sign in & up (Ahmad jaenal/done)
+
+Pembagian :
+Ahmad Jaenal:
+Login/Register
+Verify User Data
+Dashboard admin
+
+
+Steve Jonathan :
+Create Transaction
+(satu orang dapat melakukan transaksi kapanpun, tanpa batasan)
+History Transaction (2, user:punya sendiri, admin: punya semua)
+
+
+Stefan Setiadi :
+(admin, dashboard, foto mobil, spesifikasi,harga)
+Add car data (1 hal)
+Tampil data (Update car data, Delete car data, Searching data mobil (user, admin)) (1 hal)
+
+
+
+1. Create a feature Sign in & Up
+   Fitur login dan register diciptakan untuk memverifikasi user dan administrator. 
+   Secara umum, setiap admin dan user dapat membuat akun dan masuk, 
+   dengan perbedaan role yang diatur dalam database.
+   Goals : 
+   - Membuat fitur login dan register untuk masing-masing role.
+   - Perbedaan role nantinya akan mengacu ke perbedaan fitur yang ditampilkan.
+   - Untuk fitur sign in & up ini untuk kedua role yaitu user dan admin
+
+2. Verify user data
+   Verifikasi data user adalah salah satu fitur utama dimana 
+   nantinya akan menentukan apakah user bisa melakukan 
+   penyewaan mobil atau tidak
+   Goals :
+   - Membuat form sebagai alat input data user
+   - Bisa melakukan proses upload image sebagai verifikasi data berdasarkan ktp
+   - Terdapat sebuah informasi/notifikasi apakah user sudah terverifikasi atau belum
+
+3. Add car data
+   Fitur ini ditujukan khusus untuk admin. Admin dapat menambahkan 
+   informasi mengenai mobil yang dapat disewakan ke dalam sistem.
+   Goals :
+   - Membuat fitur tambah data (Add) mobil dengan data.
+   - Data yang ditambahkan juga harus bisa menginputkan image 
+     dari local storage
+
+4. Update car data
+   Fitur update data dibuat khusus untuk admin agar dapat 
+   merubah data mobil yang sudah di tambahkan pada database.
+   Goals :
+   - Dapat merubah data dan terkoneksi ke database
+   - Semua data kemungkinan harus bisa diubah
+   - Ini bisa dijadikan sebagai sebuah fitur sebagai informasi 
+     apakah mobil tersebut tersedia atau tidak 
+
+5. Delete car data
+   Fitur hapus data mobil khusus untuk admin. Bertujuan agar 
+   administrator dapat menghapus data mobil yang mungkin 
+   sudah tersedia untuk disewakan
+   Goals : 
+- Dapat mengahapus data mobil di database
+- Saat proses penghapus harus terdapat konfirmasi
+- Jika proses penghapusan selesai harus terdapat notifikasi baik itu berhasil atau gagal
+
+6. Dashboard admin
+   Dashboard khusus untuk admin akan berisi beberapa informasi 
+   diantaranya data verifikasi user, transaksi, data ketersediaan mobil
+   Goals :
+   - Verifikasi user fitur yang konsepnya hanya update dimana admin 
+     dapat melihat data apakah sesuai dengan KTP (dummy) yang diinputkan. 
+     Jika sesuai nantinya admin hanya perlu mengubah status verifikasinya menjadi aktip/semacamnya.
+   - Terdapat data transaksi dan sama halnya seperti verifikasi user 
+     disini admin akan dapat memverifikasi apakah transaksi berhasil atau tidak
+   - Seharusnya semua proses CRUD data mobil berada 
+     pada page ini agar dapat memudahkan prosesnya
+
+7. Create transaction
+   Fitur khusus untuk user dapat melakukan proses transaksi penyewaan 
+   mobil dengan berbagai ketentuan yang harus terpenuhi
+   Goals :
+   - Halaman transaksi (penyewaan) hanya dapat diakses ketika user sudah melakukan login
+   - User dapat melakukan transaksi (melakukan penyewaan) jika data user sudah terverifikasi
+   - Ketika sudah melakukan proses transaksi harus terdapat informasi 
+     apakah transaksi berhasil atau gagal
+   - Metode pembayaran menggunakan metode paling sederhana dimana user disuruh 
+     untuk melakukan transfer ke sebuah no rekening (dummy) 
+     dan nantinya admi akan memverfikasi transaksi tersebut
+
+   Catatan : 
+   • Hal yang harus diperhatikan :
+   • Jika user meminjam mobil lebih dari satu dalam waktu yang
+     bersamaan apakah termasuk ke dalam 1 transaksi atau bukan?
+   • Apakah dalam proses peminjaman mobil yang lebih dari 1 dapat meminjam 
+     mobil dengan durasi yang berbeda?
+
+8. Create Landing & Dashboard
+   Landing page dan dashboard sebagai UI utama dalam project ini
+   Goals : 
+   - Mengubah UI template menjadi sesuai dengan tema
+   - Menghubungkan beberapa tema template yang sesuai
+
+9. Search feature
+   Fitur pencarian terdapat pada data transaksi, data mobil, data verifikasi 
+   user dengan data yang diinputkan harus bisa dari berbagai data
+   Goals : 
+   - Fitur pencarian bisa terdapat dibanyak page : transaksi, data mobil, verifikasi data
+   - Pencarian harus bisa dari awal, tengah maupun akhir dari data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
