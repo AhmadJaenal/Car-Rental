@@ -29,10 +29,17 @@ class MobilController
             'warna' => $request->warna,
             'tahun' => $request->tahun,
             'harga_sewa' => $request->harga_sewa,
-            'gambar' => $request->gambar,
             'status' => $request->status,
             'id_kategori' => $request->id_kategori
         ]);
+
+        if($request->hasFile('gambar')){
+            $file = $request->file('gambar');
+            $file->move('images/mobil/',$file->getClientOriginalName());
+            $data->gambar = $file->getClientOriginalName();
+            $data->save();
+        }
+
         return redirect()->route('tambahmobil')->with('success','Data Berhasil Di Tambahkan');
     }
 

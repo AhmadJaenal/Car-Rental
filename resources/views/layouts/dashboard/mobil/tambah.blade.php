@@ -73,7 +73,6 @@
                             <div class="form-group">
                               <label for="gambar">Gambar</label>
                               <input type="file" class="form-control" name="gambar" id="gambar">
-                              <input type="text" class="form-control" name="gambar" id="gambar" value="Test" hidden>
                             </div>
                             <input type="text" hidden name="status" id="status" value="baru">
                             <div class="form-group">

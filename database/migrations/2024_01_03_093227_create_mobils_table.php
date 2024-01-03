@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('warna',20);
             $table->integer('tahun');
             $table->bigInteger('harga_sewa');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->string('status',20);
             $table->string('id_kategori');
             $table->timestamps();
