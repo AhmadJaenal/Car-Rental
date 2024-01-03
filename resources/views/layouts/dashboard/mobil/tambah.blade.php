@@ -71,8 +71,11 @@
                               <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Harga Sewa" required>
                             </div>
                             <div class="form-group">
-                              <label for="gambar">Gambar</label>
-                              <input type="file" class="form-control" name="gambar" id="gambar">
+                              <label for="gambar" class="form-label">Masukkan Gambar</label>
+                              <div class="col-md-2">
+                                <img id="preview" style="visibility:hidden;" class="rounded mx-auto d-block" width="200" alt="gambar">
+                              </div><br>
+                              <input id="gambar" type="file" name="gambar" class="gambar" onchange="previewImage()" accept="images/mobil/">
                             </div>
                             <input type="text" hidden name="status" id="status" value="baru">
                             <div class="form-group">
@@ -107,7 +110,23 @@
     <script src="{{ asset('css/vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('css/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
-
+    <script>
+      function previewImage() {
+        var preview = document.getElementById('preview');
+        var fileInput = document.getElementById('gambar');
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+  
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+        };
+  
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+        preview.style.visibility = "visible";
+      }
+    </script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{ asset('js/off-canvas.js') }}"></script>
