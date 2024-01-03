@@ -75,7 +75,7 @@
                               <div class="col-md-2">
                                 <img id="preview" style="visibility:hidden;" class="rounded mx-auto d-block" width="200" alt="gambar">
                               </div><br>
-                              <input id="gambar" type="file" name="gambar" class="gambar" onchange="previewImage()" accept="images/mobil/">
+                              <input id="gambar" type="file" name="gambar" class="gambar" onchange="previewImage()" accept="image/*">
                             </div>
                             <input type="text" hidden name="status" id="status" value="baru">
                             <div class="form-group">
