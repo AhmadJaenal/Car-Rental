@@ -81,16 +81,23 @@
                                                     <td>{{ $user->jalan }}</td>
                                                     <td>
                                                         <div class="dropdown">
-                                                            <button class="btn btn-danger btn-sm dropdown-toggle"
+                                                            <button
+                                                                class="btn @if (auth()->user()->verifikasi) btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
                                                                 type="button" id="dropdownMenuSizeButton3"
                                                                 data-toggle="dropdown" aria-haspopup="true"
                                                                 aria-expanded="false">
-                                                                Pengajuan
+                                                                @if (auth()->user()->verifikasi)
+                                                                    Ya
+                                                                @else
+                                                                    Tidak
+                                                                @endif
                                                             </button>
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuSizeButton3">
-                                                                <a class="dropdown-item" href="#">Ya</a>
-                                                                <a class="dropdown-item" href="#">Tidak</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('acceptDataRequest') }}">Ya</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('rejectDataRequest') }}">Tidak</a>
                                                             </div>
                                                         </div>
                                                     </td>

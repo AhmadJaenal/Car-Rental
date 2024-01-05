@@ -13,4 +13,22 @@ class VerificationUser extends Controller
         $userRequest = User::all();
         return view('layouts.dashboard.verification.request', ['usersRequest' => $userRequest]);
     }
+
+    public function acceptDataRequest()
+    {
+        $userData = User::find(auth()->user()->id);
+        $userData->update([
+            'verifikasi' => 1,
+        ]);
+        return back();
+    }
+
+    public function rejectDataRequest()
+    {
+        $userData = User::find(auth()->user()->id);
+        $userData->update([
+            'verifikasi' => 0,
+        ]);
+        return back();
+    }
 }

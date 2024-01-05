@@ -43,10 +43,13 @@ Route::get('/payment', [TransactionController::class, 'payment'])->name('payment
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
-Route::post('/request-verification', [FormRequestController::class, 'requestVerificationAction'])->name('requestVerificationAction');
+Route::get('/accept', [VerificationUser::class, 'acceptDataRequest'])->name('acceptDataRequest');
+Route::get('/reject', [VerificationUser::class, 'rejectDataRequest'])->name('rejectDataRequest');
+
 
 // Form Request User
 Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
+Route::post('/request-verification', [FormRequestController::class, 'requestVerificationAction'])->name('requestVerificationAction');
 
 
 
