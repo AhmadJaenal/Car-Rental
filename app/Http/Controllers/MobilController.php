@@ -9,7 +9,8 @@ class MobilController
 {
     public function tampilmobil()
     {
-        return view('layouts.dashboard.mobil.tampil');
+        $cars = Mobil::all();
+        return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
     }
 
     public function tambahmobil()
