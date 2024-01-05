@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
-use App\Http\Controllers\ChartController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FormRequestController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\VerificationUser;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FormRequestController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\VerificationUser;
-use Illuminate\Support\Facades\Route;
 
 
 // Landing Page
@@ -46,3 +47,25 @@ Route::post('/request-verification', [VerificationUser::class, 'requestVerificat
 
 // Form Request User
 Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Mobil
+Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
+Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
+Route::get('/updatemobil', [MobilController::class, 'updatemobil'])->name('updatemobil');
+
+Route::post('/tambahdatamobil',[MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil')->middleware('auth');
+
