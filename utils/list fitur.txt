@@ -6,7 +6,7 @@ Contoh 1. Create a feature Sign in & up (Ahmad jaenal/done)
 Pembagian :
 Ahmad Jaenal:
 Login/Register DONE (User)
-Verify User Data
+Verify User Data DONE (Admin)
 Dashboard admin
 
 
@@ -18,7 +18,7 @@ History Transaction (2, user:punya sendiri, admin: punya semua)
 
 Stefan Setiadi :
 (admin, dashboard, foto mobil, spesifikasi,harga)
-Add car data (1 hal)
+Add car data DONE (Admin) (1 hal)
 Tampil data (Update car data, Delete car data, Searching data mobil (user, admin)) (1 hal)
 
 
