@@ -20,11 +20,19 @@ class FormRequestController
             if ($request->hasFile('foto_diri')) {
                 $selfFoto = $request->file('foto_diri');
                 $selfFoto->move('images/foto_diri/', $selfFoto->getClientOriginalName());
+<<<<<<< HEAD
+=======
+                // $userData->selfFoto = $selfFoto->getClientOriginalName();
+>>>>>>> 1b912b0b77ca8d4f56f1263c34c4fb392a603014
             }
 
             if ($request->hasFile('foto_ktp')) {
                 $ktpImage = $request->file('foto_ktp');
                 $ktpImage->move('images/foto_ktp/', $ktpImage->getClientOriginalName());
+<<<<<<< HEAD
+=======
+                // $userData->ktpImage = $ktpImage->getClientOriginalName();
+>>>>>>> 1b912b0b77ca8d4f56f1263c34c4fb392a603014
             }
 
             $userData->update([
