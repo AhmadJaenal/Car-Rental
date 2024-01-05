@@ -17,7 +17,7 @@ class FormRequestController
     {
         $userData = User::find(auth()->user()->id);
         try {
-            if ($request->hasFile('foto_')) {
+            if ($request->hasFile('selfFoto')) {
                 $selfFoto = $request->file('selfFoto');
                 $selfFoto->move('images/foto_diri/', $selfFoto->getClientOriginalName());
                 $userData->selfFoto = $selfFoto->getClientOriginalName();
