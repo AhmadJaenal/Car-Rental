@@ -37,60 +37,69 @@
             <!-- partial -->
 
             <div class="main-panel">
-            <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-12 grid-margin stretch-card">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">Tambah Data Mobil</h4>
-                          @if($message = Session::get('success'))
-                              <div class="alert alert-success" role="alert">
-                                {{$message}}
-                              </div>
-                          @endif
-                          <form class="forms-sample" action="/tambahdatamobil" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                              <label for="no_plat">No Plat</label>
-                              <input type="text" class="form-control" name="no_plat" id="no_plat" placeholder="No Plat" required autofocus>
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Tambah Data Mobil</h4>
+                                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @endif
+                                    <form class="forms-sample" action="/tambahdatamobil" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="no_plat">No Plat</label>
+                                            <input type="text" class="form-control" name="no_plat" id="no_plat"
+                                                placeholder="No Plat" required autofocus>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="merk">Merk</label>
+                                            <input type="text" class="form-control" name="merk" id="merk"
+                                                placeholder="Merk" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="warna">Warna</label>
+                                            <input type="text" class="form-control" name="warna" id="warna"
+                                                placeholder="Warna" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tahun">Tahun</label>
+                                            <input type="number" class="form-control" name="tahun" id="tahun"
+                                                placeholder="Tahun" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="harga_sewa">Harga Sewa</label>
+                                            <input type="number" class="form-control" name="harga_sewa" id="harga_sewa"
+                                                placeholder="Harga Sewa" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gambar" class="form-label">Masukkan Gambar</label>
+                                            <div class="col-md-2">
+                                                <img id="preview" style="visibility:hidden;"
+                                                    class="rounded mx-auto d-block" width="200" alt="gambar">
+                                            </div><br>
+                                            <input id="gambar" type="file" name="gambar" class="gambar"
+                                                onchange="previewImage()" accept="image/*">
+                                        </div>
+                                        <input type="text" hidden name="status" id="status" value="baru">
+                                        <div class="form-group">
+                                            <label for="id_kategori">Kategori</label>
+                                            <input type="text" class="form-control" name="id_kategori"
+                                                id="id_kategori" required>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mr-2">Kirim</button>
+                                        <a class="btn btn-light" href="">Batal</a>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="form-group">
-                              <label for="merk">Merk</label>
-                              <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk" required>
-                            </div>
-                            <div class="form-group">
-                              <label for="warna">Warna</label>
-                              <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna" required>
-                            </div>
-                            <div class="form-group">
-                              <label for="tahun">Tahun</label>
-                              <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Tahun" required>
-                            </div>
-                            <div class="form-group">
-                              <label for="harga_sewa">Harga Sewa</label>
-                              <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" placeholder="Harga Sewa" required>
-                            </div>
-                            <div class="form-group">
-                              <label for="gambar" class="form-label">Masukkan Gambar</label>
-                              <div class="col-md-2">
-                                <img id="preview" style="visibility:hidden;" class="rounded mx-auto d-block" width="200" alt="gambar">
-                              </div><br>
-                              <input id="gambar" type="file" name="gambar" class="gambar" onchange="previewImage()" accept="image/*">
-                            </div>
-                            <input type="text" hidden name="status" id="status" value="baru">
-                            <div class="form-group">
-                              <label for="id_kategori">Kategori</label>
-                              <input type="text" class="form-control" name="id_kategori" id="id_kategori" required>
-                            </div>
-                  
-                            <button type="submit" class="btn btn-primary mr-2">Kirim</button>
-                            <a class="btn btn-light" href="">Batal</a>
-                          </form>
                         </div>
-                      </div>
                     </div>
-                  </div>
-            </div>
+                </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 @include('layouts.dashboard.partials._footer')
@@ -111,21 +120,21 @@
     <script src="{{ asset('css/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
     <script>
-      function previewImage() {
-        var preview = document.getElementById('preview');
-        var fileInput = document.getElementById('gambar');
-        var file = fileInput.files[0];
-        var reader = new FileReader();
-  
-        reader.onload = function(e) {
-          preview.src = e.target.result;
-        };
-  
-        if (file) {
-          reader.readAsDataURL(file);
+        function previewImage() {
+            var preview = document.getElementById('preview');
+            var fileInput = document.getElementById('gambar');
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            preview.style.visibility = "visible";
         }
-        preview.style.visibility = "visible";
-      }
     </script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->

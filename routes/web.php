@@ -41,9 +41,9 @@ Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('act
 // Transaction
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
 
-// Verification
+// Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
-Route::post('/request-verification', [VerificationUser::class, 'requestVerificationAction'])->name('requestVerificationAction');
+Route::post('/request-verification', [FormRequestController::class, 'requestVerificationAction'])->name('requestVerificationAction');
 
 // Form Request User
 Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
@@ -67,5 +67,4 @@ Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampi
 Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
 Route::get('/updatemobil', [MobilController::class, 'updatemobil'])->name('updatemobil');
 
-Route::post('/tambahdatamobil',[MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil')->middleware('auth');
-
+Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil')->middleware('auth');

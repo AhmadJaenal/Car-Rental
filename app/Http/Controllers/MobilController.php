@@ -22,7 +22,8 @@ class MobilController
         return view('layouts.dashboard.mobil.update');
     }
 
-    public function tambahdatamobil(Request $request){
+    public function tambahdatamobil(Request $request)
+    {
         $data = Mobil::create([
             'no_plat' => $request->no_plat,
             'merk' => $request->merk,
@@ -33,14 +34,13 @@ class MobilController
             'id_kategori' => $request->id_kategori
         ]);
 
-        if($request->hasFile('gambar')){
+        if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
-            $file->move('images/mobil/',$file->getClientOriginalName());
+            $file->move('images/mobil/', $file->getClientOriginalName());
             $data->gambar = $file->getClientOriginalName();
             $data->save();
         }
 
-        return redirect()->route('tambahmobil')->with('success','Data Berhasil Di Tambahkan');
+        return redirect()->route('tambahmobil')->with('success', 'Data Berhasil Di Tambahkan');
     }
-
 }

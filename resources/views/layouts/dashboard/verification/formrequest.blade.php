@@ -69,26 +69,40 @@
                                             placeholder="No Hp" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>File Upload KTP</label>
-                                        <input type="file" id="image" name="image" class="file-upload-default">
+                                        <label>File Foto Diri</label>
+                                        <div class="col-md-2">
+                                            <img id="previewFotoDiri" style="visibility:hidden;"
+                                                class="rounded mx-auto d-block" width="200" alt="ktpImage">
+                                        </div><br>
+                                        <input type="file" id="foto_diri" name="foto_diri"
+                                            class="file-upload-default foto_diri"
+                                            onchange="previewImage('previewFotoDiri','foto_diri')" accept="image/*">
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
                                                 placeholder="Upload Image">
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-primary"
                                                     type="button">Upload</button>
+
                                             </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>File Foto Diri</label>
-                                        <input type="file" id="image" name="image" class="file-upload-default">
+                                        <label>File Foto KTP</label>
+                                        <div class="col-md-2">
+                                            <img id="previewiKTP" style="visibility:hidden;"
+                                                class="rounded mx-auto d-block" width="200" alt="foto_ktp">
+                                        </div><br>
+                                        <input type="file" id="foto_ktp" name="foto_ktp"
+                                            class="file-upload-default foto_ktp"
+                                            onchange="previewImage('previewiKTP','foto_ktp')" accept="image/*">
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
                                                 placeholder="Upload Image">
                                             <span class="input-group-append">
                                                 <button class="file-upload-browse btn btn-primary"
                                                     type="button">Upload</button>
+
                                             </span>
                                         </div>
                                     </div>
@@ -104,7 +118,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="jalan">Jalan</label>
-                                        <input type="jalan" class="form-control" id="jalan" jalan
+                                        <input type="jalan" class="form-control" id="jalan" name="jalan"
                                             placeholder="Jalan" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -130,6 +144,23 @@
     <!-- Plugin js for this page -->
     <script src="{{ asset('vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
     <script src="../../vendors/select2/select2.min.js"></script>
+    <script>
+        function previewImage(preview, imageInputId) {
+            var preview = document.getElementById(preview);
+            var fileInput = document.getElementById(imageInputId);
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            preview.style.visibility = "visible";
+        }
+    </script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{ asset('js/off-canvas.js') }}"></script>
@@ -143,6 +174,8 @@
     <script src="{{ asset('js/typeahead.js') }}"></script>
     <script src="{{ asset('js/select2.js') }}"></script>
     <!-- End custom js for this page-->
+
+
 </body>
 
 </html>
