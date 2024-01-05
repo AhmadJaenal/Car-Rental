@@ -72,7 +72,7 @@
                                         <label>File Foto Diri</label>
                                         <div class="col-md-2">
                                             <img id="previewFotoDiri" style="visibility:hidden;"
-                                                class="rounded mx-auto d-block" width="200" alt="ktpImage">
+                                                class="rounded mx-auto d-block" width="200" alt="foto_diri">
                                         </div><br>
                                         <input type="file" id="foto_diri" name="foto_diri"
                                             class="file-upload-default foto_diri"

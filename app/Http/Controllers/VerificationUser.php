@@ -10,6 +10,7 @@ class VerificationUser extends Controller
 {
     public function requestVerificationPage()
     {
-        return view('layouts.dashboard.verification.request');
+        $userRequest = User::all();
+        return view('layouts.dashboard.verification.request', ['usersRequest' => $userRequest]);
     }
 }

@@ -17,16 +17,14 @@ class FormRequestController
     {
         $userData = User::find(auth()->user()->id);
         try {
-            if ($request->hasFile('selfFoto')) {
-                $selfFoto = $request->file('selfFoto');
+            if ($request->hasFile('foto_diri')) {
+                $selfFoto = $request->file('foto_diri');
                 $selfFoto->move('images/foto_diri/', $selfFoto->getClientOriginalName());
-                $userData->selfFoto = $selfFoto->getClientOriginalName();
             }
 
-            if ($request->hasFile('ktpImage')) {
-                $ktpImage = $request->file('ktpImage');
+            if ($request->hasFile('foto_ktp')) {
+                $ktpImage = $request->file('foto_ktp');
                 $ktpImage->move('images/foto_ktp/', $ktpImage->getClientOriginalName());
-                $userData->ktpImage = $ktpImage->getClientOriginalName();
             }
 
             $userData->update([
