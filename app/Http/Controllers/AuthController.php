@@ -15,7 +15,7 @@ class AuthController extends Controller
     // START Code Login 
     public function login()
     {
-        return  view('layouts.dashboard.samples.login');
+        return view('layouts.dashboard.samples.login');
     }
 
     public function actionLogin(Request $request)
@@ -67,7 +67,8 @@ class AuthController extends Controller
                 'foto_diri' => 'nullable',
                 'foto_ktp' => 'nullable',
                 'email' => 'required|email:dns|unique:users',
-                'password' => 'required|min:5|max:255'
+                'password' => 'required|min:5|max:255',
+                'verifikasi' => 'false'
             ]);
 
             $validatedData['password'] = Hash::make($validatedData['password']);

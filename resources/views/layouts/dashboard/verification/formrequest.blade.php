@@ -41,34 +41,36 @@
                     <div class="grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Default form</h4>
+                                <h4 class="card-title">Form verifikasi data diri</h4>
                                 <p class="card-description">
-                                    Basic form layout
+                                    Isi dengan benar sebagai bahan pertimbangan untuk penyewaan mobil
                                 </p>
-                                <form class="forms-sample">
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                <form class="forms-sample" action="{{ route('requestVerificationAction') }}"
+                                    method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Username</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername1"
-                                            placeholder="Username">
+                                        <label for="nik">NIK</label>
+                                        <input type="numeric" class="form-control" id="nik" name="nik"
+                                            placeholder="NIK" pattern="[0-9]+" max="16" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Email">
+                                        <label for="nohp">No Hp</label>
+                                        <input type="nohp" class="form-control" id="nohp" name="nohp"
+                                            placeholder="No Hp" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                                        <input type="password" class="form-control" id="exampleInputConfirmPassword1"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>File upload</label>
-                                        <input type="file" name="img[]" class="file-upload-default">
+                                        <label>File Upload KTP</label>
+                                        <input type="file" id="image" name="image" class="file-upload-default">
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
                                                 placeholder="Upload Image">
@@ -78,11 +80,32 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="form-check form-check-flat form-check-primary">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input">
-                                            Remember me
-                                        </label>
+                                    <div class="form-group">
+                                        <label>File Foto Diri</label>
+                                        <input type="file" id="image" name="image" class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled
+                                                placeholder="Upload Image">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary"
+                                                    type="button">Upload</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="provinsi">Provinsi</label>
+                                        <input type="provinsi" class="form-control" id="provinsi" name="provinsi"
+                                            placeholder="provinsi" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kota">Kota</label>
+                                        <input type="kota" class="form-control" id="kota" name="kota"
+                                            placeholder="kota" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jalan">Jalan</label>
+                                        <input type="jalan" class="form-control" id="jalan" jalan
+                                            placeholder="Jalan" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                     <button class="btn btn-light">Cancel</button>
@@ -101,16 +124,12 @@
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-
     <!-- plugins:js -->
     <script src="{{ asset('css/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="{{ asset('css/vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('css/vendors/datatables.net/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('css/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('js/dataTables.select.min.js') }}"></script>
-
+    <script src="{{ asset('vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+    <script src="../../vendors/select2/select2.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{ asset('js/off-canvas.js') }}"></script>
@@ -120,8 +139,9 @@
     <script src="{{ asset('js/todolist.js') }}"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-    <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+    <script src="{{ asset('js/file-upload.js') }}"></script>
+    <script src="{{ asset('js/typeahead.js') }}"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
     <!-- End custom js for this page-->
 </body>
 

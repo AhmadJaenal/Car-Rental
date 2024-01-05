@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('provinsi', 50)->nullable();
             $table->string('kota', 50)->nullable();
             $table->string('jalan', 150)->nullable();
+            $table->boolean('verifikasi')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

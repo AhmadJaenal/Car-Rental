@@ -29,7 +29,7 @@
             </a>
             <div class="collapse" id="verification">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('requestVerification') }}">Verification
+                    <li class="nav-item"><a class="nav-link" href="{{ route('requestVerificationPage') }}">Verification
                             Request</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('formRequest') }}">Form

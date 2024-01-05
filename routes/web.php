@@ -29,10 +29,10 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
 
 // Authentication
-Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/action-login', [AuthController::class, 'actionLogin'])->name('actionLogin');
 
-Route::get('/register', [AuthController::class, 'register'])->name('register')->middleware('guest');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/action-register', [AuthController::class, 'actionRegister'])->name('actionRegister');
 
 Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('actionLogout');
@@ -41,7 +41,8 @@ Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('act
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
 
 // Verification
-Route::get('/request-verification', [VerificationUser::class, 'requestVerification'])->name('requestVerification');
+Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
+Route::post('/request-verification', [VerificationUser::class, 'requestVerificationAction'])->name('requestVerificationAction');
 
 // Form Request User
 Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
