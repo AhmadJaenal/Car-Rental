@@ -35,8 +35,8 @@ class MobilController
             'id_kategori' => $request->id_kategori
         ]);
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('foto_mobil')) {
+            $file = $request->file('foto_mobil');
             $file->move('images/mobil/', $file->getClientOriginalName());
             $data->gambar = $file->getClientOriginalName();
             $data->save();
@@ -50,5 +50,31 @@ class MobilController
         $data->delete();
 
         return redirect()->route('tampilmobil')->with('successdelete','Data Berhasil Di Delete');
+    }
+
+    public function editmobil($id_mobil){
+        $data = Mobil::where('id',$id_mobil)->first();
+        return view('layouts.dashboard.mobil.edit',compact('data'));
+    }
+
+    public function editdatamobil(Request $request,$id_mobil){
+        $data = Mobil::where('id',$id_mobil)->update([
+            'no_plat' => $request->no_plat,
+            'merk' => $request->merk,
+            'warna' => $request->warna,
+            'tahun' => $request->tahun,
+            'harga_sewa' => $request->harga_sewa,
+            'status' => $request->status,
+            'id_kategori' => $request->id_kategori
+        ]);
+
+        if($request->hasFile('foto_mobil')){
+            $file = $request->file('foto_mobil');
+            $file->move('images/mobil/',$file->getClientOriginalName());
+            $filename= $file->getClientOriginalName();
+            $data = Mobil::where('id',$id_mobil)->update(['gambar' => $filename]);
+        }
+
+        return redirect()->route('tampilmobil')->with('success','Data Berhasil Di Update');
     }
 }

@@ -42,51 +42,51 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Tambah Data Mobil</h4>
+                                    <h4 class="card-title">Edit Data Mobil</h4>
                                     @if ($message = Session::get('success'))
                                         <div class="alert alert-success" role="alert">
                                             {{ $message }}
                                         </div>
                                     @endif
-                                    <form class="forms-sample" action="{{route('tambahdatamobil')}}" method="POST"
+                                    <form class="forms-sample" action="/editdatamobil{{$data->id}}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="no_plat">No Plat</label>
-                                            <input type="text" class="form-control" name="no_plat" id="no_plat"
+                                            <input type="text" class="form-control" name="no_plat" id="no_plat" value="{{$data->no_plat}}"
                                                 placeholder="No Plat" required autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label for="merk">Merk</label>
-                                            <input type="text" class="form-control" name="merk" id="merk"
+                                            <input type="text" class="form-control" name="merk" id="merk" value="{{$data->merk}}"
                                                 placeholder="Merk" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="warna">Warna</label>
-                                            <input type="text" class="form-control" name="warna" id="warna"
+                                            <input type="text" class="form-control" name="warna" id="warna" value="{{$data->warna}}"
                                                 placeholder="Warna" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="tahun">Tahun</label>
-                                            <input type="number" class="form-control" name="tahun" id="tahun"
+                                            <input type="number" class="form-control" name="tahun" id="tahun" value="{{$data->tahun}}"
                                                 placeholder="Tahun" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="harga_sewa">Harga Sewa</label>
-                                            <input type="number" class="form-control" name="harga_sewa" id="harga_sewa"
+                                            <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" value="{{$data->harga_sewa}}"
                                                 placeholder="Harga Sewa" required>
                                         </div>
                                         <div class="form-group">
                                             <label>File Foto Mobil</label>
                                             <div class="col-md-2">
-                                                <img id="previewMobil" style="visibility:hidden;"
+                                                <img id="previewMobil" src="images/mobil/{{$data->gambar}}"
                                                     class="rounded mx-auto d-block" width="200" alt="foto_mobil">
                                             </div><br>
                                             <input type="file" id="foto_mobil" name="foto_mobil"
                                                 class="file-upload-default foto_mobil"
                                                 onchange="previewImage('previewMobil','foto_mobil')" accept="image/*">
                                             <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" disabled
+                                                <input type="text" class="form-control file-upload-info" disabled value="{{$data->gambar}}"
                                                     placeholder="Upload Image">
                                                 <span class="input-group-append">
                                                     <button class="file-upload-browse btn btn-primary"
@@ -95,10 +95,10 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <input type="text" hidden name="status" id="status" value="baru">
+                                        <input type="text" hidden name="status" id="status" value="{{$data->status}}">
                                         <div class="form-group">
                                             <label for="id_kategori">Kategori</label>
-                                            <input type="text" class="form-control" name="id_kategori"
+                                            <input type="text" class="form-control" name="id_kategori" value="{{$data->id_kategori}}"
                                                 id="id_kategori" required>
                                         </div>
 
