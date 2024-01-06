@@ -29,9 +29,12 @@
             </a>
             <div class="collapse" id="verification">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('requestVerificationPage') }}">Verification
-                            Request</a>
-                    </li>
+                    @if (Auth::guard('webadmin')->user())
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('requestVerificationPage') }}">Verification
+                                Request</a>
+                        </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{ route('formRequest') }}">Form
                             Request</a>
                     </li>

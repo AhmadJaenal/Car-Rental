@@ -26,7 +26,7 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Dasboard
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth:web,webadmin');
 Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
 
 // Authentication
