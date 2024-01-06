@@ -44,4 +44,11 @@ class MobilController
 
         return redirect()->route('tambahmobil')->with('success', 'Data Berhasil Di Tambahkan');
     }
+
+    public function hapusmobil($id_mobil){
+        $data = Mobil::where('id',$id_mobil);
+        $data->delete();
+
+        return redirect()->route('tampilmobil')->with('successdelete','Data Berhasil Di Delete');
+    }
 }

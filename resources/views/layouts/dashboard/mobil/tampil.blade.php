@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
 </head>
 
 <body>
@@ -87,6 +91,10 @@
 
                                                         <td>{{ $car->status }}</td>
                                                         <td>{{ $car->id_kategori }}</td>
+                                                        <td class="text-center">
+                                                            <a href="/editmobil{{$car->id}}" class="btn btn-info">Edit</a>
+                                                            <a href="#" id="delete" class="btn btn-danger delete" data-id={{$car->id}} data-noplat={{$car->no_plat}}>Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @else
@@ -130,18 +138,18 @@
                     </div>
                     <script>
                         $('.delete').click(function() {
-                            var id_barang = $(this).attr("data-id");
-                            var nama = $(this).attr("data-nama");
+                            var id_mobil = $(this).attr("data-id");
+                            var noplat = $(this).attr("data-noplat");
                             swal({
                                     title: "Yakin?",
-                                    text: "Kamu akan menghapus barang dengan nama : " + nama + "",
+                                    text: "Kamu akan menghapus data mobil dengan nopol : " + noplat + "",
                                     icon: "warning",
                                     buttons: true,
                                     dangerMode: true,
                                 })
                                 .then((willDelete) => {
                                     if (willDelete) {
-                                        window.location = "/hapusbarang" + id_barang + ""
+                                        window.location = "/hapusmobil" + id_mobil + ""
                                     } else {
                                         swal("Data tidak jadi dihapus");
                                     }
