@@ -67,6 +67,7 @@
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered">
                                             <thead>
+                                                <th scope="col">No</th>
                                                 <th scope="col">No.Plat</th>
                                                 <th scope="col">Merk</th>
                                                 <th scope="col">warna</th>
@@ -76,61 +77,45 @@
                                                 <th scope="col">Kategori</th>
                                             </thead>
                                             </tbody>
-                                            @if ($cars)
-                                                @foreach ($cars as $car)
-                                                    <tr>
-                                                        <td>{{ $car->no_plat }}</td>
-                                                        <td class="font-weight-bold">{{ $car->merk }}</td>
-                                                        <td>{{ $car->warna }}</td>
-                                                        <td>{{ $car->tahun }}</td>
-                                                        <td>
-                                                            <img src="{{ asset('images/mobil/' . $car->gambar) }}"
-                                                                class="rounded mx-auto d-block zoomable-image"
-                                                                width="500" height="400">
-                                                        </td>
 
-                                                        <td>{{ $car->status }}</td>
-                                                        <td>{{ $car->id_kategori }}</td>
-                                                        <td class="text-center">
-                                                            <a href="/editmobil{{$car->id}}" class="btn btn-info">Edit</a>
-                                                            <a href="#" id="delete" class="btn btn-danger delete" data-id={{$car->id}} data-noplat={{$car->no_plat}}>Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @else
-                                                <tr>
-                                                    <td colspan="8" class="text-center table-danger">Data Tidak
-                                                        Ditemukan
-                                                        !!!</td>
-                                                </tr>
+                                            @php
+                                            $no = 1;   
+                                            @endphp
+                                            @foreach ($cars as $index => $car)
+                                            <tr>
+                                            <td>{{$index + $cars->firstItem()}}</td>
+                                            <td>{{ $car->no_plat }}</td>
+                                            <td class="font-weight-bold">{{ $car->merk }}</td>
+                                            <td>{{ $car->warna }}</td>
+                                            <td>{{ $car->tahun }}</td>
+                                            <td>
+                                                <img src="{{ asset('images/mobil/' . $car->gambar) }}"
+                                                    class="rounded mx-auto d-block zoomable-image"
+                                                    width="500" height="400">
+                                            </td>
+
+                                            <td>{{ $car->status }}</td>
+                                            <td>{{ $car->id_kategori }}</td>
+                                            <td class="text-center">
+                                                <a href="/editmobil{{$car->id}}" class="btn btn-info">Edit</a>
+                                                <a href="#" id="delete" class="btn btn-danger delete" data-id={{$car->id}} data-noplat={{$car->no_plat}}>Delete</a>
+                                            </td>
+                                        </tr>
+                                            @php
+                                                $no++;
+                                            @endphp
+                                            @endforeach
+                                            @if ($no == 1)
+                                            <tr>
+                                                <td colspan="8" class="text-center table-danger">Data Tidak
+                                                    Ditemukan!!!
+                                                </td>
+                                            </tr>
                                             @endif
-
-
-                                            {{-- @php
-                              $no = 1;   
-                              @endphp
-                              @foreach ($data as $index => $row)
-                              <tr>
-                                  <th scope="row">{{$index + $data->firstItem()}}</th>
-                                  <td>{{$row->nama}}</td>
-                                  <td>{{$row->harga}}</td>
-                                  <td>{{ucwords($user->where('id_user', $row->id_user)->first()->username)}}</td>
-                                  <td>{{$row->updated_at}}</td>
-                                  <td class="text-center">
-                                      <a href="/editbarang{{$row->id_barang}}" class="btn btn-info">Edit</a>
-                                      <a href="#" id="delete" class="btn btn-danger delete" data-id={{$row->id_barang}} data-nama={{$row->nama}}>Delete</a>
-                                  </td>
-                                </tr>
-                              @php
-                                $no++;
-                              @endphp
-                              @endforeach
-                              @if ($no == 1) --}}
-                                            {{-- @endif --}}
                                             </tbody>
                                         </table>
                                         <br>
-                                        {{-- {{ $data->links() }} --}}
+                                        {{ $cars->links() }}
                                     </div>
                                 </div>
                             </div>

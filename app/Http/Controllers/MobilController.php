@@ -9,7 +9,7 @@ class MobilController
 {
     public function tampilmobil()
     {
-        $cars = Mobil::all();
+        $cars = Mobil::paginate(5);
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
     }
 
