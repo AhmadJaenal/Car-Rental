@@ -53,20 +53,11 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#mobil" aria-expanded="false" aria-controls="mobil">
-                <i class="icon-bar-graph menu-icon"></i>
-                <span class="menu-title">Mobil</span>
-                <i class="menu-arrow"></i>
+        <li class="nav-item {{ (request()->is('tambahmobil')) ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('tampilmobil')}}">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Mobil</span>
             </a>
-            <div class="collapse" id="mobil">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('tampilmobil') }}">Tampil</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('tambahmobil') }}">Tambah</a>
-                    </li>
-                </ul>
-            </div>
         </li>
     </ul>
 </nav>
