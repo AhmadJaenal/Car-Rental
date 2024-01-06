@@ -93,7 +93,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-primary mr-2">Kirim</button>
-                                        <a class="btn btn-light" href="">Batal</a>
+                                        <a class="btn btn-light" href="{{route('tampilmobil')}}">Batal</a>
                                     </form>
                                 </div>
                             </div>
