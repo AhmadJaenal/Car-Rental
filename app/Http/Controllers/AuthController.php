@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -25,12 +26,12 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        $data = [
+        $userData = [
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ];
 
-        if (Auth::attempt($data)) {
+        if (Auth::attempt($userData) || Auth::guard('webadmin')->attempt($userData)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         } else {
@@ -56,27 +57,38 @@ class AuthController extends Controller
 
     public function actionRegister(Request $request)
     {
+        $isAdmin = $request->createAdmin;
         try {
-            $validatedData = $request->validate([
-                'username' => 'required|min:5|max:255',
-                'nik' => 'nullable',
-                'no_hp' => 'nullable',
-                'jalan' => 'nullable',
-                'provinsi' => 'nullable',
-                'kota' => 'nullable',
-                'foto_diri' => 'nullable',
-                'foto_ktp' => 'nullable',
-                'email' => 'required|email:dns|unique:users',
-                'password' => 'required|min:5|max:255',
-                'verifikasi' => 'false'
-            ]);
+            if ($isAdmin) {
+                $adminData = $request->validate([
+                    'username' => 'required|min:5|max:255',
+                    'email' => 'required|email:dns|unique:admins',
+                    'password' => 'required|min:5|max:255',
+                ]);
 
-            $validatedData['password'] = Hash::make($validatedData['password']);
+                $adminData['password'] = Hash::make($adminData['password']);
 
-            User::create($validatedData);
+                Admin::create($adminData);
+            } else {
+                $userData = $request->validate([
+                    'username' => 'required|min:5|max:255',
+                    'nik' => 'nullable',
+                    'no_hp' => 'nullable',
+                    'jalan' => 'nullable',
+                    'provinsi' => 'nullable',
+                    'kota' => 'nullable',
+                    'foto_diri' => 'nullable',
+                    'foto_ktp' => 'nullable',
+                    'email' => 'required|email:dns|unique:users',
+                    'password' => 'required|min:5|max:255',
+                    'verifikasi' => 'false'
+                ]);
+                $userData['password'] = Hash::make($userData['password']);
 
+                User::create($userData);
+            }
             Session::flash('success', 'Register Berhasil');
-            return redirect('register');
+            return back();
         } catch (QueryException $e) {
             $errorCode = $e->errorInfo[1];
 
@@ -86,7 +98,8 @@ class AuthController extends Controller
                 Session::flash('error', 'Gagal melakukan register. Terjadi kesalahan.');
             }
 
-            Session::flash('error', 'Register Gagal');
+            Session::flash('error', $e->getMessage());
+            return back();
         }
     }
     // END Code Register 

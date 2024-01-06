@@ -5,7 +5,7 @@ Contoh 1. Create a feature Sign in & up (Ahmad jaenal/done)
 
 Pembagian :
 Ahmad Jaenal:
-Login/Register DONE (User)
+Login/Register DONE (User/Admin)
 Verify User Data DONE (Admin)
 Dashboard admin
 
