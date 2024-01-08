@@ -70,6 +70,8 @@ Route::post('/editprofile{id_user}', [ProfileController::class, 'editprofile'])-
 // Mobil
 Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
 Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
+Route::get('/tampilusermobil', [MobilController::class, 'tampilusermobil'])->name('tampilusermobil');
+
 
 Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil');
 Route::get('/hapusmobil{id_mobil}',[MobilController::class, 'hapusmobil'])->name('hapusmobil');
