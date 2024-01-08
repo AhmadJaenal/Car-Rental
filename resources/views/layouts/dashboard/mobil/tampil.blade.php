@@ -75,6 +75,7 @@
                                                 <th scope="col">Gambar</th>
                                                 <th scope="col">status</th>
                                                 <th scope="col">Kategori</th>
+                                                <th scope="col" style="text-align: center">Aksi</th>
                                             </thead>
                                             </tbody>
 
@@ -83,7 +84,7 @@
                                             @endphp
                                             @foreach ($cars as $index => $car)
                                             <tr>
-                                            <td>{{$index + $cars->firstItem()}}</td>
+                                            <td width="10">{{$index + $cars->firstItem()}}</td>
                                             <td>{{ $car->no_plat }}</td>
                                             <td class="font-weight-bold">{{ $car->merk }}</td>
                                             <td>{{ $car->warna }}</td>
@@ -96,7 +97,7 @@
 
                                             <td>{{ $car->status }}</td>
                                             <td>{{ $car->id_kategori }}</td>
-                                            <td class="text-center">
+                                            <td style="text-align: center">
                                                 <a href="/editmobil{{$car->id}}" class="btn btn-info">Edit</a>
                                                 <a href="#" id="delete" class="btn btn-danger delete" data-id={{$car->id}} data-noplat={{$car->no_plat}}>Delete</a>
                                             </td>

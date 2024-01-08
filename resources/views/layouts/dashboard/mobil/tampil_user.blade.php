@@ -81,7 +81,7 @@
                                             @endphp
                                             @foreach ($cars as $index => $car)
                                             <tr>
-                                            <td>{{$index + $cars->firstItem()}}</td>
+                                            <td width="10">{{$index + $cars->firstItem()}}</td>
                                             <td>
                                                 <img src="{{ asset('images/mobil/' . $car->gambar) }}"
                                                     class="rounded mx-auto d-block zoomable-image"
