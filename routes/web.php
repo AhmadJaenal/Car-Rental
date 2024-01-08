@@ -10,6 +10,7 @@ use App\Http\Controllers\MobilController;
 use App\Http\Controllers\VerificationUser;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PricingController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormRequestController;
@@ -62,8 +63,9 @@ Route::post('/request-verification', [FormRequestController::class, 'requestVeri
 
 
 
-
-
+// Setting Profile
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::post('/editprofile{id_user}', [ProfileController::class, 'editprofile'])->name('editprofile');
 
 // Mobil
 Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
