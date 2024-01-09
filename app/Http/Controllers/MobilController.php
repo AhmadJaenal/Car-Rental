@@ -13,6 +13,12 @@ class MobilController
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
     }
 
+    public function tampilusermobil()
+    {
+        $cars = Mobil::paginate(5);
+        return view('layouts.dashboard.mobil.tampil_user', ['cars' => $cars]);
+    }
+
     public function tambahmobil()
     {
         return view('layouts.dashboard.mobil.tambah');

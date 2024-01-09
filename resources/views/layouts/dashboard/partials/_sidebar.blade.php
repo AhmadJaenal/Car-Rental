@@ -59,5 +59,11 @@
               <span class="menu-title">Mobil</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('tampilusermobil')}}">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">User Mobil</span>
+            </a>
+        </li>
     </ul>
 </nav>
