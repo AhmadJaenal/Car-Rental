@@ -15,7 +15,7 @@ class FormRequestController
 
     public function requestVerificationAction(Request $request)
     {
-        $userData = User::find(auth()->user()->id);
+        $userData = User::find(auth()->user()->id_peminjam);
         try {
             $selfFoto = '';
             $ktpImage = '';

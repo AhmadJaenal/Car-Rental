@@ -47,6 +47,7 @@
             </div>
         </div>
     </section>
+    @include('layouts.landingpage.partials.modalTransaction')
 
     <section class="ftco-section ftco-cart">
         <div class="container">
@@ -90,9 +91,14 @@
                                             <span class="subheading">$3/hour fuel surcharges</span>
                                         </div>
                                     </td>
-
                                     <td class="price">
-                                        <p class="btn-custom"><a href="#">Rent a car</a></p>
+                                        <p class="btn-custom">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#modalTransaction">
+                                                Launch demo modal
+                                            </button>
+                                        </p>
+
                                         <div class="price-rate">
                                             <h3>
                                                 <span class="num"><small class="currency">$</small> 60.99</span>
@@ -401,6 +407,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function openModal(modalId) {
+            $('#' + modalId).modal('show');
+        }
+    </script>
 
 </body>
 

@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_admin');
             $table->string('email', 50)->unique();
             $table->string('username', 50);
             $table->string('password', 255);

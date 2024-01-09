@@ -79,9 +79,9 @@ class AuthController extends Controller
                     'kota' => 'nullable',
                     'foto_diri' => 'nullable',
                     'foto_ktp' => 'nullable',
+                    'verifikasi' => 'false',
                     'email' => 'required|email:dns|unique:users',
-                    'password' => 'required|min:5|max:255',
-                    'verifikasi' => 'false'
+                    'password' => 'required|min:5|max:255'
                 ]);
                 $userData['password'] = Hash::make($userData['password']);
 

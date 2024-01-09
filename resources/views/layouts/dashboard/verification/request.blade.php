@@ -95,9 +95,9 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuSizeButton3">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('acceptDataRequest', ['id' => $user->id]) }}">Ya</a>
+                                                                    href="{{ route('acceptDataRequest', ['id' => $user->id_peminjam]) }}">Ya</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('rejectDataRequest', ['id' => $user->id]) }}">Tidak</a>
+                                                                    href="{{ route('rejectDataRequest', ['id' => $user->id_peminjam]) }}">Tidak</a>
                                                             </div>
                                                         </div>
                                                     </td>

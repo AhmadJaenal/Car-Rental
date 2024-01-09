@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id_kategori'];
+    protected $primaryKey = 'id_kategori';
     protected $dates = ['created_at'];
 }

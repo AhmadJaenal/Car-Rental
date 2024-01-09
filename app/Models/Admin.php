@@ -9,5 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $guarded = ['id_admin'];
+    protected $primaryKey = 'id_admin';
 }
