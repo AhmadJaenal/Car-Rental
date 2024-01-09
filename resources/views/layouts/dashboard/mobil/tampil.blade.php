@@ -21,9 +21,12 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -68,49 +71,52 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <th scope="col">No</th>
-                                                <th scope="col">No.Plat</th>
+                                                <th scope="col">No Plat</th>
                                                 <th scope="col">Merk</th>
-                                                <th scope="col">warna</th>
-                                                <th scope="col">tahun</th>
+                                                <th scope="col">Warna</th>
+                                                <th scope="col">Tahun</th>
                                                 <th scope="col">Gambar</th>
-                                                <th scope="col">status</th>
+                                                <th scope="col">Status</th>
                                                 <th scope="col">Kategori</th>
                                             </thead>
                                             </tbody>
 
                                             @php
-                                            $no = 1;   
+                                                $no = 1;
                                             @endphp
                                             @foreach ($cars as $index => $car)
-                                            <tr>
-                                            <td>{{$index + $cars->firstItem()}}</td>
-                                            <td>{{ $car->no_plat }}</td>
-                                            <td class="font-weight-bold">{{ $car->merk }}</td>
-                                            <td>{{ $car->warna }}</td>
-                                            <td>{{ $car->tahun }}</td>
-                                            <td>
-                                                <img src="{{ asset('images/mobil/' . $car->gambar) }}"
-                                                    class="rounded mx-auto d-block zoomable-image"
-                                                    width="500" height="400">
-                                            </td>
+                                                <tr>
+                                                    <td>{{ $index + $cars->firstItem() }}</td>
+                                                    <td>{{ $car->no_plat }}</td>
+                                                    <td class="font-weight-bold">{{ $car->merk }}</td>
+                                                    <td>{{ $car->warna }}</td>
+                                                    <td>{{ $car->tahun }}</td>
+                                                    <td>
+                                                        <img src="{{ asset('images/mobil/' . $car->gambar) }}"
+                                                            class="rounded mx-auto d-block zoomable-image"
+                                                            width="500" height="400">
+                                                    </td>
 
-                                            <td>{{ $car->status }}</td>
-                                            <td>{{ $car->id_kategori }}</td>
-                                            <td class="text-center">
-                                                <a href="/editmobil{{$car->id}}" class="btn btn-info">Edit</a>
-                                                <a href="#" id="delete" class="btn btn-danger delete" data-id={{$car->id}} data-noplat={{$car->no_plat}}>Delete</a>
-                                            </td>
-                                        </tr>
-                                            @php
-                                                $no++;
-                                            @endphp
+                                                    <td>{{ $car->status }}</td>
+                                                    <td>{{ $car->id_kategori }}</td>
+                                                    <td class="text-center">
+                                                        <a href="/editmobil{{ $car->id }}"
+                                                            class="btn btn-info">Edit</a>
+                                                        <a href="#" id="delete" class="btn btn-danger delete"
+                                                            data-id={{ $car->id }}
+                                                            data-noplat={{ $car->no_plat }}>Delete</a>
+                                                    </td>
+                                                </tr>
+                                                @php
+                                                    $no++;
+                                                @endphp
                                             @endforeach
                                             @if ($no == 1)
-                                            <tr>
-                                                <td colspan="8" class="text-center table-danger">Data Tidak
-                                                    Ditemukan!!!
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td colspan="8" class="text-center table-danger">Data Tidak
+                                                        Ditemukan!!!
+                                                    </td>
+                                                </tr>
                                             @endif
                                             </tbody>
                                         </table>

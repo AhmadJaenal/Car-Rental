@@ -17,6 +17,8 @@ class FormRequestController
     {
         $userData = User::find(auth()->user()->id);
         try {
+            $selfFoto = '';
+            $ktpImage = '';
             if ($request->hasFile('foto_diri')) {
                 $selfFoto = $request->file('foto_diri');
                 $selfFoto->move('images/foto_diri/', $selfFoto->getClientOriginalName());
@@ -27,17 +29,19 @@ class FormRequestController
                 $ktpImage->move('images/foto_ktp/', $ktpImage->getClientOriginalName());
             }
 
-            $userData->update([
-                'nik' => $request->nik,
-                'no_hp' => $request->nohp,
-                'foto_diri' => $request->file('foto_diri')->getClientOriginalName(),
-                'foto_ktp' =>  $request->file('foto_ktp')->getClientOriginalName(),
-                'provinsi' => $request->provinsi,
-                'kota' => $request->kota,
-                'jalan' => $request->jalan,
-            ]);
-
-            return redirect()->route('formRequest')->with('success', 'Pengajuan verifikasi data diri berhasil. Harap menunggu 1x24 jam');
+            if ($selfFoto != '' && $ktpImage != '') {
+                $userData->update([
+                    'nik' => $request->nik,
+                    'no_hp' => $request->nohp,
+                    'foto_diri' => $selfFoto->getClientOriginalName(),
+                    'foto_ktp' => $ktpImage->getClientOriginalName(),
+                    'verifikasi' => false,
+                    'provinsi' => $request->provinsi,
+                    'kota' => $request->kota,
+                    'jalan' => $request->jalan,
+                ]);
+                return redirect()->route('formRequest')->with('success', 'Pengajuan verifikasi data diri berhasil. Harap menunggu 1x24 jam');
+            }
         } catch (QueryException $e) {
             return redirect()->route('formRequest')->with('error', $e->getMessage());
         }

@@ -66,7 +66,7 @@
                                     <div class="form-group">
                                         <label for="nohp">No Hp</label>
                                         <input type="nohp" class="form-control" id="nohp" name="nohp"
-                                            placeholder="No Hp" required>
+                                            placeholder="No Hp">
                                     </div>
                                     <div class="form-group">
                                         <label>File Foto Diri</label>
@@ -76,7 +76,8 @@
                                         </div><br>
                                         <input type="file" id="foto_diri" name="foto_diri"
                                             class="file-upload-default foto_diri"
-                                            onchange="previewImage('previewFotoDiri','foto_diri')" accept="image/*">
+                                            onchange="previewImage('previewFotoDiri','foto_diri')" accept="image/*"
+                                            required>
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
                                                 placeholder="Upload Image">
@@ -95,7 +96,7 @@
                                         </div><br>
                                         <input type="file" id="foto_ktp" name="foto_ktp"
                                             class="file-upload-default foto_ktp"
-                                            onchange="previewImage('previewiKTP','foto_ktp')" accept="image/*">
+                                            onchange="previewImage('previewiKTP','foto_ktp')" accept="image/*" required>
                                         <div class="input-group col-xs-12">
                                             <input type="text" class="form-control file-upload-info" disabled
                                                 placeholder="Upload Image">

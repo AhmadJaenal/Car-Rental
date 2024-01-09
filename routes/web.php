@@ -43,8 +43,8 @@ Route::get('/payment', [TransactionController::class, 'payment'])->name('payment
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
-Route::get('/accept', [VerificationUser::class, 'acceptDataRequest'])->name('acceptDataRequest');
-Route::get('/reject', [VerificationUser::class, 'rejectDataRequest'])->name('rejectDataRequest');
+Route::get('/accept{id}', [VerificationUser::class, 'acceptDataRequest'])->name('acceptDataRequest');
+Route::get('/reject{id}', [VerificationUser::class, 'rejectDataRequest'])->name('rejectDataRequest');
 
 
 // Form Request User
@@ -70,6 +70,6 @@ Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampi
 Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
 
 Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil');
-Route::get('/hapusmobil{id_mobil}',[MobilController::class, 'hapusmobil'])->name('hapusmobil');
+Route::get('/hapusmobil{id_mobil}', [MobilController::class, 'hapusmobil'])->name('hapusmobil');
 Route::get('/editmobil{id_mobil}', [MobilController::class, 'editmobil'])->name('editmobil');
 Route::post('/editdatamobil{id_mobil}', [MobilController::class, 'editdatamobil'])->name('editdatamobil');

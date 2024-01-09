@@ -82,11 +82,11 @@
                                                     <td>
                                                         <div class="dropdown">
                                                             <button
-                                                                class="btn @if (auth()->user()->verifikasi) btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                class="btn @if ($user->verifikasi) btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
                                                                 type="button" id="dropdownMenuSizeButton3"
                                                                 data-toggle="dropdown" aria-haspopup="true"
                                                                 aria-expanded="false">
-                                                                @if (auth()->user()->verifikasi)
+                                                                @if ($user->verifikasi)
                                                                     Ya
                                                                 @else
                                                                     Tidak
@@ -95,9 +95,9 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuSizeButton3">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('acceptDataRequest') }}">Ya</a>
+                                                                    href="{{ route('acceptDataRequest', ['id' => $user->id]) }}">Ya</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('rejectDataRequest') }}">Tidak</a>
+                                                                    href="{{ route('rejectDataRequest', ['id' => $user->id]) }}">Tidak</a>
                                                             </div>
                                                         </div>
                                                     </td>

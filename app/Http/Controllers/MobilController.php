@@ -45,20 +45,23 @@ class MobilController
         return redirect()->route('tambahmobil')->with('success', 'Data Berhasil Di Tambahkan');
     }
 
-    public function hapusmobil($id_mobil){
-        $data = Mobil::where('id',$id_mobil);
+    public function hapusmobil($id_mobil)
+    {
+        $data = Mobil::where('id', $id_mobil);
         $data->delete();
 
-        return redirect()->route('tampilmobil')->with('successdelete','Data Berhasil Di Delete');
+        return redirect()->route('tampilmobil')->with('successdelete', 'Data Berhasil Di Delete');
     }
 
-    public function editmobil($id_mobil){
-        $data = Mobil::where('id',$id_mobil)->first();
-        return view('layouts.dashboard.mobil.edit',compact('data'));
+    public function editmobil($id_mobil)
+    {
+        $data = Mobil::where('id', $id_mobil)->first();
+        return view('layouts.dashboard.mobil.edit', compact('data'));
     }
 
-    public function editdatamobil(Request $request,$id_mobil){
-        $data = Mobil::where('id',$id_mobil)->update([
+    public function editdatamobil(Request $request, $id_mobil)
+    {
+        $data = Mobil::where('id', $id_mobil)->update([
             'no_plat' => $request->no_plat,
             'merk' => $request->merk,
             'warna' => $request->warna,
@@ -68,13 +71,13 @@ class MobilController
             'id_kategori' => $request->id_kategori
         ]);
 
-        if($request->hasFile('foto_mobil')){
+        if ($request->hasFile('foto_mobil')) {
             $file = $request->file('foto_mobil');
-            $file->move('images/mobil/',$file->getClientOriginalName());
-            $filename= $file->getClientOriginalName();
-            $data = Mobil::where('id',$id_mobil)->update(['gambar' => $filename]);
+            $file->move('images/mobil/', $file->getClientOriginalName());
+            $filename = $file->getClientOriginalName();
+            $data = Mobil::where('id', $id_mobil)->update(['gambar' => $filename]);
         }
 
-        return redirect()->route('tampilmobil')->with('success','Data Berhasil Di Update');
+        return redirect()->route('tampilmobil')->with('success', 'Data Berhasil Di Update');
     }
 }

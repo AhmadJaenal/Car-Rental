@@ -21,8 +21,13 @@
                         class="nav-link">Cars</a></li>
                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}"><a
                         href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a href="{{ route('login') }}"
-                        class="nav-link">Login</a></li>
+                @if (auth()->user())
+                    <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a
+                            href="{{ route('dashboard') }}" class="nav-link">{{ auth()->user()->username }}</a></li>
+                @else
+                    <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a
+                            href="{{ route('login') }}" class="nav-link">Login</a></li>
+                @endif
             </ul>
         </div>
     </div>
