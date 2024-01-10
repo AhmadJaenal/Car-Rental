@@ -70,6 +70,7 @@
                                     </div>
                                 </form>
                                 @else
+                                
                                 <form class="pt-3" action="/editprofileadmin{{Auth::admin()->id_admin}}"" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
