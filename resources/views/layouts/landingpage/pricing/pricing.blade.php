@@ -94,13 +94,20 @@
                                         </div>
                                     </td>
                                     <td class="price">
-                                        <p class="btn-custom">
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#modalTransaction">
-                                                Launch demo modal
-                                            </button>
-                                        </p>
-
+                                        @if (auth()->user())
+                                            <p class="btn-custom">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#modalTransaction">
+                                                    Launch demo modal
+                                                </button>
+                                            </p>
+                                        @else
+                                            <p class="btn-custom">
+                                                <a href="{{ route('login') }}" class="btn btn-primary">
+                                                    Login
+                                                </a>
+                                            </p>
+                                        @endif
                                         <div class="price-rate">
                                             <h3>
                                                 <span class="num"><small class="currency">$</small> 60.99</span>

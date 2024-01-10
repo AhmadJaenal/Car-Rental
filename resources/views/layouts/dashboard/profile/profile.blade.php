@@ -21,9 +21,12 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -45,60 +48,72 @@
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
-                              <div class="card-body">
-                                @if($message = Session::get('success'))
-                                <div class="alert alert-success mt-2" role="alert">
-                                  {{$message}}
-                                </div>
-                                @endif
-                                <h4 class="card-title">Profile</h4>
+                                <div class="card-body">
+                                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-success mt-2" role="alert">
+                                            {{ $message }}
+                                        </div>
+                                    @endif
+                                    <h4 class="card-title">Profile</h4>
 
-                                @if(isset(Auth::user()->id_peminjam))
-                                <form class="pt-3" action="/editprofileuser{{Auth::user()->id_peminjam}}"" method="post" enctype="multipart/form-data">
+                                    @if (isset(Auth::user()->id_peminjam))
+                                        <form class="pt-3" action="/editprofileuser{{ Auth::user()->id_peminjam }}"
+                                            method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="username">Username</label>
+                                                <input type="text" class="form-control form-control-lg"
+                                                    name="username" id="username" value="{{ Auth::user()->username }}"
+                                                    required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control form-control-lg"
+                                                    name="email" id="email" value="{{ Auth::user()->email }}"
+                                                    required>
+                                            </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+                                        type="submit">SIMPAN</button>
+                                </div>
+                                </form>
+                            @else
+                                <form class="pt-3"
+                                    action="/editprofileadmin{{ Auth::guard('webadmin')->user()->id_admin }}"
+                                    method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control form-control-lg" name="username" id="username" value="{{Auth::user()->username}}" required>
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control form-control-lg" name="username"
+                                            id="username" value="{{ Auth::guard('webadmin')->user()->username }}"
+                                            required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control form-control-lg" name="email" id="email" value="{{Auth::user()->email}}" required>
-                                    </div>   
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control form-control-lg" name="email"
+                                            id="email" value="{{ Auth::guard('webadmin')->user()->email }}"
+                                            required>
                                     </div>
-                                    <div class="mt-3">
-                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIMPAN</button>
-                                    </div>
-                                </form>
-                                @else
-                                
-                                <form class="pt-3" action="/editprofileadmin{{Auth::admin()->id_admin}}"" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control form-control-lg" name="username" id="username" value="{{Auth::admin()->username}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control form-control-lg" name="email" id="email" value="{{Auth::admin()->email}}" required>
-                                    </div>   
-                                    </div>
-                                    <div class="mt-3">
-                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIMPAN</button>
-                                    </div>
-                                </form>
-                                @endif
-                              </div>
                             </div>
+                            <div class="mt-3">
+                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+                                    type="submit">SIMPAN</button>
+                            </div>
+                            </form>
+                            @endif
+                        </div>
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                @include('layouts.dashboard.partials._footer')
-                <!-- partial -->
             </div>
-            <!-- main-panel ends -->
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            @include('layouts.dashboard.partials._footer')
+            <!-- partial -->
         </div>
-        <!-- page-body-wrapper ends -->
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
 

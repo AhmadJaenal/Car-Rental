@@ -11,19 +11,23 @@
             <div class="modal-body">
                 <form action="{{ route('transaction') }}" method="post">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nama</label>
-                        <input type="text" class="form-control" id="recipient-name" required>
-                        <label for="recipient-name" class="col-form-label">Merek</label>
-                        <input type="text" class="form-control" id="recipient-name" required>
-                        <label for="recipient-name" class="col-form-label">Mulai Tanggal</label>
-                        <input type="time" class="form-control" id="recipient-name" required>
-                        <label for="recipient-name" class="col-form-label">Sampai Tanggal</label>
-                        <input type="time" class="form-control" id="recipient-name" required>
-                        <label for="recipient-name" class="col-form-label">Harga</label>
-                        <input type="text" class="form-control" id="recipient-name" readonly>
-                        <label for="recipient-name" class="col-form-label">Total</label>
-                        <input type="text" class="form-control" id="recipient-name" readonly>
-                        <label for="recipient-name" class="col-form-label">Metode Pembayaran</label>
+                        <label for="name" class="col-form-label">Nama</label>
+                        <input type="text" class="form-control" id="name" name="name" required
+                            value="@if (auth()->user()) {{ auth()->user()->username }} @else '' @endif"
+                            readonly>
+                        <label for="merek" class="col-form-label">Merek</label>
+                        <input type="text" class="form-control" id="merek"
+                            value="@if (auth()->user()) {{ auth()->user()->username }} @else '' @endif"
+                            required>
+                        <label for="tgl_rental" class="col-form-label">Mulai Tanggal</label>
+                        <input type="time" class="form-control" id="tgl_rental" name="tgl_rental" required>
+                        <label for="tgl_kembali" class="col-form-label">Sampai Tanggal</label>
+                        <input type="time" class="form-control" id="tgl_kembali" name="tgl_kembali" required>
+                        <label for="harga" class="col-form-label">Harga</label>
+                        <input type="text" class="form-control" id="harga" name="harga" readonly>
+                        <label for="total" class="col-form-label">Total</label>
+                        <input type="text" class="form-control" id="total" name="total" readonly>
+                        <label for="paymentMethod" class="col-form-label">Metode Pembayaran</label>
                         <div class="col-form-label">
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input" type="radio" name="paymentMethod" id="transferOption"
