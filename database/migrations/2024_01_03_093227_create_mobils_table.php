@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('mobils', function (Blueprint $table) {
             $table->id('id_mobil');
             $table->string('no_plat', 20);
-            $table->string('merk', 20);
-            $table->string('warna', 20);
+            $table->string('merk', 50);
+            $table->string('warna', 50);
             $table->integer('tahun');
             $table->bigInteger('harga_sewa');
             $table->string('gambar')->nullable();
