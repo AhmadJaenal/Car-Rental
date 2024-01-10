@@ -48,7 +48,7 @@
                                             {{ $message }}
                                         </div>
                                     @endif
-                                    <form class="forms-sample" action="/editdatamobil{{$data->id}}" method="POST"
+                                    <form class="forms-sample" action="/editdatamobil{{$data->id_mobil}}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">

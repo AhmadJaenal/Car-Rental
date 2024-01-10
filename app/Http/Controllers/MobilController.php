@@ -33,7 +33,7 @@ class MobilController
                       ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
                       ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
                       ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
-            })->where('status','baru')->paginate(5);
+            })->where('status','aktif')->paginate(5);
             
         } else{
             $cars = Mobil::paginate(5);
@@ -75,7 +75,7 @@ class MobilController
 
     public function hapusmobil($id_mobil)
     {
-        $data = Mobil::where('id', $id_mobil);
+        $data = Mobil::where('id_mobil', $id_mobil);
         $data->delete();
 
         return redirect()->route('tampilmobil')->with('successdelete', 'Data Berhasil Di Delete');
@@ -83,13 +83,13 @@ class MobilController
 
     public function editmobil($id_mobil)
     {
-        $data = Mobil::where('id', $id_mobil)->first();
+        $data = Mobil::where('id_mobil', $id_mobil)->first();
         return view('layouts.dashboard.mobil.edit', compact('data'));
     }
 
     public function editdatamobil(Request $request, $id_mobil)
     {
-        $data = Mobil::where('id', $id_mobil)->update([
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
             'no_plat' => $request->no_plat,
             'merk' => $request->merk,
             'warna' => $request->warna,
@@ -103,7 +103,7 @@ class MobilController
             $file = $request->file('foto_mobil');
             $file->move('images/mobil/', $file->getClientOriginalName());
             $filename = $file->getClientOriginalName();
-            $data = Mobil::where('id', $id_mobil)->update(['gambar' => $filename]);
+            $data = Mobil::where('id_mobil', $id_mobil)->update(['gambar' => $filename]);
         }
 
         return redirect()->route('tampilmobil')->with('success', 'Data Berhasil Di Update');

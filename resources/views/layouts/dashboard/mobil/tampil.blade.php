@@ -102,11 +102,11 @@
                                                     <td>{{ $car->status }}</td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">
-                                                        <a href="/editmobil{{ $car->id }}"
+                                                        <a href="/editmobil{{ $car->id_mobil }}"
                                                             class="btn btn-info">Edit</a>
                                                         <a href="#" id="delete" class="btn btn-danger delete"
-                                                            data-id={{ $car->id }}
-                                                            data-noplat={{ $car->no_plat }}>Delete</a>
+                                                            data-id={{ $car->id_mobil }}
+                                                            data-noplat='{{ $car->no_plat }}'>Delete</a>
                                                     </td>
                                                 </tr>
                                                 @php
@@ -115,7 +115,7 @@
                                             @endforeach
                                             @if ($no == 1)
                                                 <tr>
-                                                    <td colspan="9" class="text-center table-danger">Data Tidak
+                                                    <td colspan="10" class="text-center table-danger">Data Tidak
                                                         Ditemukan!!!
                                                     </td>
                                                 </tr>
@@ -135,7 +135,7 @@
                             var noplat = $(this).attr("data-noplat");
                             swal({
                                     title: "Yakin?",
-                                    text: "Kamu akan menghapus data mobil dengan nopol : " + noplat + "",
+                                    text: "Kamu akan menghapus mobil dengan nopol : " + noplat + "",
                                     icon: "warning",
                                     buttons: true,
                                     dangerMode: true,
