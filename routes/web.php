@@ -66,7 +66,8 @@ Route::post('/request-verification', [FormRequestController::class, 'requestVeri
 
 // Setting Profile
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
-Route::post('/editprofile{id_user}', [ProfileController::class, 'editprofile'])->name('editprofile');
+Route::post('/editprofileuser{id_peminjam}', [ProfileController::class, 'editprofileuser'])->name('editprofileuser');
+Route::post('/editprofileadmin{id_admin}', [ProfileController::class, 'editprofileadmin'])->name('editprofileadmin');
 
 // Mobil
 Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');

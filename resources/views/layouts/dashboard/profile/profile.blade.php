@@ -52,21 +52,40 @@
                                 </div>
                                 @endif
                                 <h4 class="card-title">Profile</h4>
-                        <form class="pt-3" action="/editprofile{{Auth::user()->id}}"" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control form-control-lg" name="username" id="username" value="{{Auth::user()->username}}" required>
-                            </div>
-                            <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control form-control-lg" name="email" id="email" value="{{Auth::user()->email}}" required>
-                            </div>   
-                            </div>
-                            <div class="mt-3">
-                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIMPAN</button>
-                            </div>
-                        </form>
+
+                                @if(isset(Auth::user()->id_peminjam))
+                                <form class="pt-3" action="/editprofileuser{{Auth::user()->id_peminjam}}"" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control form-control-lg" name="username" id="username" value="{{Auth::user()->username}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control form-control-lg" name="email" id="email" value="{{Auth::user()->email}}" required>
+                                    </div>   
+                                    </div>
+                                    <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIMPAN</button>
+                                    </div>
+                                </form>
+                                @else
+                                <form class="pt-3" action="/editprofileadmin{{Auth::admin()->id_admin}}"" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control form-control-lg" name="username" id="username" value="{{Auth::admin()->username}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control form-control-lg" name="email" id="email" value="{{Auth::admin()->email}}" required>
+                                    </div>   
+                                    </div>
+                                    <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIMPAN</button>
+                                    </div>
+                                </form>
+                                @endif
                               </div>
                             </div>
                     </div>
