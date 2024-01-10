@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
@@ -410,6 +412,24 @@
     <script>
         function openModal(modalId) {
             $('#' + modalId).modal('show');
+        }
+    </script>
+
+    <script>
+        function previewImage(preview, imageInputId) {
+            var preview = document.getElementById(preview);
+            var fileInput = document.getElementById(imageInputId);
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            preview.style.visibility = "visible";
         }
     </script>
 

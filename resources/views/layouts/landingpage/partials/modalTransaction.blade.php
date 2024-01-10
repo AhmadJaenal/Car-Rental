@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('transaction') }}" method="post">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nama</label>
                         <input type="text" class="form-control" id="recipient-name" required>
@@ -47,6 +47,16 @@
                                 <strong>12348723402</strong>
                                 atas nama
                                 <strong>Aawaall</strong>
+                                dan kirim bukti pembayaran
+                                <br>
+                                <img id="previewiTf" style="visibility:hidden;" class="rounded mx-auto d-block mt-2"
+                                    width="200" alt="buktiPembayaran">
+                                <div class="mb-3">
+                                    <label for="buktiPembayaran" class="form-label">Upload bukti pembayaran</label>
+                                    <input class="form-control" type="file" id="buktiPembayaran"
+                                        name="buktiPembayaran" onchange="previewImage('previewiTf','buktiPembayaran')"
+                                        accept="image/*" required>
+                                </div>
                             </label>
                         </div>
 
