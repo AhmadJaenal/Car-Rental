@@ -7,15 +7,37 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MobilController
 {
-    public function tampilmobil()
+    public function tampilmobil(Request $request)
     {
-        $cars = Mobil::paginate(5);
+        if($request->has('search')){
+            $cars = Mobil::where(function($query) use ($request) {
+                $query->where('merk', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('no_plat', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('status', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
+            })->paginate(5);
+            
+        } else{
+            $cars = Mobil::paginate(5);
+        }
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
     }
 
-    public function tampilusermobil()
+    public function tampilusermobil(Request $request)
     {
-        $cars = Mobil::paginate(5);
+        if($request->has('search')){
+            $cars = Mobil::where(function($query) use ($request) {
+                $query->where('merk', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
+                      ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
+            })->where('status','baru')->paginate(5);
+            
+        } else{
+            $cars = Mobil::paginate(5);
+        }
         return view('layouts.dashboard.mobil.tampil_user', ['cars' => $cars]);
     }
 

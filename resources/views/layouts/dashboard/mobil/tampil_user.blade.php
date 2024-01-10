@@ -47,7 +47,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Mobil</h4>
-                                    <form action="/barang" method="GET">
+                                    <form action="{{route('tampilusermobil')}}" method="GET">
                                         <div class="input-group">
                                             <button type="submit" class="btn btn-outline-secondary rounded-0">
                                                 <i class="icon-search"></i>
@@ -58,7 +58,6 @@
                                                 autofocus>
                                         </div>
                                     </form>
-                                    <a href='{{ route('tambahmobil') }}' class="btn btn-success mt-2">Tambah</a>
                                     @if ($message = Session::get('success'))
                                         <div class="alert alert-success mt-2" role="alert">
                                             {{ $message }}
@@ -70,8 +69,9 @@
                                                 <th scope="col">No</th>
                                                 <th scope="col">Gambar</th>
                                                 <th scope="col">Merk</th>
-                                                <th scope="col">warna</th>
-                                                <th scope="col">tahun</th>
+                                                <th scope="col">Warna</th>
+                                                <th scope="col">Tahun</th>
+                                                <th scope="col">Harga Sewa</th>
                                                 <th scope="col">Kategori</th>
                                             </thead>
                                             </tbody>
@@ -90,7 +90,7 @@
                                             <td class="font-weight-bold">{{ $car->merk }}</td>
                                             <td>{{ $car->warna }}</td>
                                             <td>{{ $car->tahun }}</td>
-                                            {{-- <td>{{ $car->status }}</td> --}}
+                                            <td>{{ $car->harga_sewa }}</td>
                                             <td>{{ $car->id_kategori }}</td>
                                         </tr>
                                             @php

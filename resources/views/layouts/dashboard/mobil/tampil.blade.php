@@ -50,7 +50,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Mobil</h4>
-                                    <form action="/barang" method="GET">
+                                    <form action="{{route('tampilmobil')}}" method="GET">
                                         <div class="input-group">
                                             <button type="submit" class="btn btn-outline-secondary rounded-0">
                                                 <i class="icon-search"></i>
@@ -72,10 +72,11 @@
                                             <thead>
                                                 <th scope="col">No</th>
                                                 <th scope="col">No Plat</th>
+                                                <th scope="col">Gambar</th>
                                                 <th scope="col">Merk</th>
                                                 <th scope="col">Warna</th>
                                                 <th scope="col">Tahun</th>
-                                                <th scope="col">Gambar</th>
+                                                <th scope="col">Harga Sewa</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Kategori</th>
                                                 <th scope="col" style="text-align: center">Aksi</th>
@@ -89,15 +90,15 @@
                                                 <tr>
                                                     <td>{{ $index + $cars->firstItem() }}</td>
                                                     <td>{{ $car->no_plat }}</td>
-                                                    <td class="font-weight-bold">{{ $car->merk }}</td>
-                                                    <td>{{ $car->warna }}</td>
-                                                    <td>{{ $car->tahun }}</td>
                                                     <td>
                                                         <img src="{{ asset('images/mobil/' . $car->gambar) }}"
                                                             class="rounded mx-auto d-block zoomable-image"
                                                             width="500" height="400">
                                                     </td>
-
+                                                    <td class="font-weight-bold">{{ $car->merk }}</td>
+                                                    <td>{{ $car->warna }}</td>
+                                                    <td>{{ $car->tahun }}</td>
+                                                    <td>{{ $car->harga_sewa }}</td>
                                                     <td>{{ $car->status }}</td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">
@@ -114,7 +115,7 @@
                                             @endforeach
                                             @if ($no == 1)
                                                 <tr>
-                                                    <td colspan="8" class="text-center table-danger">Data Tidak
+                                                    <td colspan="9" class="text-center table-danger">Data Tidak
                                                         Ditemukan!!!
                                                     </td>
                                                 </tr>
