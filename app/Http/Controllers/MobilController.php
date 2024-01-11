@@ -2,24 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mobil;
 use Symfony\Component\HttpFoundation\Request;
 
 class MobilController
 {
     public function tampilmobil(Request $request)
     {
-        if($request->has('search')){
-            $cars = Mobil::where(function($query) use ($request) {
+        if ($request->has('search')) {
+            $cars = Mobil::where(function ($query) use ($request) {
                 $query->where('merk', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('no_plat', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('status', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
+                    ->orWhere('no_plat', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('status', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
             })->paginate(5);
-            
-        } else{
+        } else {
             $cars = Mobil::paginate(5);
         }
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
@@ -27,15 +25,14 @@ class MobilController
 
     public function tampilusermobil(Request $request)
     {
-        if($request->has('search')){
-            $cars = Mobil::where(function($query) use ($request) {
+        if ($request->has('search')) {
+            $cars = Mobil::where(function ($query) use ($request) {
                 $query->where('merk', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
-                      ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
-            })->where('status','aktif')->paginate(5);
-            
-        } else{
+                    ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
+            })->where('status', 'aktif')->paginate(5);
+        } else {
             $cars = Mobil::paginate(5);
         }
         return view('layouts.dashboard.mobil.tampil_user', ['cars' => $cars]);

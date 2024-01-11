@@ -29,4 +29,9 @@ class TransactionController extends Controller
         ]);
         Transaction::create($transactionData);
     }
+
+    public function modalPayment(Request $request)
+    {
+        return view('layouts.landingpage.partials.modalTransaction', ['data' => 1]);
+    }
 }

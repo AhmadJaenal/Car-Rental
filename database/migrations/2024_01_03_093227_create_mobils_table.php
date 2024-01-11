@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('merk', 50);
             $table->string('warna', 50);
             $table->integer('tahun');
-            $table->bigInteger('harga_sewa');
+            $table->bigInteger('sewa_perjam');
+            $table->bigInteger('sewa_perhari');
+            $table->bigInteger('sewa_perminggu');
             $table->string('gambar')->nullable();
             $table->string('status', 20);
             $table->string('id_kategori');

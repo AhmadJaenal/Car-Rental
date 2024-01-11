@@ -21,9 +21,12 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
@@ -47,7 +50,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Mobil</h4>
-                                    <form action="{{route('tampilusermobil')}}" method="GET">
+                                    <form action="{{ route('tampilusermobil') }}" method="GET">
                                         <div class="input-group">
                                             <button type="submit" class="btn btn-outline-secondary rounded-0">
                                                 <i class="icon-search"></i>
@@ -77,32 +80,32 @@
                                             </tbody>
 
                                             @php
-                                            $no = 1;   
+                                                $no = 1;
                                             @endphp
                                             @foreach ($cars as $index => $car)
-                                            <tr>
-                                            <td width="10">{{$index + $cars->firstItem()}}</td>
-                                            <td>
-                                                <img src="{{ asset('images/mobil/' . $car->gambar) }}"
-                                                    class="rounded mx-auto d-block zoomable-image"
-                                                    width="500" height="400">
-                                            </td>
-                                            <td class="font-weight-bold">{{ $car->merk }}</td>
-                                            <td>{{ $car->warna }}</td>
-                                            <td>{{ $car->tahun }}</td>
-                                            <td>{{ $car->harga_sewa }}</td>
-                                            <td>{{ $car->id_kategori }}</td>
-                                        </tr>
-                                            @php
-                                                $no++;
-                                            @endphp
+                                                <tr>
+                                                    <td width="10">{{ $index + $cars->firstItem() }}</td>
+                                                    <td>
+                                                        <img src="{{ asset('images/mobil/' . $car->gambar) }}"
+                                                            class="rounded mx-auto d-block zoomable-image"
+                                                            width="500" height="400">
+                                                    </td>
+                                                    <td class="font-weight-bold">{{ $car->merk }}</td>
+                                                    <td>{{ $car->warna }}</td>
+                                                    <td>{{ $car->tahun }}</td>
+                                                    <td>{{ $car->harga_sewa }}</td>
+                                                    <td>{{ $car->id_kategori }}</td>
+                                                </tr>
+                                                @php
+                                                    $no++;
+                                                @endphp
                                             @endforeach
                                             @if ($no == 1)
-                                            <tr>
-                                                <td colspan="8" class="text-center table-danger">Data Tidak
-                                                    Ditemukan!!!
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td colspan="8" class="text-center table-danger">Data Tidak
+                                                        Ditemukan!!!
+                                                    </td>
+                                                </tr>
                                             @endif
                                             </tbody>
                                         </table>
