@@ -94,7 +94,9 @@ class MobilController
             'merk' => $request->merk,
             'warna' => $request->warna,
             'tahun' => $request->tahun,
-            'harga_sewa' => $request->harga_sewa,
+            'sewa_perjam' => $request->sewa_perjam,
+            'sewa_perhari' => $request->sewa_perhari,
+            'sewa_perminggu' => $request->sewa_perminggu,
             'status' => $request->status,
             'id_kategori' => $request->id_kategori
         ]);

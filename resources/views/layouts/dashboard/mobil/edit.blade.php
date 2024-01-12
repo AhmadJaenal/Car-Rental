@@ -71,10 +71,21 @@
                                             <input type="number" class="form-control" name="tahun" id="tahun" value="{{$data->tahun}}"
                                                 placeholder="Tahun" required>
                                         </div>
+                                        {{-- penting --}}
                                         <div class="form-group">
-                                            <label for="harga_sewa">Harga Sewa</label>
-                                            <input type="number" class="form-control" name="harga_sewa" id="harga_sewa" value="{{$data->harga_sewa}}"
-                                                placeholder="Harga Sewa" required>
+                                            <label for="sewa_perjam">Sewa Perjam</label>
+                                            <input type="number" class="form-control" name="sewa_perjam" id="sewa_perjam" value="{{$data->sewa_perjam}}"
+                                                placeholder="Sewa Perjam" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sewa_perhari">Sewa Perhari</label>
+                                            <input type="number" class="form-control" name="sewa_perhari" id="sewa_perhari" value="{{$data->sewa_perhari}}"
+                                                placeholder="Sewa Perhari" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sewa_perminggu">Sewa Perminggu</label>
+                                            <input type="number" class="form-control" name="sewa_perminggu" id="sewa_perminggu" value="{{$data->sewa_perminggu}}"
+                                                placeholder="Sewa Perminggu" required>
                                         </div>
                                         <div class="form-group">
                                             <label>File Foto Mobil</label>
