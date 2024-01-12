@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mobil;
 use Symfony\Component\HttpFoundation\Request;
 
 class MobilController
