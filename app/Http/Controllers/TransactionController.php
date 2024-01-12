@@ -25,13 +25,18 @@ class TransactionController extends Controller
             'status_pengembalian' => 'nullable',
             'id_mobil' => 'required',
             'id_user' => 'required',
-            'id_admin' => 'required'
+            'id_admin' => 'nullable'
         ]);
         Transaction::create($transactionData);
     }
 
     public function modalPayment(Request $request)
     {
-        return view('layouts.landingpage.partials.modalTransaction', ['data' => 1]);
+        return view('layouts.landingpage.partials.modalTransaction');
+    }
+
+    public function formTransaction(Request $model)
+    {
+        return view('layouts.landingpage.pricing.formTransaction', ['model' => $model]);
     }
 }

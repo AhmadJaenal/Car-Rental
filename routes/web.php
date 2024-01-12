@@ -43,6 +43,7 @@ Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('act
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
 Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
 Route::get('/form-payment', [TransactionController::class, 'modalPayment'])->name('modalPayment');
+Route::get('/form-transaction', [TransactionController::class, 'formTransaction'])->name('formTransaction');
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
