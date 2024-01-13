@@ -74,7 +74,9 @@
                                                 <th scope="col">Merk</th>
                                                 <th scope="col">Warna</th>
                                                 <th scope="col">Tahun</th>
-                                                <th scope="col">Harga Sewa</th>
+                                                <th scope="col">Perjam</th>
+                                                <th scope="col">Perhari</th>
+                                                <th scope="col">PerMinggu</th>
                                                 <th scope="col">Kategori</th>
                                             </thead>
                                             </tbody>
@@ -93,7 +95,9 @@
                                                     <td class="font-weight-bold">{{ $car->merk }}</td>
                                                     <td>{{ $car->warna }}</td>
                                                     <td>{{ $car->tahun }}</td>
-                                                    <td>{{ $car->harga_sewa }}</td>
+                                                    <td>{{ $car->sewa_perjam }}</td>
+                                                    <td>{{ $car->sewa_perhari }}</td>
+                                                    <td>{{ $car->sewa_perminggu }}</td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                 </tr>
                                                 @php

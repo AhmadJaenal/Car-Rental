@@ -70,7 +70,7 @@
                                 @foreach ($cars as $car)
                                     <tr class="">
                                         <td class="car-image">
-                                            <div class="img" style="background-image:url(images/car-1.jpg);"></div>
+                                            <div class="img" style="background-image:url(images/mobil/{{$car->gambar}});"></div>
                                         </td>
                                         <td class="product-name">
                                             <h3>{{ $car->merk }}</h3>
