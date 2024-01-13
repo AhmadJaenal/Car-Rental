@@ -12,11 +12,12 @@ return new class extends Migration
             $table->id('id_transaksi');
             $table->date('tgl_rental');
             $table->date('tgl_kembali');
+            $table->date('tgl_pengembalian');
+            $table->string('jam_mulai');
             $table->integer('biaya_sewa');
             $table->integer('total');
             $table->integer('denda');
             $table->string('status_sewa');
-            $table->date('tgl_pengembalian');
             $table->boolean('status_pengembalian');
             $table->string('id_mobil');
             $table->string('id_user');

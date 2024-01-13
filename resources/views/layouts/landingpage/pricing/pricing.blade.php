@@ -87,7 +87,7 @@
                                         <td class="price">
                                             @if (auth()->user())
                                                 <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['model' => 'hour']) }}"
+                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
                                                         class="btn btn-primary">Rent a car</a>
                                                 </p>
                                             @else
@@ -109,7 +109,7 @@
                                         <td class="price">
                                             @if (auth()->user())
                                                 <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['model' => 'day']) }}"
+                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
                                                         class="btn btn-primary">Rent a car</a>
                                                 </p>
                                             @else
@@ -132,7 +132,7 @@
                                         <td class="price">
                                             @if (auth()->user())
                                                 <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['model' => 'week']) }}"
+                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil]) }}"
                                                         class="btn btn-primary">Rent a car</a>
                                                 </p>
                                             @else

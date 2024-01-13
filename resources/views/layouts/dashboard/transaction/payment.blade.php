@@ -46,70 +46,44 @@
                                     <table class="table table-striped table-borderless">
                                         <thead>
                                             <tr>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
+                                                <th>No</th>
+                                                <th>ID Peminjam</th>
+                                                <th>ID Mobil</th>
+                                                <th>Tanggal Rental</th>
+                                                <th>Tanggal Kembali</th>
+                                                <th>Jam</th>
+                                                <th>Biaya Sewa Mobil</th>
+                                                <th>Total</th>
+                                                <th>Denda</th>
+                                                <th>Status Peminjaman</th>
+                                                <th>Status Pengembalian</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Search Engine Marketing</td>
-                                                <td class="font-weight-bold">$362</td>
-                                                <td>21 Sep 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-success">Completed</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Search Engine Optimization</td>
-                                                <td class="font-weight-bold">$116</td>
-                                                <td>13 Jun 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-success">Completed</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Display Advertising</td>
-                                                <td class="font-weight-bold">$551</td>
-                                                <td>28 Sep 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-warning">Pending</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Pay Per Click Advertising</td>
-                                                <td class="font-weight-bold">$523</td>
-                                                <td>30 Jun 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-warning">Pending</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>E-Mail Marketing</td>
-                                                <td class="font-weight-bold">$781</td>
-                                                <td>01 Nov 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-danger">Cancelled</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Referral Marketing</td>
-                                                <td class="font-weight-bold">$283</td>
-                                                <td>20 Mar 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-warning">Pending</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Social media marketing</td>
-                                                <td class="font-weight-bold">$897</td>
-                                                <td>26 Oct 2018</td>
-                                                <td class="font-weight-medium">
-                                                    <div class="badge badge-success">Completed</div>
-                                                </td>
-                                            </tr>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($transactions as $tr)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $tr->id_user }}</td>
+                                                    <td>{{ $tr->id_mobil }}</td>
+                                                    <td>{{ $tr->tgl_rental }}</td>
+                                                    <td>{{ $tr->tgl_kembali }}</td>
+                                                    <td>{{ $tr->jam_mulai }}</td>
+                                                    <td>{{ $tr->biaya_sewa }}</td>
+                                                    <td>{{ $tr->total }}</td>
+                                                    <td>{{ $tr->denda }}</td>
+                                                    <td>{{ $tr->status_sewa }}</td>
+                                                    <td>{{ $tr->status_pengembalian }}</td>
+                                                </tr>
+
+                                                @php
+                                                    $no++;
+                                                @endphp
+                                            @endforeach
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>
