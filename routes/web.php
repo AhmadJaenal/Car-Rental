@@ -80,3 +80,6 @@ Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->na
 Route::get('/hapusmobil{id_mobil}', [MobilController::class, 'hapusmobil'])->name('hapusmobil');
 Route::get('/editmobil{id_mobil}', [MobilController::class, 'editmobil'])->name('editmobil');
 Route::post('/editdatamobil{id_mobil}', [MobilController::class, 'editdatamobil'])->name('editdatamobil');
+
+
+Route::get('/pdf',[MobilController::class,'pdf'])->name('pdf');

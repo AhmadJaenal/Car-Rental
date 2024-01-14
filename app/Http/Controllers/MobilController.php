@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mobil;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\Request;
 
 class MobilController
@@ -110,4 +112,18 @@ class MobilController
 
         return redirect()->route('tampilmobil')->with('success', 'Data Berhasil Di Update');
     }
+
+    public function pdf(){
+        // $cars = Mobil::all()->toArray();
+        $cars = Mobil::all();
+        view()->share('cars',$cars);
+        $pdf = Pdf::loadView('layouts/dashboard/mobil/tampil-pdf')->setPaper('a4', 'landscape');
+        return $pdf->download('invoice.pdf');
+    }
+
+    // public function pdf(){
+    //     $pdf = App::make('dompdf.wrapper');
+    //     $pdf->loadHTML('<h1>Test</h1>');
+    //     return $pdf->stream();
+    // }
 }

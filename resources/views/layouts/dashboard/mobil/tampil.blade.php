@@ -62,6 +62,7 @@
                                         </div>
                                     </form>
                                     <a href='{{ route('tambahmobil') }}' class="btn btn-success mt-2">Tambah</a>
+                                    <a href='{{route('pdf')}}' class="btn btn-danger mt-2">Export PDF</a>
                                     @if ($message = Session::get('success'))
                                         <div class="alert alert-success mt-2" role="alert">
                                             {{ $message }}
