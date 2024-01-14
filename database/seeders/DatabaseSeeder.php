@@ -29,6 +29,13 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
+        \App\Models\User::factory()->create([
+            'username' => 'Stefan',
+            'email' => 'stefan@gmail.com',
+            'password' => Hash::make('123'),
+            'remember_token' => Str::random(10),
+        ]);
+
         \App\Models\Admin::factory()->create([
             'username' => 'Admin001',
             'email' => 'admin@gmail.com',

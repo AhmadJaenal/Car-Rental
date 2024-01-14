@@ -44,11 +44,6 @@ class TransactionController extends Controller
         }
     }
 
-    public function modalPayment(Request $request)
-    {
-        return view('layouts.landingpage.partials.modalTransaction');
-    }
-
     public function formTransaction(Request $request)
     {
         $car = Mobil::where('id_mobil', $request->input('id_mobil'))->first();

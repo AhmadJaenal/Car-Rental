@@ -49,7 +49,6 @@
             </div>
         </div>
     </section>
-    @include('layouts.landingpage.partials.modalTransaction')
 
     <section class="ftco-section ftco-cart">
         <div class="container">
@@ -70,7 +69,8 @@
                                 @foreach ($cars as $car)
                                     <tr class="">
                                         <td class="car-image">
-                                            <div class="img" style="background-image:url(images/mobil/{{$car->gambar}});"></div>
+                                            <div class="img"
+                                                style="background-image:url(images/mobil/{{ $car->gambar }});"></div>
                                         </td>
                                         <td class="product-name">
                                             <h3>{{ $car->merk }}</h3>
