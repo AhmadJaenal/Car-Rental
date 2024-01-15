@@ -12,16 +12,17 @@ return new class extends Migration
             $table->id('id_transaksi');
             $table->date('tgl_rental');
             $table->date('tgl_kembali');
-            $table->date('tgl_pengembalian');
+            $table->date('tgl_pengembalian')->nullable();
             $table->string('jam_mulai');
+            $table->string('jam_selesai');
             $table->integer('biaya_sewa');
             $table->integer('total');
-            $table->integer('denda');
-            $table->string('status_sewa');
-            $table->boolean('status_pengembalian');
+            $table->integer('denda')->nullable();
+            $table->string('status_sewa')->nullable();
+            $table->boolean('status_pengembalian')->nullable();
             $table->string('id_mobil');
             $table->string('id_user');
-            $table->string('id_admin');
+            $table->string('id_admin')->nullable();
             $table->timestamps();
         });
     }

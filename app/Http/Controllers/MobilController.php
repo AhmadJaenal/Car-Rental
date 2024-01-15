@@ -58,7 +58,6 @@ class MobilController
             'tahun' => $request->tahun,
             'sewa_perjam' => $request->sewa_perjam,
             'sewa_perhari' => $request->sewa_perhari,
-            'sewa_perminggu' => $request->sewa_perminggu,
             'status' => $request->status,
             'id_kategori' => $request->id_kategori
         ]);
@@ -96,7 +95,6 @@ class MobilController
             'tahun' => $request->tahun,
             'sewa_perjam' => $request->sewa_perjam,
             'sewa_perhari' => $request->sewa_perhari,
-            'sewa_perminggu' => $request->sewa_perminggu,
             'status' => $request->status,
             'id_kategori' => $request->id_kategori
         ]);

@@ -62,7 +62,6 @@
                                     <th>&nbsp;</th>
                                     <th class="bg-primary heading">Per Hour Rate</th>
                                     <th class="bg-dark heading">Per Day Rate</th>
-                                    <th class="bg-black heading">Leasing</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +86,7 @@
                                         <td class="price">
                                             @if (auth()->user())
                                                 <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
+                                                    <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
                                                         class="btn btn-primary">Rent a car</a>
                                                 </p>
                                             @else
@@ -109,7 +108,7 @@
                                         <td class="price">
                                             @if (auth()->user())
                                                 <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
+                                                    <a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
                                                         class="btn btn-primary">Rent a car</a>
                                                 </p>
                                             @else
@@ -129,28 +128,6 @@
                                             </div>
                                         </td>
 
-                                        <td class="price">
-                                            @if (auth()->user())
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('formTransaction', ['id_mobil' => $car->id_mobil]) }}"
-                                                        class="btn btn-primary">Rent a car</a>
-                                                </p>
-                                            @else
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('login') }}" class="btn btn-primary">
-                                                        Login
-                                                    </a>
-                                                </p>
-                                            @endif
-                                            <div class="price-rate">
-                                                <h3>
-                                                    <span class="num"><small class="currency">$</small>
-                                                        {{ $car->sewa_perminggu }}</span>
-                                                    <span class="per">/per month</span>
-                                                </h3>
-                                                <span class="subheading">$3/hour fuel surcharges</span>
-                                            </div>
-                                        </td>
                                     </tr><!-- END TR-->
                                 @endforeach
                             </tbody>

@@ -10,7 +10,7 @@ class FormRequestController
 {
     public function formRequest()
     {
-        return view('layouts.dashboard.verification.formrequest');
+        return view('layouts.landingpage.form-request.request_verification');
     }
 
     public function requestVerificationAction(Request $request)

@@ -48,8 +48,9 @@
                 </div>
             @endif
             <div class="modal-body">
-                <form action="{{ route('transaction', ['id_mobil' => request()->id_mobil]) }}" method="post"
-                    enctype="multipart/form-data">
+                <form
+                    action="{{ route('transaction', ['id_mobil' => request()->id_mobil, 'jenis_sewa' => request()->model]) }}"
+                    method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name" class="col-form-label">Nama</label>
@@ -63,15 +64,8 @@
                         <label for="jam_mulai" class="col-form-label">Jam Mulai</label>
                         <input type="time" class="form-control" id="jam_mulai" name="jam_mulai" required>
 
-                        @if (request()->model == 'hour')
-                            <label for="jam_selesai" class="col-form-label">Jam Selesai</label>
-                            <input type="time" class="form-control" id="jam_selesai" name="jam_selesai" required>
-                        @endif
-
-                        @if (request()->model == 'day')
-                            <label for="tgl_pengembalian" class="col-form-label">Sampai Tanggal</label>
-                            <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required>
-                        @endif
+                        <label for="tgl_kembali" class="col-form-label">Sampai Tanggal</label>
+                        <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required>
 
                         <label for="total_durasi" class="col-form-label">Total Durasi</label>
                         <input type="text" class="form-control" id="total_durasi" readonly>
@@ -80,48 +74,12 @@
                             value="{{ $car->sewa_perjam }}" readonly>
                         <label for="total" class="col-form-label">Total Harga</label>
                         <input type="text" class="form-control" id="total" name="total" readonly>
-                        {{-- <label for="paymentMethod" class="col-form-label">Metode Pembayaran</label> --}}
-                        {{-- <div class="col-form-label">
-                            <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="paymentMethod"
-                                    id="transferOption" value="option1" onclick="showTransferDetails()">
-                                <label class="form-check-label" for="transferOption" id="transferLabel">
-                                    Transfer
-                                </label>
-                            </div>
-                            <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="cashOption"
-                                    value="option2" onclick="showCashDetails()">
-                                <label class="form-check-label" for="cashOption" id="cashLabel">
-                                    Cash
-                                </label>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div id="transferDetails" style="display: none;">
-                            <label>
-                                Transfer sesuai dengan total ke
-                                <strong>12348723402</strong>
-                                atas nama
-                                <strong>Aawaall</strong>
-                                dan kirim bukti pembayaran
-                                <br>
-                                <img id="previewiTf" style="visibility:hidden;" class="rounded mx-auto d-block mt-2"
-                                    width="200" alt="buktiPembayaran">
-                                <div class="mb-3">
-                                    <label for="buktiPembayaran" class="form-label">Upload bukti pembayaran</label>
-                                    <input class="form-control" type="file" id="buktiPembayaran"
-                                        name="buktiPembayaran" onchange="previewImage('previewiTf','buktiPembayaran')"
-                                        accept="image/*">
-                                </div>
-                            </label>
-                        </div>
-
-                        <div id="cashDetails" style="display: none;">
+                        <br>
+                        <div id="cashDetails">
                             <label>
                                 Pembayaran cash dilakukan ditempat saat pengambilan mobil
                             </label>
-                        </div> --}}
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary">Close</button>
@@ -133,7 +91,6 @@
     </div>
 
 </body>
-
 <script>
     var tgl_rental = document.getElementById('tgl_rental');
     var tgl_kembali = document.getElementById('tgl_kembali');
@@ -152,27 +109,16 @@
 
         var selisihHari = selisihWaktu / (1000 * 60 * 60 * 24);
 
-        total_durasi.value = selisihHari;
+        if (selisihHari >= 0) {
+            total_durasi.value = selisihHari;
+            const total_harga = biaya_sewa * selisihHari;
+            input_total_harga.value = total_harga;
+        }
 
-        const total_harga = biaya_sewa * selisihHari;
-        input_total_harga.value = total_harga;
         console.log(typeof selisihHari);
 
     }
 </script>
-
-
-
-<script>
-    function showTransferDetails() {
-        document.getElementById('transferDetails').style.display = 'block';
-        document.getElementById('cashDetails').style.display = 'none';
-    }
-
-    function showCashDetails() {
-        document.getElementById('transferDetails').style.display = 'none';
-        document.getElementById('cashDetails').style.display = 'block';
-    }
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </html>

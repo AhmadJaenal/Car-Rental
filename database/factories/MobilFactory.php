@@ -25,7 +25,6 @@ class MobilFactory extends Factory
             'tahun' => $this->faker->year,
             'sewa_perjam' => $this->faker->numberBetween(50000, 100000),
             'sewa_perhari' => $this->faker->numberBetween(500000, 700000),
-            'sewa_perminggu' => $this->faker->numberBetween(2500000, 4000000),
             'gambar' => $this->faker->imageUrl('images/mobil/', 360, 360, 'animals', true),
             'status' => $this->faker->randomElement(['Tersedia', 'Dipesan', 'Disewa']),
             'id_kategori' => $this->faker->uuid,

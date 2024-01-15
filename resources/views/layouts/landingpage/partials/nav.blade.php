@@ -22,8 +22,17 @@
                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}"><a
                         href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 @if (auth()->user())
-                    <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a
-                            href="{{ route('dashboard') }}" class="nav-link">{{ auth()->user()->username }}</a></li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Ahmad Jaenal
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('formRequest') }}">Verification Status</a></li>
+                            <li><a class="dropdown-item" href="#">History Transactions</a></li>
+                            <li><a class="dropdown-item" href="{{ route('actionLogout') }}">Log Out</a></li>
+                        </ul>
+                    </div>
                 @else
                     <li class="nav-item {{ request()->routeIs('login') ? 'login' : '' }}"><a
                             href="{{ route('login') }}" class="nav-link">Login</a></li>

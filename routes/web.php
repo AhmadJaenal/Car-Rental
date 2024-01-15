@@ -41,8 +41,9 @@ Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('act
 
 // Transaction
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
-Route::post('/transaction/{id_mobil}', [TransactionController::class, 'transaction'])->name('transaction');
-Route::get('/form-transaction', [TransactionController::class, 'formTransaction'])->name('formTransaction');
+Route::post('/transaction/{id_mobil}/{jenis_sewa}', [TransactionController::class, 'transaction'])->name('transaction');
+Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour');
+Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay');
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');

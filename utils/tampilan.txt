@@ -1,0 +1,10 @@
+Dashboard --> admin
+halaman list verifikasi user
+halaman crud mobil
+halaman history transaksi user dan pembayaran transaksi user & verifikasi pembayaran cash (jenal)
+Grafik penyewaan (optional)
+
+Landing page --> user
+form request (jenal) DONE
+form transaksi (jenal) DONE
+form history transaksi dan pengecekan status transaksi (jenal)
