@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('biaya_sewa');
             $table->integer('total');
             $table->integer('denda')->nullable();
+            $table->string('status_pembayaran');
             $table->string('status_sewa')->nullable();
             $table->boolean('status_pengembalian')->nullable();
             $table->string('id_mobil');

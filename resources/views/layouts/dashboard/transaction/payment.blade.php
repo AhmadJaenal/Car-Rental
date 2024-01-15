@@ -49,6 +49,7 @@
                                                 <th>No</th>
                                                 <th>ID Peminjam</th>
                                                 <th>ID Mobil</th>
+                                                <th>ID Admin</th>
                                                 <th>Tanggal Rental</th>
                                                 <th>Tanggal Kembali</th>
                                                 <th>Jam</th>
@@ -57,6 +58,7 @@
                                                 <th>Denda</th>
                                                 <th>Status Peminjaman</th>
                                                 <th>Status Pengembalian</th>
+                                                <th>Status Pembayaran</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,6 +70,7 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $tr->id_user }}</td>
                                                     <td>{{ $tr->id_mobil }}</td>
+                                                    <td>{{ $tr->id_admin }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
                                                     <td>{{ $tr->jam_mulai }}</td>
@@ -76,6 +79,28 @@
                                                     <td>{{ $tr->denda }}</td>
                                                     <td>{{ $tr->status_sewa }}</td>
                                                     <td>{{ $tr->status_pengembalian }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button
+                                                                class="btn @if ($tr->status_pembayaran == 'Lunas') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                type="button" id="dropdownMenuSizeButton3"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                @if ($tr->status_pembayaran == 'Lunas')
+                                                                    Lunas
+                                                                @else
+                                                                    Belum Lunas
+                                                                @endif
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuSizeButton3">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('acceptPayment', ['id' => $tr->id_transaksi]) }}">Ya</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Tidak</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
 
                                                 @php

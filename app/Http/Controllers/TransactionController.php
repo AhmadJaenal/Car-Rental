@@ -41,6 +41,7 @@ class TransactionController extends Controller
 
             $transactionData['id_mobil'] = $id_mobil;
             $transactionData['id_user'] = $id_user;
+            $transactionData['status_pembayaran'] = 'Diproses';
 
             Transaction::create($transactionData);
             Session::flash('success', 'Transaksi berhasil');
@@ -61,5 +62,24 @@ class TransactionController extends Controller
     {
         $car = Mobil::where('id_mobil', $request->input('id_mobil'))->first();
         return view('layouts.landingpage.pricing.formTransactionDay', compact('car'));
+    }
+
+
+    public function acceptPayment($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_pembayaran' => 'Lunas',
+        ]);
+        return back();
+    }
+
+    public function rejectPayment($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'verifikasi' => 'Belum Lunas',
+        ]);
+        return back();
     }
 }
