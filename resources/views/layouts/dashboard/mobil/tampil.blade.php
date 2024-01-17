@@ -50,7 +50,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Mobil</h4>
-                                    <form action="{{route('tampilmobil')}}" method="GET">
+                                    <form action="{{ route('tampilmobil') }}" method="GET">
                                         <div class="input-group">
                                             <button type="submit" class="btn btn-outline-secondary rounded-0">
                                                 <i class="icon-search"></i>
@@ -62,7 +62,7 @@
                                         </div>
                                     </form>
                                     <a href='{{ route('tambahmobil') }}' class="btn btn-success mt-2">Tambah</a>
-                                    <a href='{{route('pdf')}}' class="btn btn-danger mt-2">Export PDF</a>
+                                    <a href='{{ route('pdf') }}' class="btn btn-danger mt-2">Export PDF</a>
                                     @if ($message = Session::get('success'))
                                         <div class="alert alert-success mt-2" role="alert">
                                             {{ $message }}
@@ -132,31 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        $('.delete').click(function() {
-                            var id_mobil = $(this).attr("data-id");
-                            var noplat = $(this).attr("data-noplat");
-                            swal({
-                                    title: "Yakin?",
-                                    text: "Kamu akan menghapus mobil dengan nopol : " + noplat + "",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                })
-                                .then((willDelete) => {
-                                    if (willDelete) {
-                                        window.location = "/hapusmobil" + id_mobil + ""
-                                    } else {
-                                        swal("Data tidak jadi dihapus");
-                                    }
-                                });
-                        });
-                        @if (Session::has('successdelete'))
-                            swal("Data berhasil di hapus", {
-                                icon: "success",
-                            });
-                        @endif
-                    </script>
+
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
@@ -190,6 +166,32 @@
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
     <!-- End custom js for this page-->
+
+    <script>
+        $('.delete').click(function() {
+            var id_mobil = $(this).attr("data-id");
+            var noplat = $(this).attr("data-noplat");
+            swal({
+                    title: "Yakin?",
+                    text: "Kamu akan menghapus mobil dengan nopol : " + noplat + "",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "/hapusmobil" + id_mobil + ""
+                    } else {
+                        swal("Data tidak jadi dihapus");
+                    }
+                });
+        });
+        @if (Session::has('successdelete'))
+            swal("Data berhasil di hapus", {
+                icon: "success",
+            });
+        @endif
+    </script>
 </body>
 
 </html>

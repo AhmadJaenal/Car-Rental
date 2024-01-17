@@ -115,7 +115,7 @@
                                 placeholder="Jalan" required>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a href="{{route('index')}}" class="btn btn-light">Cancel</a>
+                        <a href="{{ route('index') }}" class="btn btn-light">Cancel</a>
                     </form>
                 @endif
             </div>

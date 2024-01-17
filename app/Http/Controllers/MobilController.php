@@ -111,10 +111,11 @@ class MobilController
         return redirect()->route('tampilmobil')->with('success', 'Data Berhasil Di Update');
     }
 
-    public function pdf(){
+    public function pdf()
+    {
         // $cars = Mobil::all()->toArray();
         $cars = Mobil::all();
-        view()->share('cars',$cars);
+        view()->share('cars', $cars);
         $pdf = Pdf::loadView('layouts/dashboard/mobil/tampil-pdf')->setPaper('a4', 'landscape');
         return $pdf->download('invoice.pdf');
     }
