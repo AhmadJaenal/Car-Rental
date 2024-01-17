@@ -115,7 +115,7 @@
                                 placeholder="Jalan" required>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <button onclick="goBack()" class="btn btn-light" >Cancel</button>
                     </form>
                 @endif
             </div>
@@ -140,6 +140,9 @@
         }
         preview.style.visibility = "visible";
     }
+    function goBack() {
+            window.history.back();
+        }
 </script>
 
 </html>
