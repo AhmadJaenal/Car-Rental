@@ -72,7 +72,7 @@
                                     width="200" alt="foto_diri">
                             </div><br>
                             <input type="file" id="foto_diri" name="foto_diri" class="file-upload-default foto_diri"
-                                onchange="previewImage('previewFotoDiri','foto_diri')" accept="image/*" required>
+                                onchange="previewImage('previewFotoDiri','foto_diri')" accept="image/*" required hidden>
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled
                                     placeholder="Upload Image">
@@ -89,7 +89,7 @@
                                     width="200" alt="foto_ktp">
                             </div><br>
                             <input type="file" id="foto_ktp" name="foto_ktp" class="file-upload-default foto_ktp"
-                                onchange="previewImage('previewiKTP','foto_ktp')" accept="image/*" required>
+                                onchange="previewImage('previewiKTP','foto_ktp')" accept="image/*" required hidden>
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled
                                     placeholder="Upload Image">
@@ -115,7 +115,7 @@
                                 placeholder="Jalan" required>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button onclick="goBack()" class="btn btn-light" >Cancel</button>
+                        <a href="{{route('index')}}" class="btn btn-light">Cancel</a>
                     </form>
                 @endif
             </div>
@@ -140,9 +140,12 @@
         }
         preview.style.visibility = "visible";
     }
-    function goBack() {
-            window.history.back();
-        }
 </script>
+
+<script src="{{ asset('css/vendors/js/vendor.bundle.base.js') }}"></script>
+
+<script src="{{ asset('js/file-upload.js') }}"></script>
+<script src="{{ asset('js/typeahead.js') }}"></script>
+<script src="{{ asset('js/select2.js') }}"></script>
 
 </html>
