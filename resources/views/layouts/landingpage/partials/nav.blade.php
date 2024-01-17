@@ -25,7 +25,7 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Ahmad Jaenal
+                            {{ auth()->user()->username }}
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('formRequest') }}">Verification Status</a></li>
