@@ -79,7 +79,6 @@
                                                 <th scope="col">Tahun</th>
                                                 <th scope="col">Perjam</th>
                                                 <th scope="col">Perhari</th>
-                                                <th scope="col">PerMinggu</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Kategori</th>
                                                 <th scope="col" style="text-align: center">Aksi</th>
@@ -103,7 +102,6 @@
                                                     <td>{{ $car->tahun }}</td>
                                                     <td>{{ $car->sewa_perjam }}</td>
                                                     <td>{{ $car->sewa_perhari }}</td>
-                                                    <td>{{ $car->sewa_perminggu }}</td>
                                                     <td>{{ $car->status }}</td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">

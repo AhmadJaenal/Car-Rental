@@ -83,11 +83,6 @@
                                                 placeholder="Sewa Perhari" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="sewa_perminggu">Sewa Perminggu</label>
-                                            <input type="number" class="form-control" name="sewa_perminggu" id="sewa_perminggu"
-                                                placeholder="Sewa Perminggu" required>
-                                        </div>
-                                        <div class="form-group">
                                             <label>File Foto Mobil</label>
                                             <div class="col-md-2">
                                                 <img id="previewMobil" style="visibility:hidden;"
