@@ -43,6 +43,11 @@ class TransactionController extends Controller
             $transactionData['id_user'] = $id_user;
             $transactionData['status_pembayaran'] = 'Diproses';
 
+            // penting
+            $data = Mobil::where('id_mobil', $id_mobil)->update([
+                'status' => 'rental',
+            ]);
+
             Transaction::create($transactionData);
             Session::flash('success', 'Transaksi berhasil');
             return back();

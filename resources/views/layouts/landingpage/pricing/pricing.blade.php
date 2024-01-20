@@ -66,69 +66,71 @@
                             </thead>
                             <tbody>
                                 @foreach ($cars as $car)
-                                    <tr class="">
-                                        <td class="car-image">
-                                            <div class="img"
-                                                style="background-image:url('images/mobil/{{ $car->gambar }}');"></div>
-                                        </td>
-                                        <td class="product-name">
-                                            <h3>{{ $car->merk }}</h3>
-                                            <p class="mb-0 rated">
-                                                <span>rated:</span>
-                                                <span class="ion-ios-star"></span>
-                                                <span class="ion-ios-star"></span>
-                                                <span class="ion-ios-star"></span>
-                                                <span class="ion-ios-star"></span>
-                                                <span class="ion-ios-star"></span>
-                                            </p>
-                                        </td>
+                                    @if ($car->status == 'aktif')
+                                        <tr class="">
+                                            <td class="car-image">
+                                                <div class="img"
+                                                    style="background-image:url('images/mobil/{{ $car->gambar }}');"></div>
+                                            </td>
+                                            <td class="product-name">
+                                                <h3>{{ $car->merk }}</h3>
+                                                <p class="mb-0 rated">
+                                                    <span>rated:</span>
+                                                    <span class="ion-ios-star"></span>
+                                                    <span class="ion-ios-star"></span>
+                                                    <span class="ion-ios-star"></span>
+                                                    <span class="ion-ios-star"></span>
+                                                    <span class="ion-ios-star"></span>
+                                                </p>
+                                            </td>
 
-                                        <td class="price">
-                                            @if (auth()->user())
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
-                                                        class="btn btn-primary">Rent a car</a>
-                                                </p>
-                                            @else
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('login') }}" class="btn btn-primary">
-                                                        Login
-                                                    </a>
-                                                </p>
-                                            @endif
-                                            <div class="price-rate">
-                                                <h3>
-                                                    <span class="num"><small class="currency">$</small>
-                                                        {{ $car->sewa_perjam }}</span>
-                                                    <span class="per">/per hour</span>
-                                                </h3>
-                                                <span class="subheading">$3/hour fuel surcharges</span>
-                                            </div>
-                                        </td>
-                                        <td class="price">
-                                            @if (auth()->user())
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
-                                                        class="btn btn-primary">Rent a car</a>
-                                                </p>
-                                            @else
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('login') }}" class="btn btn-primary">
-                                                        Login
-                                                    </a>
-                                                </p>
-                                            @endif
-                                            <div class="price-rate">
-                                                <h3>
-                                                    <span class="num"><small class="currency">$</small>
-                                                        {{ $car->sewa_perhari }}</span>
-                                                    <span class="per">/per day</span>
-                                                </h3>
-                                                <span class="subheading">$3/hour fuel surcharges</span>
-                                            </div>
-                                        </td>
+                                            <td class="price">
+                                                @if (auth()->user())
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
+                                                            class="btn btn-primary">Rent a car</a>
+                                                    </p>
+                                                @else
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('login') }}" class="btn btn-primary">
+                                                            Login
+                                                        </a>
+                                                    </p>
+                                                @endif
+                                                <div class="price-rate">
+                                                    <h3>
+                                                        <span class="num"><small class="currency">$</small>
+                                                            {{ $car->sewa_perjam }}</span>
+                                                        <span class="per">/per hour</span>
+                                                    </h3>
+                                                    <span class="subheading">$3/hour fuel surcharges</span>
+                                                </div>
+                                            </td>
+                                            <td class="price">
+                                                @if (auth()->user())
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
+                                                            class="btn btn-primary">Rent a car</a>
+                                                    </p>
+                                                @else
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('login') }}" class="btn btn-primary">
+                                                            Login
+                                                        </a>
+                                                    </p>
+                                                @endif
+                                                <div class="price-rate">
+                                                    <h3>
+                                                        <span class="num"><small class="currency">$</small>
+                                                            {{ $car->sewa_perhari }}</span>
+                                                        <span class="per">/per day</span>
+                                                    </h3>
+                                                    <span class="subheading">$3/hour fuel surcharges</span>
+                                                </div>
+                                            </td>
 
-                                    </tr><!-- END TR-->
+                                        </tr><!-- END TR-->
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
