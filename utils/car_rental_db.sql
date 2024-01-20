@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2024 at 01:25 PM
+-- Generation Time: Jan 20, 2024 at 02:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -198,7 +198,17 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_peminjam`, `nik`, `username`, `password`, `email`, `no_hp`, `foto_ktp`, `foto_diri`, `provinsi`, `kota`, `jalan`, `verifikasi`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Ahmad Jaenal', '$2y$12$nmI3f4sO1fqHMcRBJsqfoOw0DcXSZvX65ithfGbCE0milUZ110nVy', 'ahmadjaenal@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'eEPW5HEI1d', '2024-01-20 04:37:32', '2024-01-20 04:37:32'),
-(2, NULL, 'Stefan', '$2y$12$2Kze3rji92Vrujjn5uahsO1dtZcS7.QnNFTrItrIKN8as24VmMwNe', 'stefan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'cvLBRf8uGw', '2024-01-20 04:37:33', '2024-01-20 04:37:33');
+(2, '3278020405020004', 'Stefan', '$2y$12$2Kze3rji92Vrujjn5uahsO1dtZcS7.QnNFTrItrIKN8as24VmMwNe', 'stefan@gmail.com', '081234567890', 'ktp.png', 'stefan.jpg', 'Jawa Barat', 'Bandung', 'Taman Kopo Indah 1', 0, 'z1qfHAxa4z66SnyNE660j6GV7KNRxFa8dDIIAyPeUam4KDqUcPHcx19X5cu7', '2024-01-20 04:37:33', '2024-01-20 05:44:59'),
+(3, '3278020405020005', 'Albert', '$2y$12$ur9bk2m9v/ZhsAHlJRq4f.lBf6bdaqyLZsSD7ddPypx9/f5zg3apy', 'albert@gmail.com', '085678901234', 'ktp.png', 'albert.jpg', 'Jawa Barat', 'Bandung', 'Neglasari', 0, NULL, '2024-01-20 05:34:18', '2024-01-20 05:48:02'),
+(4, '3278020405020006', 'Belinda', '$2y$12$nx1jC7WLIf0oKrYw2lv5duqohEyLyz/VxBTCELB5MNWulcbCwe5V2', 'belinda@gmail.com', '087765432109', 'ktp.png', 'belinda.jpg', 'Jawa Barat', 'Bandung', 'Ayudia', 0, NULL, '2024-01-20 05:34:38', '2024-01-20 05:55:10'),
+(5, '3278020405020009', 'Christopher', '$2y$12$Q9SF60dJlP.B0z37g.ZVY.fPJccNQI0pPOBBZjihdDqwekbQ/8nXW', 'christopher@gmail.com', '081398765432', 'ktp.png', 'christopher.jpg', 'Jawa Barat', 'Bandung', 'Karangarum', 0, NULL, '2024-01-20 05:34:59', '2024-01-20 05:56:44'),
+(6, '3278020405020008', 'Daniel', '$2y$12$amXYWhX/Zklt2gvcp2quN.SvcHaNuLfV8oiF7LZnJROnpxSYOLjve', 'daniel@gmail.com', '089932108765', 'ktp.png', 'daniel.jpg', 'Jawa Barat', 'Bandung', 'Banceuy', 0, NULL, '2024-01-20 05:35:28', '2024-01-20 05:58:25'),
+(7, NULL, 'Eunike', '$2y$12$WIISOaeaX.bA4Ua4nFwnkOFNXqaVqjjn854DTnUj0Ej.sAZT5tHBK', 'eunike@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:05', '2024-01-20 05:36:05'),
+(8, NULL, 'Feliks', '$2y$12$yyvnIf8Ui35LkAUrJLimq.JdoCETC2ZiaDxjZDcnyQF41HimX6p5e', 'feliks@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:15', '2024-01-20 05:36:15'),
+(9, NULL, 'Giberto', '$2y$12$2TjXTbnAOmHwjSDwJmiwOe/6pJP6DZBwu0j.d5Z3mWGRfmJHzI3S6', 'giberto@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:27', '2024-01-20 05:36:27'),
+(10, NULL, 'Handi', '$2y$12$GGVUq07g3gosCTlGmJSNGuJUl7IdwKOOQ5pMHtoV/e9Uf1eQxePHy', 'handi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:45', '2024-01-20 05:36:45'),
+(11, NULL, 'Janice', '$2y$12$NdtLx.NJYcZgkSWkuVWPKe63TwbCMi2IAwO6HC.NzL7y1sGnsKMAq', 'janice@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:37:41', '2024-01-20 05:37:41'),
+(12, NULL, 'kevin', '$2y$12$IUeA1Knj5xlrZa6xigI0YOIkZ9YrAxl6RgBbv0o0Sueo5rxTOZA5e', 'kevin@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:37:53', '2024-01-20 05:37:53');
 
 --
 -- Indexes for dumped tables
@@ -294,7 +304,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_peminjam` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_peminjam` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
