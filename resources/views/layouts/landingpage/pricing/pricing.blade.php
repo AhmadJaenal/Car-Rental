@@ -69,7 +69,7 @@
                                     <tr class="">
                                         <td class="car-image">
                                             <div class="img"
-                                                style="background-image:url(images/mobil/{{ $car->gambar }});"></div>
+                                                style="background-image:url('images/mobil/{{ $car->gambar }}');"></div>
                                         </td>
                                         <td class="product-name">
                                             <h3>{{ $car->merk }}</h3>
