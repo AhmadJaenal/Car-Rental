@@ -57,7 +57,7 @@
                         <input type="text" class="form-control" id="name" name="name" required
                             value="@if (auth()->user()) {{ auth()->user()->username }} @endif" readonly>
                         <label for="merek" class="col-form-label">Merek</label>
-                        <input type="text" class="form-control" id="merek" value="{{ $car->merk }}" required>
+                        <input type="text" class="form-control" id="merek" value="{{ $car->merk }}" readonly>
                         <label for="tgl_rental" class="col-form-label">Mulai Tanggal</label>
                         <input type="date" class="form-control" id="tgl_rental" name="tgl_rental" required>
 
@@ -124,7 +124,7 @@
                         </div> --}}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary">Close</button>
+                        <a href="{{ route('pricing') }}" class="btn btn-secondary">Cancel</a>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
