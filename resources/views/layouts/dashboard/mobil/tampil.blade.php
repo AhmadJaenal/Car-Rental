@@ -107,9 +107,6 @@
                                                     <td class="text-center">
                                                         <a href="/editmobil{{ $car->id_mobil }}"
                                                             class="btn btn-info">Edit</a>
-                                                        <a href="#" id="delete" class="btn btn-danger delete"
-                                                            data-id={{ $car->id_mobil }}
-                                                            data-noplat='{{ $car->no_plat }}'>Delete</a>
                                                     </td>
                                                 </tr>
                                                 @php
