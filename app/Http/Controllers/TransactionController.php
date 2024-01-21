@@ -87,4 +87,10 @@ class TransactionController extends Controller
         ]);
         return back();
     }
+
+    public function historyTransactions()
+    {
+        $transactions = Transaction::all();
+        return view('layouts.landingpage.history-transaction.history', compact('transactions'));
+    }
 }

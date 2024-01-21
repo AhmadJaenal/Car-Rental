@@ -57,7 +57,8 @@ Route::get('/reject{id}', [VerificationUser::class, 'rejectDataRequest'])->name(
 Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
 Route::post('/request-verification', [FormRequestController::class, 'requestVerificationAction'])->name('requestVerificationAction');
 
-
+// History Transaction
+Route::get('/history-transaction', [TransactionController::class, 'historyTransactions'])->name('historyTransactions');
 
 
 
