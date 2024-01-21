@@ -27,6 +27,7 @@
 </style>
 </head>
 <body>
+  <h1 style="text-align: center">Data Mobil</h1>
 <table id="customers">
   <tr>
     <th>No.</th>
@@ -36,7 +37,6 @@
     <th>Tahun</th>
     <th>Perjam</th>
     <th>Perhari</th>
-    <th>Perminggu</th>
     <th>Status</th>
     <th>Kategori</th>
   </tr>
@@ -52,7 +52,6 @@
     <td>{{ $car->tahun }}</td>
     <td>{{ $car->sewa_perjam }}</td>
     <td>{{ $car->sewa_perhari }}</td>
-    <td>{{ $car->sewa_perminggu }}</td>
     <td>{{ $car->status }}</td>
     <td>{{ $car->id_kategori }}</td>
   </tr>

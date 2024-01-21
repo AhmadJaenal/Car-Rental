@@ -110,7 +110,7 @@ class MobilController
         $cars = Mobil::all();
         view()->share('cars', $cars);
         $pdf = Pdf::loadView('layouts/dashboard/mobil/tampil-pdf')->setPaper('a4', 'landscape');
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('data-mobil.pdf');
     }
 
     // public function pdf(){
