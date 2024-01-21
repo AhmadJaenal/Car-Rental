@@ -107,11 +107,6 @@
                                             <input type="text" class="form-control" name="id_kategori" value="{{$data->id_kategori}}"
                                                 id="id_kategori" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="status">Status</label>
-                                            <input type="text" class="form-control" name="status" value="{{$data->status}}"
-                                                id="status" required>
-                                        </div>
                                         <button type="submit" class="btn btn-primary mr-2">Kirim</button>
                                         <a class="btn btn-light" href="{{route('tampilmobil')}}">Batal</a>
                                     </form>

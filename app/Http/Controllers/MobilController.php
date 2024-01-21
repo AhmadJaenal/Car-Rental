@@ -16,29 +16,20 @@ class MobilController
                 $query->where('merk', 'LIKE', '%' . $request->search . '%')
                     ->orWhere('no_plat', 'LIKE', '%' . $request->search . '%')
                     ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
                     ->orWhere('status', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
                     ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
-            })->paginate(5);
+                })->where(function ($query) use ($request) {
+                    $query->where('status', 'LIKE', '%' . 'aktif' . '%')
+                        ->orWhere('status', 'LIKE', '%' . 'rental' . '%');
+                })->paginate(5);
         } else {
-            $cars = Mobil::paginate(5);
+            $cars = Mobil::where(function ($query) use ($request) {
+                $query->where('status', 'LIKE', '%' . 'aktif' . '%')
+                    ->orWhere('status', 'LIKE', '%' . 'rental' . '%');
+            })->paginate(5);
         }
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
-    }
-
-    public function tampilusermobil(Request $request)
-    {
-        if ($request->has('search')) {
-            $cars = Mobil::where(function ($query) use ($request) {
-                $query->where('merk', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('warna', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
-            })->where('status', 'aktif')->paginate(5);
-        } else {
-            $cars = Mobil::paginate(5);
-        }
-        return view('layouts.dashboard.mobil.tampil_user', ['cars' => $cars]);
     }
 
     public function tambahmobil()
@@ -76,8 +67,11 @@ class MobilController
 
     public function hapusmobil($id_mobil)
     {
-        $data = Mobil::where('id_mobil', $id_mobil);
-        $data->delete();
+        // $data = Mobil::where('id_mobil', $id_mobil);
+        // $data->delete();
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'dihapus',
+        ]);
 
         return redirect()->route('tampilmobil')->with('successdelete', 'Data Berhasil Di Delete');
     }
@@ -97,7 +91,6 @@ class MobilController
             'tahun' => $request->tahun,
             'sewa_perjam' => $request->sewa_perjam,
             'sewa_perhari' => $request->sewa_perhari,
-            'status' => $request->status,
             'id_kategori' => $request->id_kategori
         ]);
 
