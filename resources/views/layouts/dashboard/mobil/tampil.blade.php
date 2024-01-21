@@ -103,7 +103,26 @@
                                                     <td>{{ $car->tahun }}</td>
                                                     <td>{{ $car->sewa_perjam }}</td>
                                                     <td>{{ $car->sewa_perhari }}</td>
-                                                    <td>{{ $car->status }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button
+                                                                class="btn @if ($car->status == 'aktif') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                type="button" id="dropdownMenuSizeButton3"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                @if ($car->status == 'aktif')
+                                                                    Aktif
+                                                                @else
+                                                                    Rental
+                                                                @endif
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuSizeButton3">
+                                                                <a class="dropdown-item" href="{{ route('statusAktifMobil', ['id_mobil' => $car->id_mobil]) }}">Aktif</a>
+                                                                <a class="dropdown-item" href="{{ route('statusRentalMobil', ['id_mobil' => $car->id_mobil]) }}">Rental</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">
                                                         <a href="/editmobil{{ $car->id_mobil }}"
