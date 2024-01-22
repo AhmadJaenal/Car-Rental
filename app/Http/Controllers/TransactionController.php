@@ -41,9 +41,11 @@ class TransactionController extends Controller
 
             $transactionData['id_mobil'] = $id_mobil;
             $transactionData['id_user'] = $id_user;
-            $transactionData['status_pembayaran'] = 'Diproses';
+            $transactionData['status_pembayaran'] = 'Tidak';
+            $transactionData['status_sewa'] = 'Diproses';
+            $transactionData['status_pengembalian'] = 'Belum diambil';
 
-            // penting
+
             $data = Mobil::where('id_mobil', $id_mobil)->update([
                 'status' => 'rental',
             ]);
