@@ -53,16 +53,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-borderless">
+                                    <table class="table table-borderless">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>ID Peminjam</th>
                                                 <th>ID Mobil</th>
-                                                <th>ID Admin</th>
                                                 <th>Tanggal Rental</th>
                                                 <th>Tanggal Kembali</th>
-                                                <th>Jam</th>
+                                                <th>Jam Mulai</th>
+                                                <th>Jam Selesai</th>
                                                 <th>Biaya Sewa Mobil</th>
                                                 <th>Total</th>
                                                 <th>Denda</th>
@@ -78,12 +77,11 @@
                                             @foreach ($transactions as $tr)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $tr->id_user }}</td>
-                                                    <td>{{ $tr->id_mobil }}</td>
-                                                    <td>{{ $tr->id_admin }}</td>
+                                                    <td> {{ \App\Models\Mobil::find($tr->id_mobil)->merk }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
                                                     <td>{{ $tr->jam_mulai }}</td>
+                                                    <td>{{ $tr->jam_selesai }}</td>
                                                     <td>{{ $tr->biaya_sewa }}</td>
                                                     <td>{{ $tr->total }}</td>
                                                     <td>{{ $tr->denda }}</td>
@@ -92,7 +90,7 @@
                                                     <td>
                                                         <div class="dropdown">
                                                             <button
-                                                                class="btn @if ($tr->status_pembayaran == 'Lunas') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                class="btn @if ($tr->status_pembayaran == 'Lunas') btn-success @else btn-danger @endif  btn-sm"
                                                                 type="button" id="dropdownMenuSizeButton3"
                                                                 data-toggle="dropdown" aria-haspopup="true"
                                                                 aria-expanded="false">
@@ -101,14 +99,7 @@
                                                                 @else
                                                                     Belum Lunas
                                                                 @endif
-                                                            </button>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuSizeButton3">
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('acceptPayment', ['id' => $tr->id_transaksi]) }}">Ya</a>
-                                                                <a class="dropdown-item"
-                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Tidak</a>
-                                                            </div>
+                                                        </button>
                                                         </div>
                                                     </td>
                                                 </tr>
