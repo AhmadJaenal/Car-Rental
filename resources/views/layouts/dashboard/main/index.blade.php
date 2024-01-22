@@ -94,7 +94,7 @@
                                     <div class="card card-tale">
                                         <div class="card-body">
                                             <p class="mb-4">Today’s Bookings</p>
-                                            <p class="fs-30 mb-2">4006</p>
+                                            <p class="fs-30 mb-2">{{ $transaction_day }}</p>
                                             <p>10.00% (30 days)</p>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                     <div class="card card-dark-blue">
                                         <div class="card-body">
                                             <p class="mb-4">Total Bookings</p>
-                                            <p class="fs-30 mb-2">61344</p>
+                                            <p class="fs-30 mb-2">{{ $transaction_month }}</p>
                                             <p>22.00% (30 days)</p>
                                         </div>
                                     </div>
