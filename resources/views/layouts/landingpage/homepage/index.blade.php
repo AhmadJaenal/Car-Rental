@@ -159,9 +159,9 @@
                                     <div class="text">
                                         <h2 class="mb-0"><a href="#">{{ $car->merk }}</a></h2>
                                         <div class="mb-3">
-                                            <p class="price ml-auto">${{ $car->sewa_perjam }} <span>/day</span></p>
+                                            <p class="price ml-auto">${{ $car->sewa_perhari }} <span>/day</span></p>
                                         </div>
-                                        <p class="d-flex mb-0 d-block"><a href="#"
+                                        <p class="d-flex mb-0 d-block"><a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
                                                 class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
                                                 class="btn btn-secondary py-2 ml-1">Details</a></p>
                                     </div>
