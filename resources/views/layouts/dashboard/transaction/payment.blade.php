@@ -47,9 +47,9 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>ID Peminjam</th>
-                                                <th>ID Mobil</th>
-                                                <th>ID Admin</th>
+                                                <th>Peminjam</th>
+                                                <th>NOPOL</th>
+                                                <th>Admin</th>
                                                 <th>Tanggal Rental</th>
                                                 <th>Tanggal Kembali</th>
                                                 <th>Jam</th>
@@ -68,8 +68,8 @@
                                             @foreach ($transactions as $tr)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $tr->id_user }}</td>
-                                                    <td>{{ $tr->id_mobil }}</td>
+                                                    <td>{{ \App\Models\User::find($tr->id_user)->username }}</td>
+                                                    <td>{{ \App\Models\Mobil::find($tr->id_mobil)->no_plat }}</td>
                                                     <td>{{ $tr->id_admin }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
@@ -95,9 +95,9 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuSizeButton3">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('acceptPayment', ['id' => $tr->id_transaksi]) }}">Ya</a>
+                                                                    href="{{ route('acceptPayment', ['id' => $tr->id_transaksi]) }}">Lunas</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Tidak</a>
+                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Belum Lunas</a>
                                                             </div>
                                                         </div>
                                                     </td>

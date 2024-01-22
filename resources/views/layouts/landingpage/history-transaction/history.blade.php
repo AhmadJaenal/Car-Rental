@@ -77,7 +77,7 @@
                                             @foreach ($transactions as $tr)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td> {{ \App\Models\Mobil::find($tr->id_mobil)->merk }}</td>
+                                                    <td>{{ \App\Models\Mobil::find($tr->id_mobil)->merk }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
                                                     <td>{{ $tr->jam_mulai }}</td>
