@@ -91,7 +91,4 @@ Route::get('/hapusmobil{id_mobil}', [MobilController::class, 'hapusmobil'])->nam
 Route::get('/editmobil{id_mobil}', [MobilController::class, 'editmobil'])->name('editmobil');
 Route::post('/editdatamobil{id_mobil}', [MobilController::class, 'editdatamobil'])->name('editdatamobil');
 
-Route::get('/status-aktif-mobil{id_mobil}', [MobilController::class, 'statusAktifMobil'])->name('statusAktifMobil');
-Route::get('/status-rental-mobil{id_mobil}', [MobilController::class, 'statusRentalMobil'])->name('statusRentalMobil');
-
 Route::get('/pdf', [MobilController::class, 'pdf'])->name('pdf');

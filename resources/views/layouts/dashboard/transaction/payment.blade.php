@@ -41,7 +41,18 @@
                     <div class="grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-title mb-0">Top Products</p>
+                                <h4 class="card-title">Data Transaksi</h4>
+                                    <form action="{{ route('payment') }}" method="GET">
+                                        <div class="input-group">
+                                            <button type="submit" class="btn btn-outline-secondary rounded-0">
+                                                <i class="icon-search"></i>
+                                                </span>
+                                            </button>
+                                            <input type="text" class="form-control" name="search" id="search"
+                                                placeholder="Search now" aria-label="search" aria-describedby="search"
+                                                autofocus>
+                                        </div>
+                                    </form>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-borderless">
                                         <thead>

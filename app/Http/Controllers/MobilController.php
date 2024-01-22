@@ -118,16 +118,4 @@ class MobilController
     //     $pdf->loadHTML('<h1>Test</h1>');
     //     return $pdf->stream();
     // }
-
-    public function statusAktifMobil($id_mobil)
-    {
-        $data = Mobil::where('id_mobil', $id_mobil)->update(['status' => 'aktif']);
-        return back();
-    }
-
-    public function statusRentalMobil($id_mobil)
-    {
-        $data = Mobil::where('id_mobil', $id_mobil)->update(['status' => 'Rental']);
-        return back();
-    }
 }

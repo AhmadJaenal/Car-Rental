@@ -10,9 +10,21 @@ use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
 {
-    public function payment()
-    {
-        $transactions = Transaction::all();
+    public function payment(Request $request)
+    {   
+        if ($request->has('search')) {
+            $transactions = Transaction::query()
+                            ->where('id_mobil', 'LIKE', "%$request->search%")
+                            ->orWhere('id_user', 'LIKE', "%$request->search%")
+                            ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
+                            ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
+                            ->orWhere('status_pembayaran', 'LIKE', "%$request->search%")
+                            ->orWhere('status_sewa', 'LIKE', "%$request->search%")
+                            ->orWhere('status_pengembalian', 'LIKE', "%$request->search%")
+                            ->get();
+        } else {
+            $transactions = Transaction::all();
+        }
         return view('layouts.dashboard.transaction.payment', compact('transactions'));
     }
 
