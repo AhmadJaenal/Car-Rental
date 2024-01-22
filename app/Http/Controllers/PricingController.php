@@ -9,7 +9,7 @@ class PricingController extends Controller
 
     public function pricing()
     {
-        $carsData = Mobil::all()->where('status', 'Tersedia');
+        $carsData = Mobil::all();
         return view('layouts.landingpage.pricing.pricing', ['cars' => $carsData]);
     }
 }
