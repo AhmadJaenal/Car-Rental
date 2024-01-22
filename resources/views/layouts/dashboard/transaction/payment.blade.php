@@ -49,13 +49,12 @@
                                                 <th>No</th>
                                                 <th>Peminjam</th>
                                                 <th>NOPOL</th>
-                                                <th>Admin</th>
                                                 <th>Tanggal Rental</th>
                                                 <th>Tanggal Kembali</th>
                                                 <th>Jam</th>
                                                 <th>Biaya Sewa Mobil</th>
-                                                <th>Total</th>
                                                 <th>Denda</th>
+                                                <th>Total</th>
                                                 <th>Status Peminjaman</th>
                                                 <th>Status Pengembalian</th>
                                                 <th>Status Pembayaran</th>
@@ -70,13 +69,12 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ \App\Models\User::find($tr->id_user)->username }}</td>
                                                     <td>{{ \App\Models\Mobil::find($tr->id_mobil)->no_plat }}</td>
-                                                    <td>{{ $tr->id_admin }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
                                                     <td>{{ $tr->jam_mulai }}</td>
                                                     <td>{{ $tr->biaya_sewa }}</td>
-                                                    <td>{{ $tr->total }}</td>
                                                     <td>{{ $tr->denda }}</td>
+                                                    <td>{{ $tr->total }}</td>
                                                     <td>{{ $tr->status_sewa }}</td>
                                                     <td>{{ $tr->status_pengembalian }}</td>
                                                     <td>
