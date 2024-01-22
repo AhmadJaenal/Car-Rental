@@ -85,7 +85,51 @@ class TransactionController extends Controller
     {
         $transactionData = Transaction::find($id);
         $transactionData->update([
-            'verifikasi' => 'Belum Lunas',
+            'status_pembayaran' => 'Belum Lunas',
+        ]);
+        return back();
+    }
+
+    public function acceptSewa($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_sewa' => 'Diterima',
+        ]);
+        return back();
+    }
+
+    public function rejectSewa($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_sewa' => 'Ditolak',
+        ]);
+        return back();
+    }
+
+    public function acceptPengembalian($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_pengembalian' => 'Sudah',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'aktif',
+        ]);
+        return back();
+    }
+
+    public function rejectPengembalian($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_pengembalian' => 'Belum',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'rental',
         ]);
         return back();
     }

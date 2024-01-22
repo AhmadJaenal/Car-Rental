@@ -47,6 +47,12 @@ Route::get('/form-transaction-hour', [TransactionController::class, 'formTransac
 Route::get('/payment-accept{id}', [TransactionController::class, 'acceptPayment'])->name('acceptPayment');
 Route::get('/payment-reject{id}', [TransactionController::class, 'rejectPayment'])->name('rejectPayment');
 
+Route::get('/status-sewa-accept{id}', [TransactionController::class, 'acceptSewa'])->name('acceptSewa');
+Route::get('/status-sewa-reject{id}', [TransactionController::class, 'rejectSewa'])->name('rejectSewa');
+Route::get('/status-pengembalian-accept{id}', [TransactionController::class, 'acceptPengembalian'])->name('acceptPengembalian');
+Route::get('/status-pengembalian-reject{id}', [TransactionController::class, 'rejectPengembalian'])->name('rejectPengembalian');
+
+
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
 Route::get('/accept{id}', [VerificationUser::class, 'acceptDataRequest'])->name('acceptDataRequest');
