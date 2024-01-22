@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Mobil;
 use App\Models\Transaction;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
@@ -148,7 +149,8 @@ class TransactionController extends Controller
 
     public function historyTransactions()
     {
-        $transactions = Transaction::all();
+        $id_user = Auth::user()->id_peminjam;
+        $transactions = Transaction::where('id_user', $id_user)->get();
         return view('layouts.landingpage.history-transaction.history', compact('transactions'));
     }
 }
