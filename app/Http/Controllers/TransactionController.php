@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Mobil;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
@@ -14,9 +15,10 @@ class TransactionController extends Controller
     public function payment(Request $request)
     {   
         if ($request->has('search')) {
+            $id_user = User::where('username', $request->search)->value('id_peminjam');
             $transactions = Transaction::query()
                             ->where('id_mobil', 'LIKE', "%$request->search%")
-                            ->orWhere('id_user', 'LIKE', "%$request->search%")
+                            ->orWhere('id_user', 'LIKE', "%$id_user%")
                             ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
                             ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
                             ->orWhere('status_pembayaran', 'LIKE', "%$request->search%")
@@ -60,7 +62,7 @@ class TransactionController extends Controller
 
 
             $data = Mobil::where('id_mobil', $id_mobil)->update([
-                'status' => 'rental',
+                'status' => 'Dipesan',
             ]);
 
             Transaction::create($transactionData);
@@ -109,6 +111,10 @@ class TransactionController extends Controller
         $transactionData->update([
             'status_sewa' => 'Diterima',
         ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Disewa',
+        ]);
         return back();
     }
 
@@ -117,6 +123,10 @@ class TransactionController extends Controller
         $transactionData = Transaction::find($id);
         $transactionData->update([
             'status_sewa' => 'Ditolak',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Tersedia',
         ]);
         return back();
     }
@@ -129,7 +139,7 @@ class TransactionController extends Controller
         ]);
         $id_mobil = $transactionData->id_mobil;
         $data = Mobil::where('id_mobil', $id_mobil)->update([
-            'status' => 'aktif',
+            'status' => 'Tersedia',
         ]);
         return back();
     }
@@ -142,7 +152,7 @@ class TransactionController extends Controller
         ]);
         $id_mobil = $transactionData->id_mobil;
         $data = Mobil::where('id_mobil', $id_mobil)->update([
-            'status' => 'rental',
+            'status' => 'Disewa',
         ]);
         return back();
     }

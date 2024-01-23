@@ -20,13 +20,15 @@ class MobilController
                     ->orWhere('tahun', 'LIKE', '%' . $request->search . '%')
                     ->orWhere('id_kategori', 'LIKE', '%' . $request->search . '%');
                 })->where(function ($query) use ($request) {
-                    $query->where('status', 'LIKE', '%' . 'aktif' . '%')
-                        ->orWhere('status', 'LIKE', '%' . 'rental' . '%');
+                    $query->where('status', 'LIKE', '%' . 'Tersedia' . '%')
+                        ->orWhere('status', 'LIKE', '%' . 'Dipesan' . '%')
+                        ->orWhere('status', 'LIKE', '%' . 'Disewa' . '%');
                 })->paginate(5);
         } else {
             $cars = Mobil::where(function ($query) use ($request) {
-                $query->where('status', 'LIKE', '%' . 'aktif' . '%')
-                    ->orWhere('status', 'LIKE', '%' . 'rental' . '%');
+                    $query->where('status', 'LIKE', '%' . 'Tersedia' . '%')
+                            ->orWhere('status', 'LIKE', '%' . 'Dipesan' . '%')
+                            ->orWhere('status', 'LIKE', '%' . 'Disewa' . '%');
             })->paginate(5);
         }
         return view('layouts.dashboard.mobil.tampil', ['cars' => $cars]);
