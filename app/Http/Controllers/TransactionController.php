@@ -38,6 +38,18 @@ class TransactionController extends Controller
         return view('layouts.dashboard.transaction.payment', compact('transactions'));
     }
 
+    public function transactionAdminDay($id_mobil)
+    {
+        $carData = Mobil::where('id_mobil', $id_mobil)->get();
+        return view('layouts.dashboard.transaction.transaction_day', compact('carData'));
+    }
+
+    public function transactionAdminHour($id_mobil)
+    {
+        $carData = Mobil::where('id_mobil', $id_mobil)->get();
+        return view('layouts.dashboard.transaction.transaction_hour', compact('carData'));
+    }
+
     public function transaction(Request $request, $id_mobil, $jenis_sewa)
     {
         $id_user = Auth()->user()->id_peminjam;

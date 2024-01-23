@@ -80,48 +80,6 @@
                                 Pembayaran cash dilakukan ditempat saat pengambilan mobil
                             </label>
                         </div>
-                        {{-- <label for="paymentMethod" class="col-form-label">Metode Pembayaran</label> --}}
-                        {{-- <div class="col-form-label">
-                            <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="paymentMethod"
-                                    id="transferOption" value="option1" onclick="showTransferDetails()">
-                                <label class="form-check-label" for="transferOption" id="transferLabel">
-                                    Transfer
-                                </label>
-                            </div>
-                            <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="cashOption"
-                                    value="option2" onclick="showCashDetails()">
-                                <label class="form-check-label" for="cashOption" id="cashLabel">
-                                    Cash
-                                </label>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div id="transferDetails" style="display: none;">
-                            <label>
-                                Transfer sesuai dengan total ke
-                                <strong>12348723402</strong>
-                                atas nama
-                                <strong>Aawaall</strong>
-                                dan kirim bukti pembayaran
-                                <br>
-                                <img id="previewiTf" style="visibility:hidden;" class="rounded mx-auto d-block mt-2"
-                                    width="200" alt="buktiPembayaran">
-                                <div class="mb-3">
-                                    <label for="buktiPembayaran" class="form-label">Upload bukti pembayaran</label>
-                                    <input class="form-control" type="file" id="buktiPembayaran"
-                                        name="buktiPembayaran" onchange="previewImage('previewiTf','buktiPembayaran')"
-                                        accept="image/*">
-                                </div>
-                            </label>
-                        </div>
-
-                        <div id="cashDetails" style="display: none;">
-                            <label>
-                                Pembayaran cash dilakukan ditempat saat pengambilan mobil
-                            </label>
-                        </div> --}}
                     </div>
                     <div class="modal-footer">
                         <a href="{{ route('pricing') }}" class="btn btn-secondary">Cancel</a>

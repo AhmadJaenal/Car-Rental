@@ -104,27 +104,68 @@
                                                     <td>{{ $car->sewa_perjam }}</td>
                                                     <td>{{ $car->sewa_perhari }}</td>
                                                     <td>
-                                                        <div class="dropdown">
-                                                            <button
-                                                                class="btn @if ($car->status == 'Tersedia') btn-success @elseif ($car->status == 'Dipesan') btn-warning @else btn-secondary @endif  btn-sm"
-                                                                class="btn @if ($car->status == 'aktif') btn-success @else btn-danger @endif  btn-sm"
-                                                                type="button" id="dropdownMenuSizeButton3"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                @if ($car->status == 'Tersedia')
-                                                                    Tersedia
-                                                                @elseif ($car->status == 'Dipesan')
-                                                                    Dipesan
-                                                                @else
-                                                                    Disewa
-                                                                @endif
-                                                            </button>
-                                                        </div>
+
+                                                        @if ($car->status == 'Tersedia')
+                                                            <a href="#" class="btn btn-success btn-sm"
+                                                                data-toggle="modal" data-target="#exampleModal">
+                                                                Tersedia</a>
+
+
+                                                            {{-- <div class="modal-dialog modal-sm">
+                                                                    <div class="modal-content">
+                                                                        <a href="{{ route('transactionAdminDay', ['id_mobil' => $car->id_mobil]) }}"
+                                                                            id="sewaPerHari"
+                                                                            class="btn btn-primary mr-2">Sewa Per
+                                                                            Hari</a>
+
+                                                                        <a href="{{ route('transactionAdminHour', ['id_mobil' => $car->id_mobil]) }}"
+                                                                            id="sewaPerJam" class="btn btn-primary">Sewa
+                                                                            Per Jam</a>
+                                                                    </div>
+                                                                </div> --}}
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                role="dialog" aria-labelledby="exampleModalLabel"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel">Pilih jenis
+                                                                                penyewaan mobil
+                                                                            </h5>
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <a href="{{ route('transactionAdminDay', ['id_mobil' => $car->id_mobil]) }}"
+                                                                                id="sewaPerHari"
+                                                                                class="btn btn-primary mr-2">Sewa Per
+                                                                                Hari</a>
+                                                                            <a href="{{ route('transactionAdminHour', ['id_mobil' => $car->id_mobil]) }}"
+                                                                                id="sewaPerJam"
+                                                                                class="btn btn-primary">Sewa
+                                                                                Per Jam</a>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @elseif($car->status == 'Dipesan')
+                                                            <button class="btn btn-warning btn-sm">Dipesan</button>
+                                                        @else
+                                                            <button class="btn btn-secondary btn-sm">Disewa</button>
+                                                        @endif
                                                     </td>
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">
                                                         <a href="/editmobil{{ $car->id_mobil }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-info">Edit</a>
                                                         <a href="#" id="delete"class="btn btn-danger delete"
                                                             data-id="{{ $car->id_mobil }}"
                                                             data-noplat="{{ $car->no_plat }}">Delete</a>

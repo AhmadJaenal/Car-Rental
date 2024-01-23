@@ -42,6 +42,8 @@ Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('act
 // Transaction
 Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
 Route::post('/transaction/{id_mobil}/{jenis_sewa}', [TransactionController::class, 'transaction'])->name('transaction');
+Route::get('/transaction-admin-day{id_mobil}', [TransactionController::class, 'transactionAdminDay'])->name('transactionAdminDay');
+Route::get('/transaction-admin-hour{id_mobil}', [TransactionController::class, 'transactionAdminHour'])->name('transactionAdminHour');
 Route::get('/invoice{id}', [TransactionController::class, 'invoice'])->name('printInvoice');
 Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay');
 Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour');

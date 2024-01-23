@@ -53,6 +53,7 @@
                                             autofocus>
                                     </div>
                                 </form>
+
                                 <div class="table-responsive">
                                     <table class="table table-striped table-borderless">
                                         <thead>
