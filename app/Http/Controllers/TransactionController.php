@@ -15,9 +15,16 @@ class TransactionController extends Controller
     public function payment(Request $request)
     {   
         if ($request->has('search')) {
-            $id_user = User::where('username', $request->search)->value('id_peminjam');
+            $id_user = User::where('username', 'LIKE', "%$request->search%")->value('id_peminjam');
+            $id_mobil = Mobil::where('no_plat', 'LIKE', "%$request->search%")->value('id_mobil');
+            if ($id_user === null) {
+                $id_user = 'false';
+            } 
+            if ($id_mobil === null) {
+                $id_mobil = 'false';
+            } 
             $transactions = Transaction::query()
-                            ->where('id_mobil', 'LIKE', "%$request->search%")
+                            ->where('id_mobil', 'LIKE', "%$id_mobil%")
                             ->orWhere('id_user', 'LIKE', "%$id_user%")
                             ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
                             ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
