@@ -63,6 +63,7 @@ class TransactionController extends Controller
 
             $transactionData['id_mobil'] = $id_mobil;
             $transactionData['id_user'] = $id_user;
+            $transactionData['id_admin'] = 1;
             $transactionData['status_pembayaran'] = 'Tidak';
             $transactionData['status_sewa'] = 'Diproses';
             $transactionData['status_pengembalian'] = 'Belum diambil';
