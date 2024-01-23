@@ -2,17 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Mobil;
 use App\Models\Transaction;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
 {
-    public function payment()
-    {
-        $transactions = Transaction::all();
+    public function payment(Request $request)
+    {   
+        if ($request->has('search')) {
+            $id_user = User::where('username', 'LIKE', "%$request->search%")->value('id_peminjam');
+            $id_mobil = Mobil::where('no_plat', 'LIKE', "%$request->search%")->value('id_mobil');
+            if ($id_user === null) {
+                $id_user = 'false';
+            } 
+            if ($id_mobil === null) {
+                $id_mobil = 'false';
+            } 
+            $transactions = Transaction::query()
+                            ->where('id_mobil', 'LIKE', "%$id_mobil%")
+                            ->orWhere('id_user', 'LIKE', "%$id_user%")
+                            ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
+                            ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
+                            ->orWhere('status_pembayaran', 'LIKE', "%$request->search%")
+                            ->orWhere('status_sewa', 'LIKE', "%$request->search%")
+                            ->orWhere('status_pengembalian', 'LIKE', "%$request->search%")
+                            ->get();
+        } else {
+            $transactions = Transaction::all();
+        }
         return view('layouts.dashboard.transaction.payment', compact('transactions'));
     }
 
@@ -47,7 +69,7 @@ class TransactionController extends Controller
 
 
             $data = Mobil::where('id_mobil', $id_mobil)->update([
-                'status' => 'rental',
+                'status' => 'Dipesan',
             ]);
 
             Transaction::create($transactionData);
@@ -85,14 +107,67 @@ class TransactionController extends Controller
     {
         $transactionData = Transaction::find($id);
         $transactionData->update([
-            'verifikasi' => 'Belum Lunas',
+            'status_pembayaran' => 'Belum Lunas',
+        ]);
+        return back();
+    }
+
+    public function acceptSewa($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_sewa' => 'Diterima',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Disewa',
+        ]);
+        return back();
+    }
+
+    public function rejectSewa($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_sewa' => 'Ditolak',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Tersedia',
+        ]);
+        return back();
+    }
+
+    public function acceptPengembalian($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_pengembalian' => 'Sudah',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Tersedia',
+        ]);
+        return back();
+    }
+
+    public function rejectPengembalian($id)
+    {
+        $transactionData = Transaction::find($id);
+        $transactionData->update([
+            'status_pengembalian' => 'Belum',
+        ]);
+        $id_mobil = $transactionData->id_mobil;
+        $data = Mobil::where('id_mobil', $id_mobil)->update([
+            'status' => 'Disewa',
         ]);
         return back();
     }
 
     public function historyTransactions()
     {
-        $transactions = Transaction::all();
+        $id_user = Auth::user()->id_peminjam;
+        $transactions = Transaction::where('id_user', $id_user)->get();
         return view('layouts.landingpage.history-transaction.history', compact('transactions'));
     }
 }

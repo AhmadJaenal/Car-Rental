@@ -47,6 +47,12 @@ Route::get('/form-transaction-hour', [TransactionController::class, 'formTransac
 Route::get('/payment-accept{id}', [TransactionController::class, 'acceptPayment'])->name('acceptPayment');
 Route::get('/payment-reject{id}', [TransactionController::class, 'rejectPayment'])->name('rejectPayment');
 
+Route::get('/status-sewa-accept{id}', [TransactionController::class, 'acceptSewa'])->name('acceptSewa');
+Route::get('/status-sewa-reject{id}', [TransactionController::class, 'rejectSewa'])->name('rejectSewa');
+Route::get('/status-pengembalian-accept{id}', [TransactionController::class, 'acceptPengembalian'])->name('acceptPengembalian');
+Route::get('/status-pengembalian-reject{id}', [TransactionController::class, 'rejectPengembalian'])->name('rejectPengembalian');
+
+
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
 Route::get('/accept{id}', [VerificationUser::class, 'acceptDataRequest'])->name('acceptDataRequest');
@@ -84,8 +90,5 @@ Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->na
 Route::get('/hapusmobil{id_mobil}', [MobilController::class, 'hapusmobil'])->name('hapusmobil');
 Route::get('/editmobil{id_mobil}', [MobilController::class, 'editmobil'])->name('editmobil');
 Route::post('/editdatamobil{id_mobil}', [MobilController::class, 'editdatamobil'])->name('editdatamobil');
-
-Route::get('/status-aktif-mobil{id_mobil}', [MobilController::class, 'statusAktifMobil'])->name('statusAktifMobil');
-Route::get('/status-rental-mobil{id_mobil}', [MobilController::class, 'statusRentalMobil'])->name('statusRentalMobil');
 
 Route::get('/pdf', [MobilController::class, 'pdf'])->name('pdf');

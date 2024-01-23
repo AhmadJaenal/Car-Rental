@@ -41,7 +41,18 @@
                     <div class="grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <p class="card-title mb-0">Top Products</p>
+                                <h4 class="card-title">Data Transaksi</h4>
+                                    <form action="{{ route('payment') }}" method="GET">
+                                        <div class="input-group">
+                                            <button type="submit" class="btn btn-outline-secondary rounded-0">
+                                                <i class="icon-search"></i>
+                                                </span>
+                                            </button>
+                                            <input type="text" class="form-control" name="search" id="search"
+                                                placeholder="Search now" aria-label="search" aria-describedby="search"
+                                                autofocus>
+                                        </div>
+                                    </form>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-borderless">
                                         <thead>
@@ -55,7 +66,7 @@
                                                 <th>Biaya Sewa Mobil</th>
                                                 <th>Denda</th>
                                                 <th>Total</th>
-                                                <th>Status Peminjaman</th>
+                                                <th>Status Sewa</th>
                                                 <th>Status Pengembalian</th>
                                                 <th>Status Pembayaran</th>
                                             </tr>
@@ -75,8 +86,52 @@
                                                     <td>{{ $tr->biaya_sewa }}</td>
                                                     <td>{{ $tr->denda }}</td>
                                                     <td>{{ $tr->total }}</td>
-                                                    <td>{{ $tr->status_sewa }}</td>
-                                                    <td>{{ $tr->status_pengembalian }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button
+                                                                class="btn @if ($tr->status_sewa == 'Diterima') btn-success @elseif ($tr->status_sewa == 'Diproses') btn-warning @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                type="button" id="dropdownMenuSizeButton3"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                @if ($tr->status_sewa == 'Diterima')
+                                                                    Diterima
+                                                                @elseif ($tr->status_sewa =='Ditolak') 
+                                                                    Ditolak
+                                                                @else
+                                                                    Diproses
+                                                                @endif
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuSizeButton3">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('acceptSewa', ['id' => $tr->id_transaksi]) }}">Diterima</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('rejectSewa', ['id' => $tr->id_transaksi]) }}">Ditolak</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button
+                                                                class="btn @if ($tr->status_pengembalian == 'Sudah') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                type="button" id="dropdownMenuSizeButton3"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                @if ($tr->status_pengembalian == 'Sudah')
+                                                                    Sudah
+                                                                @else
+                                                                    Belum
+                                                                @endif
+                                                            </button>
+                                                            <div class="dropdown-menu"
+                                                                aria-labelledby="dropdownMenuSizeButton3">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('acceptPengembalian', ['id' => $tr->id_transaksi]) }}">Sudah</a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('rejectPengembalian', ['id' => $tr->id_transaksi]) }}">Belum</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                     <td>
                                                         <div class="dropdown">
                                                             <button

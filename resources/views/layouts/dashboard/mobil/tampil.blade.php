@@ -106,21 +106,19 @@
                                                     <td>
                                                         <div class="dropdown">
                                                             <button
-                                                                class="btn @if ($car->status == 'aktif') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
+                                                                class="btn @if ($car->status == 'Tersedia') btn-success @elseif ($car->status == 'Dipesan') btn-warning @else btn-secondary @endif  btn-sm"
+                                                                class="btn @if ($car->status == 'aktif') btn-success @else btn-danger @endif  btn-sm"
                                                                 type="button" id="dropdownMenuSizeButton3"
                                                                 data-toggle="dropdown" aria-haspopup="true"
                                                                 aria-expanded="false">
-                                                                @if ($car->status == 'aktif')
-                                                                    Aktif
+                                                                @if ($car->status == 'Tersedia')
+                                                                    Tersedia
+                                                                @elseif ($car->status == 'Dipesan')
+                                                                    Dipesan
                                                                 @else
-                                                                    Rental
+                                                                    Disewa
                                                                 @endif
                                                             </button>
-                                                            <div class="dropdown-menu"
-                                                                aria-labelledby="dropdownMenuSizeButton3">
-                                                                <a class="dropdown-item" href="{{ route('statusAktifMobil', ['id_mobil' => $car->id_mobil]) }}">Aktif</a>
-                                                                <a class="dropdown-item" href="{{ route('statusRentalMobil', ['id_mobil' => $car->id_mobil]) }}">Rental</a>
-                                                            </div>
                                                         </div>
                                                     </td>
                                                     <td>{{ $car->id_kategori }}</td>

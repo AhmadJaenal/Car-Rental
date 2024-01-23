@@ -85,8 +85,36 @@
                                                     <td>{{ $tr->biaya_sewa }}</td>
                                                     <td>{{ $tr->total }}</td>
                                                     <td>{{ $tr->denda }}</td>
-                                                    <td>{{ $tr->status_sewa }}</td>
-                                                    <td>{{ $tr->status_pengembalian }}</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button
+                                                                class="btn @if ($tr->status_sewa == 'Diterima') btn-success @elseif ($tr->status_sewa == 'Diproses') btn-warning @else btn-danger @endif  btn-sm"
+                                                                type="button" id="dropdownMenuSizeButton3"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                @if ($tr->status_sewa == 'Diterima')
+                                                                    Diterima
+                                                                @elseif ($tr->status_sewa =='Ditolak') 
+                                                                    Ditolak
+                                                                @else
+                                                                    Diproses
+                                                                @endif
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            class="btn @if ($tr->status_pengembalian == 'Sudah') btn-success @else btn-danger @endif  btn-sm"
+                                                            type="button" id="dropdownMenuSizeButton3"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            @if ($tr->status_pengembalian == 'Sudah')
+                                                                Sudah
+                                                            @else
+                                                                Belum
+                                                            @endif
+                                                        </button>
+                                                    </td>
                                                     <td>
                                                         <div class="dropdown">
                                                             <button
