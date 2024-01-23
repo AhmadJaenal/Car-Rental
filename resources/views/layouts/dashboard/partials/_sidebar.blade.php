@@ -35,9 +35,6 @@
                                 Request</a>
                         </li>
                     @endif
-                    <li class="nav-item"><a class="nav-link" href="{{ route('formRequest') }}">Form
-                            Request</a>
-                    </li>
                 </ul>
             </div>
         </li>
@@ -53,10 +50,10 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item {{ (request()->is('tambahmobil')) ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('tampilmobil')}}">
-              <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Mobil</span>
+        <li class="nav-item {{ request()->is('tambahmobil') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('tampilmobil') }}">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">Mobil</span>
             </a>
         </li>
     </ul>
