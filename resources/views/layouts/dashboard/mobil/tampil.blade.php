@@ -91,7 +91,7 @@
                                             @endphp
                                             @foreach ($cars as $index => $car)
                                                 <tr>
-                                                    <td>{{ $index + $cars->firstItem() - $bantu}}</td>
+                                                    <td>{{ $index + $cars->firstItem() - $bantu }}</td>
                                                     <td>{{ $car->no_plat }}</td>
                                                     <td>
                                                         <img src="{{ asset('images/mobil/' . $car->gambar) }}"
@@ -124,10 +124,12 @@
                                                     <td>{{ $car->id_kategori }}</td>
                                                     <td class="text-center">
                                                         <a href="/editmobil{{ $car->id_mobil }}"
-                                                            class="btn btn-info">Edit</a>
-                                                        <a href="#" id="delete"class="btn btn-danger delete" data-id="{{$car->id_mobil}}" data-noplat="{{ $car->no_plat }}">Delete</a>
+                                                            class="btn btn-primary">Edit</a>
+                                                        <a href="#" id="delete"class="btn btn-danger delete"
+                                                            data-id="{{ $car->id_mobil }}"
+                                                            data-noplat="{{ $car->no_plat }}">Delete</a>
                                                     </td>
-                                                    
+
                                                 </tr>
                                                 @php
                                                     $no++;
