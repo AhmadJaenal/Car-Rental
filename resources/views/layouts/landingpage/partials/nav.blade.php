@@ -29,7 +29,8 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('formRequest') }}">Verification Status</a></li>
-                            <li><a class="dropdown-item" href="{{ route('historyTransactions')}}">History Transactions</a></li>
+                            <li><a class="dropdown-item" href="{{ route('historyTransactions') }}">History
+                                    Transactions</a></li>
                             <li><a class="dropdown-item" href="{{ route('actionLogout') }}">Log Out</a></li>
                         </ul>
                     </div>

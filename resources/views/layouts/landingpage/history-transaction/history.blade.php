@@ -68,6 +68,7 @@
                                                 <th>Status Peminjaman</th>
                                                 <th>Status Pengembalian</th>
                                                 <th>Status Pembayaran</th>
+                                                <th>Invoice</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,7 +95,7 @@
                                                                 aria-expanded="false">
                                                                 @if ($tr->status_sewa == 'Diterima')
                                                                     Diterima
-                                                                @elseif ($tr->status_sewa =='Ditolak') 
+                                                                @elseif ($tr->status_sewa == 'Ditolak')
                                                                     Ditolak
                                                                 @else
                                                                     Diproses
@@ -127,8 +128,13 @@
                                                                 @else
                                                                     Belum Lunas
                                                                 @endif
-                                                        </button>
+                                                            </button>
                                                         </div>
+                                                    </td>
+                                                    <td>
+
+                                                        <a href="{{ route('printInvoice', ['id' => $tr->id_transaksi]) }}"
+                                                            class="btn btn-primary">Invoice</a>
                                                     </td>
                                                 </tr>
 
@@ -147,7 +153,7 @@
             </div>
         </div>
     </section>
-    
+
 
     @include('layouts.landingpage.partials.footer')
 

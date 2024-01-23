@@ -13,25 +13,25 @@ use Illuminate\Support\Facades\Session;
 class TransactionController extends Controller
 {
     public function payment(Request $request)
-    {   
+    {
         if ($request->has('search')) {
             $id_user = User::where('username', 'LIKE', "%$request->search%")->value('id_peminjam');
             $id_mobil = Mobil::where('no_plat', 'LIKE', "%$request->search%")->value('id_mobil');
             if ($id_user === null) {
                 $id_user = 'false';
-            } 
+            }
             if ($id_mobil === null) {
                 $id_mobil = 'false';
-            } 
+            }
             $transactions = Transaction::query()
-                            ->where('id_mobil', 'LIKE', "%$id_mobil%")
-                            ->orWhere('id_user', 'LIKE', "%$id_user%")
-                            ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
-                            ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
-                            ->orWhere('status_pembayaran', 'LIKE', "%$request->search%")
-                            ->orWhere('status_sewa', 'LIKE', "%$request->search%")
-                            ->orWhere('status_pengembalian', 'LIKE', "%$request->search%")
-                            ->get();
+                ->where('id_mobil', 'LIKE', "%$id_mobil%")
+                ->orWhere('id_user', 'LIKE', "%$id_user%")
+                ->orWhere('tgl_rental', 'LIKE', "%$request->search%")
+                ->orWhere('tgl_kembali', 'LIKE', "%$request->search%")
+                ->orWhere('status_pembayaran', 'LIKE', "%$request->search%")
+                ->orWhere('status_sewa', 'LIKE', "%$request->search%")
+                ->orWhere('status_pengembalian', 'LIKE', "%$request->search%")
+                ->get();
         } else {
             $transactions = Transaction::all();
         }
@@ -170,5 +170,12 @@ class TransactionController extends Controller
         $id_user = Auth::user()->id_peminjam;
         $transactions = Transaction::where('id_user', $id_user)->get();
         return view('layouts.landingpage.history-transaction.history', compact('transactions'));
+    }
+
+    public function invoice($id)
+    {
+        $transactionData = Transaction::where('id_transaksi', $id)->get();
+        // dd($transactionData->id_transaksi);
+        return view('layouts.landingpage.history-transaction.invoice', compact('transactionData'));
     }
 }

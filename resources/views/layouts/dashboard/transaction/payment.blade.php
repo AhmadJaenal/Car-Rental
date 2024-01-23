@@ -42,17 +42,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Transaksi</h4>
-                                    <form action="{{ route('payment') }}" method="GET">
-                                        <div class="input-group">
-                                            <button type="submit" class="btn btn-outline-secondary rounded-0">
-                                                <i class="icon-search"></i>
-                                                </span>
-                                            </button>
-                                            <input type="text" class="form-control" name="search" id="search"
-                                                placeholder="Search now" aria-label="search" aria-describedby="search"
-                                                autofocus>
-                                        </div>
-                                    </form>
+                                <form action="{{ route('payment') }}" method="GET">
+                                    <div class="input-group">
+                                        <button type="submit" class="btn btn-outline-secondary rounded-0">
+                                            <i class="icon-search"></i>
+                                            </span>
+                                        </button>
+                                        <input type="text" class="form-control" name="search" id="search"
+                                            placeholder="Search now" aria-label="search" aria-describedby="search"
+                                            autofocus>
+                                    </div>
+                                </form>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-borderless">
                                         <thead>
@@ -95,7 +95,7 @@
                                                                 aria-expanded="false">
                                                                 @if ($tr->status_sewa == 'Diterima')
                                                                     Diterima
-                                                                @elseif ($tr->status_sewa =='Ditolak') 
+                                                                @elseif ($tr->status_sewa == 'Ditolak')
                                                                     Ditolak
                                                                 @else
                                                                     Diproses
@@ -150,7 +150,8 @@
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('acceptPayment', ['id' => $tr->id_transaksi]) }}">Lunas</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Belum Lunas</a>
+                                                                    href="{{ route('rejectPayment', ['id' => $tr->id_transaksi]) }}">Belum
+                                                                    Lunas</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -163,36 +164,6 @@
                                         </tbody>
 
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title">Advanced Table</p>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="table-responsive">
-                                                <table id="example" class="display expandable-table"
-                                                    style="width:100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Quote#</th>
-                                                            <th>Product</th>
-                                                            <th>Business type</th>
-                                                            <th>Policy holder</th>
-                                                            <th>Premium</th>
-                                                            <th>Status</th>
-                                                            <th>Updated at</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

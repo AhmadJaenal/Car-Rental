@@ -31,9 +31,12 @@ class AuthController extends Controller
             'password' => $request->input('password'),
         ];
 
-        if (Auth::attempt($userData) || Auth::guard('webadmin')->attempt($userData)) {
+        if (Auth::guard('webadmin')->attempt($userData)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard');
+        } else if (Auth::attempt($userData)) {
+            $request->session()->regenerate();
+            return redirect()->route('index');
         } else {
             return redirect()->route('login')->with('error', 'Login Failed!');
         }
