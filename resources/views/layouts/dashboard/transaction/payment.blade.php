@@ -79,7 +79,14 @@
                                             @foreach ($transactions as $tr)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ \App\Models\User::find($tr->id_user)->username }}</td>
+                                                    @php
+                                                        $user = \App\Models\User::find($tr->id_user);
+                                                    @endphp
+                                                    @if ($user)
+                                                        <td>{{ $user->username }}</td>
+                                                    @else
+                                                        <td>{{ $tr->id_user }}</td>
+                                                    @endif
                                                     <td>{{ \App\Models\Mobil::find($tr->id_mobil)->no_plat }}</td>
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('denda')->nullable();
             $table->string('status_pembayaran');
             $table->string('status_sewa')->nullable();
-            $table->boolean('status_pengembalian')->nullable();
+            $table->string('status_pengembalian')->nullable();
             $table->string('id_mobil');
-            $table->string('id_user');
+            $table->string('id_user')->nullable();
             $table->string('id_admin')->nullable();
             $table->timestamps();
         });

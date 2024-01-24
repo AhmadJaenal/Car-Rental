@@ -50,9 +50,9 @@ class TransactionController extends Controller
         return view('layouts.dashboard.transaction.transaction_hour', compact('carData'));
     }
 
-    public function transaction(Request $request, $id_mobil, $jenis_sewa)
+    public function transaction(Request $request, $id_mobil, $jenis_sewa, $jenis_transaksi)
     {
-        $id_user = Auth()->user()->id_peminjam;
+
         try {
 
             $transactionData = $request->validate([
@@ -72,9 +72,16 @@ class TransactionController extends Controller
                 $transactionData['jam_selesai'] = $request->jam_selesai;
                 $transactionData['tgl_kembali'] = $request->tgl_rental;
             }
+            if ($jenis_transaksi == 'online') {
+                $id_user = Auth()->user()->id_peminjam;
+                $transactionData['id_user'] = $id_user;
+            }
+            if ($jenis_transaksi == 'offline') {
+                $transactionData['id_user'] = $request->nama;
+            }
 
             $transactionData['id_mobil'] = $id_mobil;
-            $transactionData['id_user'] = $id_user;
+
             $transactionData['id_admin'] = 1;
             $transactionData['status_pembayaran'] = 'Tidak';
             $transactionData['status_sewa'] = 'Diproses';

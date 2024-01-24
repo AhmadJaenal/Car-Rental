@@ -49,7 +49,7 @@
             @endif
             <div class="modal-body">
                 <form
-                    action="{{ route('transaction', ['id_mobil' => request()->id_mobil, 'jenis_sewa' => request()->model]) }}"
+                    action="{{ route('transaction', ['id_mobil' => request()->id_mobil, 'jenis_sewa' => request()->model, 'jenis_transaksi' => 'online']) }}"
                     method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">

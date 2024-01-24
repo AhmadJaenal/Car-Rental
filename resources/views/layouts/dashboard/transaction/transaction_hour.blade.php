@@ -40,14 +40,13 @@
             @endif
             <div class="modal-body">
                 @foreach ($carData as $car)
-                    <form action="{{ route('transaction', ['id_mobil' => $car->id_mobil, 'jenis_sewa' => 'hour']) }}"
+                    <form
+                        action="{{ route('transaction', ['id_mobil' => $car->id_mobil, 'jenis_sewa' => 'hour', 'jenis_transaksi' => 'offline']) }}"
                         method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" required
-                                value="@if (auth()->user()) {{ auth()->user()->username }} @endif"
-                                readonly>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
                             <label for="merek" class="col-form-label">Merek</label>
                             <input type="text" class="form-control" id="merek" value="{{ $car->merk }}"
                                 readonly>
@@ -77,6 +76,8 @@
                         <div class="modal-footer">
                             <a href="{{ route('pricing') }}" class="btn btn-secondary">Cancel</a>
                             <button type="submit" class="btn btn-primary">Save changes</button>
+                            <a href="{{ route('payment') }}" class="btn btn-primary">Go to Transaction</a>
+
                         </div>
                     </form>
                 @endforeach
