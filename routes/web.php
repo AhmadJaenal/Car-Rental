@@ -40,21 +40,21 @@ Route::post('/action-register', [AuthController::class, 'actionRegister'])->name
 Route::get('/action-logout', [AuthController::class, 'actionLogout'])->name('actionLogout');
 
 // Transaction
-Route::get('/payment', [TransactionController::class, 'payment'])->name('payment');
+Route::get('/payment', [TransactionController::class, 'payment'])->name('payment')->middleware('auth:webadmin');
 Route::post('/transaction/{id_mobil}/{jenis_sewa}/{jenis_transaksi}', [TransactionController::class, 'transaction'])->name('transaction');
-Route::get('/transaction-admin-day{id_mobil}', [TransactionController::class, 'transactionAdminDay'])->name('transactionAdminDay');
-Route::get('/transaction-admin-hour{id_mobil}', [TransactionController::class, 'transactionAdminHour'])->name('transactionAdminHour');
-Route::get('/invoice{id}', [TransactionController::class, 'invoice'])->name('printInvoice');
-Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay');
-Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour');
+Route::get('/transaction-admin-day{id_mobil}', [TransactionController::class, 'transactionAdminDay'])->name('transactionAdminDay')->middleware('auth:webadmin');
+Route::get('/transaction-admin-hour{id_mobil}', [TransactionController::class, 'transactionAdminHour'])->name('transactionAdminHour')->middleware('auth:webadmin');
+Route::get('/invoice{id}', [TransactionController::class, 'invoice'])->name('printInvoice')->middleware('auth:web', 'auth:webadmin');
+Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay')->middleware('auth:web', 'auth:webadmin');
+Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour')->middleware('auth:web', 'auth:webadmin');
 Route::get('/payment-accept{id}', [TransactionController::class, 'acceptPayment'])->name('acceptPayment');
 Route::get('/payment-reject{id}', [TransactionController::class, 'rejectPayment'])->name('rejectPayment');
 
+// Verifikasi Penyewaan
 Route::get('/status-sewa-accept{id}', [TransactionController::class, 'acceptSewa'])->name('acceptSewa');
 Route::get('/status-sewa-reject{id}', [TransactionController::class, 'rejectSewa'])->name('rejectSewa');
 Route::get('/status-pengembalian-accept{id}', [TransactionController::class, 'acceptPengembalian'])->name('acceptPengembalian');
 Route::get('/status-pengembalian-reject{id}', [TransactionController::class, 'rejectPengembalian'])->name('rejectPengembalian');
-
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');
@@ -63,32 +63,23 @@ Route::get('/reject{id}', [VerificationUser::class, 'rejectDataRequest'])->name(
 
 
 // Form Request User
-Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest');
+Route::get('/form-request', [FormRequestController::class, 'formRequest'])->name('formRequest')->middleware('auth:web');
 Route::post('/request-verification', [FormRequestController::class, 'requestVerificationAction'])->name('requestVerificationAction');
 
 // History Transaction
-Route::get('/history-transaction', [TransactionController::class, 'historyTransactions'])->name('historyTransactions');
-
-
-
-
-
-
-
-
-
+Route::get('/history-transaction', [TransactionController::class, 'historyTransactions'])->name('historyTransactions')->middleware('auth:web');
 
 // Setting Profile
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('/editprofileuser{id_peminjam}', [ProfileController::class, 'editprofileuser'])->name('editprofileuser');
 Route::post('/editprofileadmin{id_admin}', [ProfileController::class, 'editprofileadmin'])->name('editprofileadmin');
 
-// Mobil
-Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil');
-Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil');
-Route::get('/tampilusermobil', [MobilController::class, 'tampilusermobil'])->name('tampilusermobil');
+// Car 
+Route::get('/tampilmobil', [MobilController::class, 'tampilmobil'])->name('tampilmobil')->middleware('auth:webadmin');
+Route::get('/tambahmobil', [MobilController::class, 'tambahmobil'])->name('tambahmobil')->middleware('auth:webadmin');
+Route::get('/tampilusermobil', [MobilController::class, 'tampilusermobil'])->name('tampilusermobil')->middleware('auth:webadmin');
 
-
+// Action CRUD Car
 Route::post('/tambahdatamobil', [MobilController::class, 'tambahdatamobil'])->name('tambahdatamobil');
 Route::get('/hapusmobil{id_mobil}', [MobilController::class, 'hapusmobil'])->name('hapusmobil');
 Route::get('/editmobil{id_mobil}', [MobilController::class, 'editmobil'])->name('editmobil');
