@@ -68,7 +68,6 @@
                             safe country. A small river named Duden flows by their place and supplies it with the
                             necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly
                             into your mouth.</p>
-                        <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
                     </div>
                 </div>
             </div>
@@ -80,8 +79,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6 heading-section heading-section-white ftco-animate">
-                    <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
-                    <a href="#" class="btn btn-primary btn-lg">Become A Driver</a>
+                    <h2 class="mb-3">Rent online or in-store for a seamless experience.</h2>
                 </div>
             </div>
         </div>
