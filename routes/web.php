@@ -44,9 +44,9 @@ Route::get('/payment', [TransactionController::class, 'payment'])->name('payment
 Route::post('/transaction/{id_mobil}/{jenis_sewa}/{jenis_transaksi}', [TransactionController::class, 'transaction'])->name('transaction');
 Route::get('/transaction-admin-day{id_mobil}', [TransactionController::class, 'transactionAdminDay'])->name('transactionAdminDay')->middleware('auth:webadmin');
 Route::get('/transaction-admin-hour{id_mobil}', [TransactionController::class, 'transactionAdminHour'])->name('transactionAdminHour')->middleware('auth:webadmin');
-Route::get('/invoice{id}', [TransactionController::class, 'invoice'])->name('printInvoice')->middleware('auth:web', 'auth:webadmin');
-Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay')->middleware('auth:web', 'auth:webadmin');
-Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour')->middleware('auth:web', 'auth:webadmin');
+Route::get('/invoice{id}', [TransactionController::class, 'invoice'])->name('printInvoice')->middleware('auth:web');
+Route::get('/form-transaction-day', [TransactionController::class, 'formTransactionDay'])->name('formTransactionDay')->middleware('auth:web');
+Route::get('/form-transaction-hour', [TransactionController::class, 'formTransactionHour'])->name('formTransactionHour')->middleware('auth:web');
 Route::get('/payment-accept{id}', [TransactionController::class, 'acceptPayment'])->name('acceptPayment');
 Route::get('/payment-reject{id}', [TransactionController::class, 'rejectPayment'])->name('rejectPayment');
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Mobil;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Session;
@@ -191,10 +192,10 @@ class TransactionController extends Controller
         return view('layouts.landingpage.history-transaction.history', compact('transactions'));
     }
 
-    public function invoice($id)
-    {
+    public function invoice($id){
         $transactionData = Transaction::where('id_transaksi', $id)->get();
-        // dd($transactionData->id_transaksi);
-        return view('layouts.landingpage.history-transaction.invoice', compact('transactionData'));
+        view()->share('transactionData', $transactionData);
+        $pdf = Pdf::loadView('layouts/landingpage/history-transaction/invoice')->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 }

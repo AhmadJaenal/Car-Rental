@@ -159,9 +159,9 @@
             <div><a href="mailto:company@example.com">baudCarbook@example.com</a></div>
         </div>
         <div id="project">
-            <div><span>NAME</span> Contoh</div>
-            <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
-            <div><span>EMAIL</span> <a href="mailto:john@example.com">john@example.com</a></div>
+            <div><span>NAME</span>{{ Auth::user()->username }}</div>
+            <div><span>ADDRESS</span>{{ Auth::user()->jalan }}, {{ Auth::user()->kota }}, {{ Auth::user()->provinsi }}</div>
+            <div><span>EMAIL</span> <a href="mailto:{{ Auth::user()->email }}">{{ Auth::user()->email }}</a></div>
             <div><span>DATE</span> August 17, 2015</div>
             <div><span>DUE DATE</span> September 17, 2015</div>
         </div>
