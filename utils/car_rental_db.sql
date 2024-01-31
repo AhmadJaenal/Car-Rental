@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2024 at 05:33 AM
+-- Generation Time: Jan 31, 2024 at 06:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -93,19 +93,19 @@ CREATE TABLE `mobils` (
 --
 
 INSERT INTO `mobils` (`id_mobil`, `no_plat`, `merk`, `warna`, `tahun`, `sewa_perjam`, `sewa_perhari`, `gambar`, `status`, `id_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'B 1234 AB', 'ALPHARD 2.5 G A/T', 'putih', 2021, 400000, 2000000, 'ALPHARD 2.5 G AT putih 2021.png', 'Tersedia', 'MPV', '2024-01-20 04:55:31', '2024-01-22 20:34:58'),
-(2, 'D 5678 CD', 'ALPHARD 2.5 G A/T', 'Gold', 2023, 480000, 2400000, 'ALPHARD 2.5 G AT 2023.jpg', 'Dipesan', 'MPV', '2024-01-20 05:00:29', '2024-01-22 20:40:20'),
+(1, 'B 1234 AB', 'ALPHARD 2.5 G A/T', 'putih', 2021, 400000, 2000000, 'ALPHARD 2.5 G AT putih 2021.png', 'Tersedia', 'MPV', '2024-01-20 04:55:31', '2024-01-30 22:16:29'),
+(2, 'D 5678 CD', 'ALPHARD 2.5 G A/T', 'Gold', 2023, 480000, 2400000, 'ALPHARD 2.5 G AT 2023.jpg', 'Dipesan', 'MPV', '2024-01-20 05:00:29', '2024-01-30 22:21:22'),
 (3, 'F 9102 EF', 'ALPHARD 2.5 G A/T', 'putih', 2023, 480000, 2400000, 'ALPHARD 2.5 G AT putih 2023.png', 'Tersedia', 'MPV', '2024-01-20 05:02:18', '2024-01-20 05:02:18'),
 (4, 'G 3456 GH', 'CAMRY 2.5V A/T', 'hitam', 2017, 240000, 1200000, 'CAMRY 2.5V AT hitam 2017.jpg', 'Tersedia', 'sedan', '2024-01-20 05:04:24', '2024-01-20 05:04:24'),
 (5, 'J 7890 IJ', 'CAMRY Facelift 2.5 V A/T', 'putih', 2020, 300000, 1500000, 'CAMRY Facelift 2.5 V AT putih 2020.jpg', 'Tersedia', 'sedan', '2024-01-20 05:05:35', '2024-01-20 05:05:36'),
-(6, 'K 1234 KL', 'FORTUNER 2.4 VRZ 4X2 A/T DSL GR SPORT', 'silver', 2021, 240000, 1200000, 'Fortuner-2.4-VRZ-2.7SRZ-with-Optional-TRD-Sportivo-Package-Front-e1507284764193.jpg', 'Dipesan', 'SUV', '2024-01-20 05:09:03', '2024-01-22 20:37:24'),
+(6, 'K 1234 KL', 'FORTUNER 2.4 VRZ 4X2 A/T DSL GR SPORT', 'silver', 2021, 240000, 1200000, 'Fortuner-2.4-VRZ-2.7SRZ-with-Optional-TRD-Sportivo-Package-Front-e1507284764193.jpg', 'Tersedia', 'SUV', '2024-01-20 05:09:03', '2024-01-30 04:04:05'),
 (7, 'M 5678 MN', 'FORTUNER 4x2 2.4 VRZ A/T DSL', 'putih', 2018, 200000, 1000000, 'toyota-all-new-fortuner-vrz-still-depan24.jpg', 'Tersedia', 'SUV', '2024-01-20 05:10:57', '2024-01-20 05:10:57'),
 (8, 'P 9102 OP', 'INNOVA 2.0 G A/T', 'hitam', 2021, 150000, 600000, 'innova-g-so-tu-dong.jpg', 'Tersedia', 'MPV', '2024-01-20 05:12:44', '2024-01-20 05:12:45'),
 (9, 'R 3456 RS', 'INNOVA 2.4 V A/T DSL', 'hitam', 2021, 175000, 700000, '58040_2021_Toyota_innova_crysta_1.jpg', 'Tersedia', 'MPV', '2024-01-20 05:14:22', '2024-01-20 05:14:22'),
 (10, 'T 7890 TU', 'INNOVA VENTURER 2.4 A/T DSL', 'hitam', 2020, 220000, 800000, '1.jpg', 'Tersedia', 'MPV', '2024-01-20 05:15:39', '2024-01-20 05:15:39'),
 (11, 'U 1234 UV', 'INNOVA ZENIX-G 2.0 HV', 'putih', 2023, 200000, 900000, '01.jpg', 'Tersedia', 'MPV', '2024-01-20 05:17:02', '2024-01-20 05:17:03'),
 (12, 'W 5678 WX', 'LEXUS LX570 A/T DSL', 'hitam', 2015, 2000000, 10000000, 'Lexus-LX-570-2015-(4).jpg', 'Tersedia', 'SUV', '2024-01-20 05:19:08', '2024-01-20 05:19:08'),
-(13, 'Y 9102 YZ', 'MERCY C300 AMG A/T', 'hitam', 2018, 500000, 2500000, 'image.png', 'Tersedia', 'sedan', '2024-01-20 05:20:34', '2024-01-20 05:20:34'),
+(13, 'Y 9102 YZ', 'MERCY C300 AMG A/T', 'hitam', 2018, 500000, 2500000, 'image.png', 'Tersedia', 'sedan', '2024-01-20 05:20:34', '2024-01-30 18:53:11'),
 (14, 'Z 3456 ZA', 'PAJERO SPORT DAKAR (4x2) A/T DSL', 'putih', 2021, 275000, 1300000, '275603-pajero-sport-ready-mitsubishi-pajero-dakar-4x2-at-tahun-2021-warna-putih-img-20220131-wa0012.jpg', 'Tersedia', 'SUV', '2024-01-20 05:22:20', '2024-01-20 05:22:20'),
 (15, 'X 7890 XY', 'XPANDER Ultimate A/T', 'hitam', 2020, 150000, 600000, 'xpander.jpg', 'Tersedia', 'MPV', '2024-01-20 05:24:09', '2024-01-22 21:33:24');
 
@@ -138,6 +138,7 @@ CREATE TABLE `transactions` (
   `id_transaksi` bigint(20) UNSIGNED NOT NULL,
   `tgl_rental` date NOT NULL,
   `tgl_kembali` date NOT NULL,
+  `jam_pengembalian` varchar(255) DEFAULT NULL,
   `tgl_pengembalian` date DEFAULT NULL,
   `jam_mulai` varchar(255) NOT NULL,
   `jam_selesai` varchar(255) NOT NULL,
@@ -158,11 +159,9 @@ CREATE TABLE `transactions` (
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id_transaksi`, `tgl_rental`, `tgl_kembali`, `tgl_pengembalian`, `jam_mulai`, `jam_selesai`, `biaya_sewa`, `total`, `denda`, `status_pembayaran`, `status_sewa`, `status_pengembalian`, `id_mobil`, `id_user`, `id_admin`, `created_at`, `updated_at`) VALUES
-(8, '2024-01-24', '2024-01-24', NULL, '10:00', '12:00', 400000, 48000000, NULL, 'Lunas', 'Diterima', 'Sudah', 1, 2, 1, '2024-01-22 20:31:31', '2024-01-22 20:34:57'),
-(9, '2024-01-24', '2024-01-26', NULL, '12:00', '12:00', 240000, 480000, NULL, 'Tidak', 'Diproses', 'Belum diambil', 6, 2, 1, '2024-01-22 20:37:24', '2024-01-22 20:37:24'),
-(10, '2024-01-23', '2024-01-24', NULL, '11:00', '11:00', 480000, 480000, NULL, 'Tidak', 'Diproses', 'Belum diambil', 2, 3, 1, '2024-01-22 20:40:20', '2024-01-22 20:40:20'),
-(11, '2024-01-23', '2024-01-24', NULL, '10:00', '10:00', 150000, 150000, NULL, 'Lunas', 'Diterima', 'Sudah', 15, 3, 1, '2024-01-22 21:32:44', '2024-01-22 21:33:30');
+INSERT INTO `transactions` (`id_transaksi`, `tgl_rental`, `tgl_kembali`, `jam_pengembalian`, `tgl_pengembalian`, `jam_mulai`, `jam_selesai`, `biaya_sewa`, `total`, `denda`, `status_pembayaran`, `status_sewa`, `status_pengembalian`, `id_mobil`, `id_user`, `id_admin`, `created_at`, `updated_at`) VALUES
+(16, '2024-02-01', '2024-02-01', '13:00', '2024-02-01', '10:00', '12:00', 400000, 48050000, 50000, 'Lunas', 'Diterima', 'Sudah', 1, 13, 1, '2024-01-30 22:14:19', '2024-01-30 22:16:40'),
+(17, '2024-01-01', '2024-01-01', NULL, NULL, '10:00', '11:00', 480000, 480000, NULL, 'Tidak', 'Diproses', 'Belum diambil', 2, 13, 1, '2024-01-30 22:21:22', '2024-01-30 22:21:22');
 
 -- --------------------------------------------------------
 
@@ -194,7 +193,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_peminjam`, `nik`, `username`, `password`, `email`, `no_hp`, `foto_ktp`, `foto_diri`, `provinsi`, `kota`, `jalan`, `verifikasi`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Ahmad Jaenal', '$2y$12$nmI3f4sO1fqHMcRBJsqfoOw0DcXSZvX65ithfGbCE0milUZ110nVy', 'ahmadjaenal@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, 'eEPW5HEI1d', '2024-01-20 04:37:32', '2024-01-20 04:37:32'),
-(2, '3278020405020004', 'Stefan', '$2y$12$2Kze3rji92Vrujjn5uahsO1dtZcS7.QnNFTrItrIKN8as24VmMwNe', 'stefan@gmail.com', '081234567890', 'ktp.png', 'stefan.jpg', 'Jawa Barat', 'Bandung', 'Taman Kopo Indah 1', 0, 'kzs75VPoNBr1pO6G3w940he3uL6GnPX6dX9HZIvyPRMSB73Y8SOOihYzub71', '2024-01-20 04:37:33', '2024-01-22 20:39:06'),
+(2, '3278020405020004', 'Stefan', '$2y$12$2Kze3rji92Vrujjn5uahsO1dtZcS7.QnNFTrItrIKN8as24VmMwNe', 'stefan@gmail.com', '081234567890', 'ktp.png', 'stefan.jpg', 'Jawa Barat', 'Bandung', 'Taman Kopo Indah 1', 0, 'ddDscVMN2gCsy9VDOfhQYw1E2EEqRAO1FJAtwODuvUAgWGAyFauyLKAiZlRI', '2024-01-20 04:37:33', '2024-01-22 20:39:06'),
 (3, '3278020405020005', 'Albert', '$2y$12$ur9bk2m9v/ZhsAHlJRq4f.lBf6bdaqyLZsSD7ddPypx9/f5zg3apy', 'albert@gmail.com', '085678901234', 'ktp.png', 'albert.jpg', 'Jawa Barat', 'Bandung', 'Neglasari', 0, NULL, '2024-01-20 05:34:18', '2024-01-20 05:48:02'),
 (4, '3278020405020006', 'Belinda', '$2y$12$nx1jC7WLIf0oKrYw2lv5duqohEyLyz/VxBTCELB5MNWulcbCwe5V2', 'belinda@gmail.com', '087765432109', 'ktp.png', 'belinda.jpg', 'Jawa Barat', 'Bandung', 'Ayudia', 0, NULL, '2024-01-20 05:34:38', '2024-01-20 05:55:10'),
 (5, '3278020405020009', 'Christopher', '$2y$12$Q9SF60dJlP.B0z37g.ZVY.fPJccNQI0pPOBBZjihdDqwekbQ/8nXW', 'christopher@gmail.com', '081398765432', 'ktp.png', 'christopher.jpg', 'Jawa Barat', 'Bandung', 'Karangarum', 0, NULL, '2024-01-20 05:34:59', '2024-01-20 05:56:44'),
@@ -204,7 +203,8 @@ INSERT INTO `users` (`id_peminjam`, `nik`, `username`, `password`, `email`, `no_
 (9, NULL, 'Giberto', '$2y$12$2TjXTbnAOmHwjSDwJmiwOe/6pJP6DZBwu0j.d5Z3mWGRfmJHzI3S6', 'giberto@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:27', '2024-01-20 05:36:27'),
 (10, NULL, 'Handi', '$2y$12$GGVUq07g3gosCTlGmJSNGuJUl7IdwKOOQ5pMHtoV/e9Uf1eQxePHy', 'handi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:36:45', '2024-01-20 05:36:45'),
 (11, NULL, 'Janice', '$2y$12$NdtLx.NJYcZgkSWkuVWPKe63TwbCMi2IAwO6HC.NzL7y1sGnsKMAq', 'janice@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:37:41', '2024-01-20 05:37:41'),
-(12, NULL, 'kevin', '$2y$12$IUeA1Knj5xlrZa6xigI0YOIkZ9YrAxl6RgBbv0o0Sueo5rxTOZA5e', 'kevin@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:37:53', '2024-01-20 05:37:53');
+(12, NULL, 'kevin', '$2y$12$IUeA1Knj5xlrZa6xigI0YOIkZ9YrAxl6RgBbv0o0Sueo5rxTOZA5e', 'kevin@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '2024-01-20 05:37:53', '2024-01-20 05:37:53'),
+(13, '32105666949', 'testing', '$2y$12$4E8yZ3F7yC8wyyfoRApLeO.F.7CdVUCaZWu7LSTQ1XW4mnzt2HCNW', 'testing@gmail.com', '08254994564', 'ktp.png', 'albert.jpg', 'Jawa Barat', 'Bandung', 'Taman Kopo Indah 2', 0, NULL, '2024-01-30 18:49:24', '2024-01-30 18:54:35');
 
 --
 -- Indexes for dumped tables
@@ -285,13 +285,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id_transaksi` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_transaksi` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_peminjam` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_peminjam` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
