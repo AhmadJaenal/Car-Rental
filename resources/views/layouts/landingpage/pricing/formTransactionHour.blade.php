@@ -115,7 +115,7 @@
         const totalDurasi = ((jamSelesaiInt - jamMulaiInt) * 60) + (menitSelesaiInt - menitMulaiInt);
         total_durasi.value = totalDurasi;
 
-        total_harga = totalDurasi * biaya_sewa;
+        total_harga = totalDurasi/60 * biaya_sewa;
         total.value = total_harga;
     }
 </script>
