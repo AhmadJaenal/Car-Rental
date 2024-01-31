@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Mobil;
 use App\Models\Transaction;
@@ -159,28 +160,29 @@ class TransactionController extends Controller
         return back();
     }
 
-    public function acceptPengembalian($id)
+    public function tglPengembalian($id, Request $request)
     {
         $transactionData = Transaction::find($id);
+        $waktu_kembali = Carbon::parse($transactionData->tgl_kembali . ' ' . $transactionData->jam_selesai);
+        $waktu_pengembalian = Carbon::parse($request->date . ' ' . $request->time);
+
+        $selisih = $waktu_kembali->diff($waktu_pengembalian);
+        $selisih_jam = $selisih->h;
+        if ($waktu_pengembalian < $waktu_kembali) {
+            $selisih_jam = 0;
+        }
+        $denda = $selisih_jam * 50000;
+        $total = $denda + $transactionData->total;
         $transactionData->update([
             'status_pengembalian' => 'Sudah',
+            'jam_pengembalian' => $request->time,
+            'tgl_pengembalian' => $request->date,
+            'denda' => $denda,
+            'total' => $total,
         ]);
         $id_mobil = $transactionData->id_mobil;
         $data = Mobil::where('id_mobil', $id_mobil)->update([
             'status' => 'Tersedia',
-        ]);
-        return back();
-    }
-
-    public function rejectPengembalian($id)
-    {
-        $transactionData = Transaction::find($id);
-        $transactionData->update([
-            'status_pengembalian' => 'Belum',
-        ]);
-        $id_mobil = $transactionData->id_mobil;
-        $data = Mobil::where('id_mobil', $id_mobil)->update([
-            'status' => 'Disewa',
         ]);
         return back();
     }

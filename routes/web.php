@@ -53,8 +53,7 @@ Route::get('/payment-reject{id}', [TransactionController::class, 'rejectPayment'
 // Verifikasi Penyewaan
 Route::get('/status-sewa-accept{id}', [TransactionController::class, 'acceptSewa'])->name('acceptSewa');
 Route::get('/status-sewa-reject{id}', [TransactionController::class, 'rejectSewa'])->name('rejectSewa');
-Route::get('/status-pengembalian-accept{id}', [TransactionController::class, 'acceptPengembalian'])->name('acceptPengembalian');
-Route::get('/status-pengembalian-reject{id}', [TransactionController::class, 'rejectPengembalian'])->name('rejectPengembalian');
+Route::post('/tgl-pengembalian{id}', [TransactionController::class, 'tglPengembalian'])->name('tglPengembalian');
 
 // Verification User
 Route::get('/request-verification-page', [VerificationUser::class, 'requestVerificationPage'])->name('requestVerificationPage');

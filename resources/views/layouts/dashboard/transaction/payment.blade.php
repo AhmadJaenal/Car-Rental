@@ -63,12 +63,13 @@
                                                 <th>NOPOL</th>
                                                 <th>Tanggal Rental</th>
                                                 <th>Tanggal Kembali</th>
-                                                <th>Jam</th>
+                                                <th>Jam Mulai</th>
+                                                <th>Jam Selesai</th>
                                                 <th>Biaya Sewa Mobil</th>
                                                 <th>Denda</th>
                                                 <th>Total</th>
                                                 <th>Status Sewa</th>
-                                                <th>Status Pengembalian</th>
+                                                <th>Tanggal Pengembalian</th>
                                                 <th>Status Pembayaran</th>
                                             </tr>
                                         </thead>
@@ -91,6 +92,7 @@
                                                     <td>{{ $tr->tgl_rental }}</td>
                                                     <td>{{ $tr->tgl_kembali }}</td>
                                                     <td>{{ $tr->jam_mulai }}</td>
+                                                    <td>{{ $tr->jam_selesai}}</td>
                                                     <td>{{ $tr->biaya_sewa }}</td>
                                                     <td>{{ $tr->denda }}</td>
                                                     <td>{{ $tr->total }}</td>
@@ -119,7 +121,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="dropdown">
+                                                        {{-- <div class="dropdown">
                                                             <button
                                                                 class="btn @if ($tr->status_pengembalian == 'Sudah') btn-success @else btn-danger @endif  btn-sm dropdown-toggle"
                                                                 type="button" id="dropdownMenuSizeButton3"
@@ -138,7 +140,21 @@
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('rejectPengembalian', ['id' => $tr->id_transaksi]) }}">Belum</a>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
+                                                        <form action="{{ route('tglPengembalian', ['id' => $tr->id_transaksi]) }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <input type="time" class="form-control" id="time" name="time" required value="{{ $tr->jam_pengembalian }}">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="date" class="form-control" id="date" name="date" required value="{{ $tr->tgl_pengembalian }}">
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" hidden></button>
+                                                        </form>
+                                                        
                                                     </td>
                                                     <td>
                                                         <div class="dropdown">
