@@ -73,7 +73,7 @@
                             <div class="item">
                                 <div class="car-wrap rounded ftco-animate">
                                     <div class="img rounded d-flex align-items-end"
-                                        style="background-image: url(images/car-2.jpg);">
+                                        style="background-image:url('images/mobil/{{ $car->gambar }}">
                                     </div>
                                     <div class="text">
                                         <h2 class="mb-0"><a href="#">{{ $car->merk }}</a></h2>
