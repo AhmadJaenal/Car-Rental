@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         // Admin::factory(5)->create();
-        Mobil::factory(10)->create();
+        // Mobil::factory(10)->create();
 
         \App\Models\User::factory()->create([
             'username' => 'Ahmad Jaenal',

@@ -38,22 +38,10 @@
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="icon-bar-graph menu-icon"></i>
-                <span class="menu-title">Charts</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('chart') }}">ChartJs</a></li>
-                </ul>
-            </div>
-        </li>
         <li class="nav-item {{ request()->is('tambahmobil') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('tampilmobil') }}">
                 <i class="icon-paper menu-icon"></i>
-                <span class="menu-title">Mobil</span>
+                <span class="menu-title">Cars</span>
             </a>
         </li>
     </ul>
