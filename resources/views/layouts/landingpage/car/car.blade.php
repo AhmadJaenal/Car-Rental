@@ -63,10 +63,26 @@
                                 <div class="mb-3">
                                     <p class="price ml-auto">${{ $car->sewa_perhari }} <span>/day</span></p>
                                 </div>
-                                <p class="d-flex mb-0 d-block"><a
-                                        href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
-                                        class="btn btn-primary py-2 mr-1">Book
-                                        now</a>
+                                <p class="d-flex mb-0 d-block">
+                                    @if (auth()->user())
+                                        @if (auth()->user()->verifikasi)
+                                            <p class="btn-custom">
+                                                <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
+                                                    class="btn btn-primary">Rent a car</a>
+                                            </p>
+                                        @else
+                                            <button type="button" class="btn btn-primary btn-lg btn-block">Account has
+                                                not been
+                                                verified</button>
+                                        @endif
+                                    @else
+                                        <p class="btn-custom">
+                                            <a href="{{ route('login') }}" class="btn btn-primary">
+                                                Login
+                                            </a>
+                                        </p>
+                                    @endif
+
                                 </p>
                             </div>
                         </div>

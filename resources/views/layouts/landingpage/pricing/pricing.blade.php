@@ -85,10 +85,17 @@
 
                                         <td class="price">
                                             @if (auth()->user())
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
-                                                        class="btn btn-primary">Rent a car</a>
-                                                </p>
+                                                @if (auth()->user()->verifikasi)
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'hour']) }}"
+                                                            class="btn btn-primary">Rent a car</a>
+                                                    </p>
+                                                @else
+                                                    <p class="btn-custom">
+                                                        <a href="" class="btn btn-primary">Account has not been
+                                                            verified</a>
+                                                    </p>
+                                                @endif
                                             @else
                                                 <p class="btn-custom">
                                                     <a href="{{ route('login') }}" class="btn btn-primary">
@@ -107,10 +114,17 @@
                                         </td>
                                         <td class="price">
                                             @if (auth()->user())
-                                                <p class="btn-custom">
-                                                    <a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
-                                                        class="btn btn-primary">Rent a car</a>
-                                                </p>
+                                                @if (auth()->user()->verifikasi)
+                                                    <p class="btn-custom">
+                                                        <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
+                                                            class="btn btn-primary">Rent a car</a>
+                                                    </p>
+                                                @else
+                                                    <p class="btn-custom">
+                                                        <a href="" class="btn btn-primary">Account has not been
+                                                            verified</a>
+                                                    </p>
+                                                @endif
                                             @else
                                                 <p class="btn-custom">
                                                     <a href="{{ route('login') }}" class="btn btn-primary">
