@@ -69,7 +69,7 @@
                                                 <th>Denda</th>
                                                 <th>Total</th>
                                                 <th>Status Sewa</th>
-                                                <th>Tanggal Pengembalian</th>
+                                                <th>Waktu Pengembalian</th>
                                                 <th>Status Pembayaran</th>
                                             </tr>
                                         </thead>
