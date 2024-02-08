@@ -71,7 +71,7 @@
                         <input type="text" class="form-control" id="total_durasi" readonly>
                         <label for="biaya_sewa" class="col-form-label">Biaya Sewa</label>
                         <input type="text" class="form-control" id="biaya_sewa" name="biaya_sewa"
-                            value="{{ $car->sewa_perjam }}" readonly>
+                            value="{{ $car->sewa_perhari }}" readonly>
                         <label for="total" class="col-form-label">Total Harga</label>
                         <input type="text" class="form-control" id="total" name="total" readonly>
                         <br>
