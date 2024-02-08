@@ -101,7 +101,6 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <input type="text" hidden name="status" id="status" value="aktif">
                                         <div class="form-group">
                                             <label for="id_kategori">Kategori</label>
                                             <input type="text" class="form-control" name="id_kategori"

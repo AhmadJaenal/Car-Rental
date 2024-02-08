@@ -53,7 +53,7 @@ class MobilController
             'tahun' => $request->tahun,
             'sewa_perjam' => $request->sewa_perjam,
             'sewa_perhari' => $request->sewa_perhari,
-            'status' => $request->status,
+            'status' => 'Tersedia',
             'id_kategori' => $request->id_kategori
         ]);
 

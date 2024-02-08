@@ -83,14 +83,6 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="mb-4">
-                                    <div class="form-check">
-                                        <label class="form-check-label text-muted">
-                                            <input type="checkbox" name="createAdmin" class="form-check-input"> Buat
-                                            akun sebagai Admin
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="mt-3">
                                     <button type="submit"
                                         class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
