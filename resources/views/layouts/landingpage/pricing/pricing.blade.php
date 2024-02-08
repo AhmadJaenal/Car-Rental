@@ -116,7 +116,7 @@
                                             @if (auth()->user())
                                                 @if (auth()->user()->verifikasi)
                                                     <p class="btn-custom">
-                                                        <a href="{{ route('formTransactionHour', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
+                                                        <a href="{{ route('formTransactionDay', ['id_mobil' => $car->id_mobil, 'model' => 'day']) }}"
                                                             class="btn btn-primary">Rent a car</a>
                                                     </p>
                                                 @else
